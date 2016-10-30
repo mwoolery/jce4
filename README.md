@@ -47,7 +47,7 @@ This application will be designed in A04, extended in A05, and completed in A06.
 
 Clone a copy of your section repository to your c:\44563 folder.
 
-Open a command window in this project folder (e.g. C:\44563\jce3).
+Open a command window in this project folder (e.g. C:\44563\jce4).
 
 Install nodemon globally to enable live updates.
 
@@ -82,27 +82,7 @@ Right-click on your project folder and select "Open with Code".
 
 To type commands from within VS Code, from the VS Code menu, select View / Integrated Terminal.
 
-# Resources
 
-Crud Express MongoDB tutorial
-https://zellwk.com/blog/crud-express-mongodb/
-https://github.com/zellwk/crud-express-mongo
-
-
-HTML online formatter
-http://www.freeformatter.com/html-formatter.html
-
-https://www.airpair.com/javascript/complete-expressjs-nodejs-mongodb-crud-skeleton
-
-wmic os get caption
-wmic os get osarchitecture
-
-https://docs.mongodb.com/manual/tutorial/install-mongodb-on-windows/#get-mongodb-community-edition
-
-http://stackoverflow.com/questions/37491233/best-way-to-structure-my-mongoose-schema-embedded-array-populate-subdocument?rq=1
-
-Node Express Mongoose Demo
-https://github.com/madhums/node-express-mongoose-demo
 
 
 
