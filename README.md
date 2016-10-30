@@ -2,30 +2,30 @@
 
 A job cost estimator using:
 
--Node.js platform
--Express web framework
--EJS templating engine
--MVC design pattern
--Mongoose mongodb object modeling for node.js
--Lodash for JavaScript object iteration and manipulation 
--jQuery library for DOM manipulation
--BootStrap framework for responsive clients
+- Node.js platform
+- Express web framework
+- EJS templating engine
+- MVC design pattern
+- Mongoose mongodb object modeling for node.js
+- Lodash for JavaScript object iteration and manipulation 
+- jQuery library for DOM manipulation
+- BootStrap framework for responsive clients
 
 # Modular design 
 
 The applications provides
 
--Roofing estimates
--Flooring estimates
--Waterproofing estimates
+- Roofing estimates
+- Flooring estimates
+- Waterproofing estimates
 
 Each type of estimate shares common features
 
--Based on area (sqft)
--Includes 
--Includes mileage
--Includes labor
--Includes miscellaneous costs
+- Based on area (sqft)
+- Includes material costs
+- Includes mileage
+- Includes labor
+- Includes miscellaneous costs
 
 # Collaborative effort
 
@@ -51,7 +51,7 @@ Open a command window in this project folder (e.g. C:\44563\jce4).
 
 Install nodemon globally to enable live updates.
 
-> ```
+```
 > npm install -g nodemon
 ```
 
@@ -81,7 +81,6 @@ Install Visual Studio Code.
 Right-click on your project folder and select "Open with Code".
 
 To type commands from within VS Code, from the VS Code menu, select View / Integrated Terminal.
-
 
 
 
