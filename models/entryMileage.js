@@ -12,3 +12,6 @@ var EntryMileageSchema = new Schema({
 
 var entryMileage = mongoose.model('EntryMileage', EntryMileageSchema)
 module.exports = entryMileage
+// This model is managed by Team 4-12
+// Bapuji Dirisala
+// Karthik Nuli
