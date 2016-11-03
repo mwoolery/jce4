@@ -5,10 +5,16 @@ var api = express.Router();
 
 // GET to this controller root URI
 api.get("/", function (req, res) {
-  return res.render('flooring_coatings/index.ejs');
+return res.render('flooring_coatings/index.ejs');
 });
 
-
-
-
 module.exports = api;
+
+api.get('/findall', function(req, res){
+res.setHeader('Content-Type', 'application/json');
+var data = req.app.locals.flooringCoatings.query;
+res.send(JSON.stringify(data));
+});
+// This model is managed by Team 4-12
+// Harsha Malipatlolla
+// Rakesh Reddy Pakala
