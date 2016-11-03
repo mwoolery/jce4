@@ -28,3 +28,6 @@ FlooringEstimateSchema.virtual('created').get(function () {
 
 var flooringEstimate = mongoose.model('FlooringEstimate', FlooringEstimateSchema)
 module.exports = flooringEstimate
+//This model is managed by team 4-R01
+//katta,srikar
+//ravulaparthi,swami sai anuraag
