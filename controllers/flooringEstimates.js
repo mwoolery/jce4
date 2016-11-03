@@ -13,5 +13,12 @@ api.get("/", function (request, response) {
 api.get("/create", function (request, response) {
   response.render("flooring/create.ejs");
 });
-
+api.get('/findall', function(req, res){
+    res.setHeader('Content-Type', 'application/json');
+    var data = req.app.locals.flooringEstimates.query;
+    res.send(JSON.stringify(data));
+});
 module.exports = api;
+//This model is managed by team 4-R01
+//katta,srikar
+//ravulaparthi,swami sai anuraag

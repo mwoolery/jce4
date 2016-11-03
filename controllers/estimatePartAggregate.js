@@ -16,7 +16,7 @@ const notfoundstring = 'No such Estimate Part Aggregate';
 // HANDLE JSON REQUESTS --------------------------------------------
 api.get('/findall', function(req,res){
   res.setHeader('Content-Type','application/json');
-  let data = req.app.locals.estimatePartAggregates.query;
+  var data = req.app.locals.estimatePartAggregates.query;
   res.send(JSON.stringify(data));
 });
 
