@@ -10,3 +10,8 @@ var WaterproofingBasecoatSchema = new Schema({
 
 var waterproofingBasecoat = mongoose.model('WaterproofingBasecoat', WaterproofingBasecoatSchema)
 module.exports = waterproofingBasecoat
+
+// This data is managed by Team 4-14
+// Sresth Malpani
+// Sai Krishna Mudduluru
+// Govindu Madanamohan Reddy 
