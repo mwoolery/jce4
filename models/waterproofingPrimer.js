@@ -11,3 +11,8 @@ var WaterproofingPrimerSchema = new Schema({
 
 var waterproofingPrimer = mongoose.model('WaterproofingPrimer', WaterproofingPrimerSchema)
 module.exports = waterproofingPrimer
+
+// This model is managed by Team 4-14
+//Mudduluru Saikrishna
+//Malpani Sresth
+//Govindu Madanamohan
