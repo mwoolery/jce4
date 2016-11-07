@@ -28,7 +28,9 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.static(__dirname + '/assets/'));  // works for views in root view folder
 app.use(expressLayouts);
-
+//This model is managed by team 4-R01
+//katta,srikar
+//ravulaparthi,swami sai anuraag
 
 
 // Set up SEED DATA  .................................................
