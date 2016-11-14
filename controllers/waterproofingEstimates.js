@@ -12,11 +12,7 @@ const notfoundstring = 'No such waterproofing estimates';
 // Specify the handler for each required combination of URI and HTTP verb 
 // HTML5 forms can only have GET and POST methods (use POST for DELETE)
 
-
 // HANDLE JSON REQUESTS --------------------------------------------
-
-
-
 
 //Base:  api/waterproofingEstimate
 
@@ -33,8 +29,6 @@ api.get('/findall', function(req, res){
     res.send(JSON.stringify(data));
 });
 
-
-
 api.get('/findone/:id', function(req, res){
      res.setHeader('Content-Type', 'application/json');
     var id = parseInt(req.params.id);
@@ -48,7 +42,6 @@ api.get('/findone/:id', function(req, res){
 api.get("/create", function (request, response) {
   response.render("waterproofing/create.ejs");
 });
-
 
 // GET /delete/:id
 api.get('/delete/:id', function(req, res) {
@@ -81,7 +74,6 @@ api.get('/details/:id', function(req, res) {
             waterproofingEstimate: item
         });
 });
-
 
 // GET one
 api.get('/edit/:id', function(req, res) {
@@ -135,8 +127,6 @@ api.post('/save/:id', function(req, res) {
     return res.redirect('/waterproofing');
 });
 
-
-
 // DELETE id (uses HTML5 form method POST)
 api.post('/delete/:id', function(req, res, next) {
     console.log("Handling DELETE request" + req);
@@ -148,11 +138,6 @@ api.post('/delete/:id', function(req, res, next) {
     console.log("Deleted item " + JSON.stringify(item));
     return res.redirect('/waterproofing');
 });
-
-
-
-
-
 module.exports = api;
 
 // This model is managed by Team 4-03
