@@ -6,17 +6,10 @@ var api = express.Router();
 
 // GET to this controller root URI
 api.get("/", function (req, res) {
-return res.render('waterproofing_topcoats/index.ejs');
-var find = require('lodash.find');
-var remove = require('lodash.remove');
-var findIndex = require('lodash.findindex');
-var Model = require('../models/waterproofingPrimer.js');
-const notfoundstring = 'No such waterproofing primer';
-});
-api.get("/", function (req, res) {
   return res.render('waterproofing_topcoats/index.ejs');
 });
 
+<<<<<<< HEAD
 api.get("/delete", function (req, res) {
   return res.render('waterproofing_topcoats/delete.ejs');
 });
@@ -46,3 +39,6 @@ module.exports = api;
 //Mudduluru Saikrishna
 //Malpani Sresth
 //Govindu Madanamohan
+=======
+module.exports = api;
+>>>>>>> 90c0f1484aaf4f9c508a6ee20204f2a0c8ca3f4b

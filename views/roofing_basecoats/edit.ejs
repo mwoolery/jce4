@@ -1,0 +1,34 @@
+<form name = "roofingBasecoats" method="POST" action="/roofingBasecoat/save/<%=roofingBasecoats %>" +_id.value>
+<div class="form-group">
+    <label for="_id">ID</label>
+    <input type="number" class"form-control" id="_id" name="_id" value="<% = maxID+1 %> required readonly>
+</div>
+<div calss="form-group">
+    <label for="name">Name </label>
+    <input type="text" class="form-control" id="name" name="name" value="7419 HB - perma-gard HB" required>
+</div>
+<div calss="form-group">
+    <label for="defaultCoverageSqFt">CoverageSq.Ft </label>
+    <input type="number" class="form-control" id="defaultCoverageSqFt" name="defaultCoverageSqFt" value="100" required>
+</div>
+<div calss="form-group">
+    <label for="unit">Unit </label>
+    <input type="text" class="form-control" id="unit" name="unit" value="gal" required>
+</div>
+<div calss="form-group">
+    <label for="displayorder">Display Order </label>
+    <input type="number" class="form-control" id="displayorder" name="displayorder" value="10" required>
+</div>
+<div calss="form-group">
+    <label for="price">Price </label>
+    <input type="text" class="form-control" id="price" name="price" value="40.70" >
+</div>
+<div calss="form-group">
+    <input type="submit" value="save" class ="btn btn-primary">
+</div>
+</form>
+</br>
+<form method="get" action="/roofingBasecoat">
+    <input type="submit" value="Return To List" class="btn btn-caution">
+</form>
+
