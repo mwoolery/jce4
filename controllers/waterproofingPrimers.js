@@ -9,21 +9,21 @@ const notfoundstring = 'No such waterproofing primer';
 // See app.js to find default view folder (e.g.,"views")
 // see app.js to find  default URI for this controller (e.g., "waterproofingPrimer")
 // Specify the handler for each required combination of URI and HTTP verb 
-// HTML5 forms can only have GET and POST methods (use POST for DELETE)
+// HTML5 forms can only have GET and POST methods (use POST for DEvarE)
 
 // HANDLE JSON REQUESTS --------------------------------------------
 
 api.get('/findall', function(req, res){
     res.setHeader('Content-Type', 'application/json');
-    let data = req.app.locals.waterproofingPrimers.query;
+    var data = req.app.locals.waterproofingPrimers.query;
     res.send(JSON.stringify(data));
 });
 
 api.get('/findone/:id', function(req, res){
      res.setHeader('Content-Type', 'application/json');
-    let id = parseInt(req.params.id);
-    let data = req.app.locals.waterproofingPrimers.query;
-    let item = find(data, { '_id': id });
+    var id = parseInt(req.params.id);
+    var data = req.app.locals.waterproofingPrimers.query;
+    var item = find(data, { '_id': id });
     if (!item) { return res.end(notfoundstring); }
     res.send(JSON.stringify(item));
 });
@@ -44,15 +44,15 @@ api.get("/create", function(req, res) {
         { title: "WP Primers", layout: "layout.ejs" });
 });
 
-// GET /delete/:id
-api.get('/delete/:id', function(req, res) {
-    console.log("Handling GET /delete/:id " + req);
+// GET /devare/:id
+api.get('/devare/:id', function(req, res) {
+    console.log("Handling GET /devare/:id " + req);
     var id = parseInt(req.params.id);
-    let data = req.app.locals.waterproofingPrimers.query;
-    let item = find(data, { '_id': id });
+    var data = req.app.locals.waterproofingPrimers.query;
+    var item = find(data, { '_id': id });
     if (!item) { return res.end(notfoundstring); }
     console.log("RETURNING VIEW FOR" + JSON.stringify(item));
-    return res.render('waterproofing_primers/delete.ejs',
+    return res.render('waterproofing_primers/devare.ejs',
         {
             title: "WP Primers",
             layout: "layout.ejs",
@@ -64,8 +64,8 @@ api.get('/delete/:id', function(req, res) {
 api.get('/details/:id', function(req, res) {
     console.log("Handling GET /details/:id " + req);
     var id = parseInt(req.params.id);
-    let data = req.app.locals.waterproofingPrimers.query;
-    let item = find(data, { '_id': id });
+    var data = req.app.locals.waterproofingPrimers.query;
+    var item = find(data, { '_id': id });
     if (!item) { return res.end(notfoundstring); }
     console.log("RETURNING VIEW FOR" + JSON.stringify(item));
     return res.render('waterproofing_primers/details.ejs',
@@ -80,8 +80,8 @@ api.get('/details/:id', function(req, res) {
 api.get('/edit/:id', function(req, res) {
     console.log("Handling GET /edit/:id " + req);
     var id = parseInt(req.params.id);
-    let data = req.app.locals.waterproofingPrimers.query;
-    let item = find(data, { '_id': id });
+    var data = req.app.locals.waterproofingPrimers.query;
+    var item = find(data, { '_id': id });
     if (!item) { return res.end(notfoundstring); }
     console.log("RETURNING VIEW FOR" + JSON.stringify(item));
     return res.render('waterproofing_primers/edit.ejs',
@@ -97,8 +97,8 @@ api.get('/edit/:id', function(req, res) {
 // POST new
 api.post('/save', function(req, res) {
     console.log("Handling POST " + req);
-    let data = req.app.locals.waterproofingPrimers.query;
-    let item = new Model;
+    var data = req.app.locals.waterproofingPrimers.query;
+    var item = new Model;
     console.log("NEW ID " + req.body._id);
     item._id = parseInt(req.body._id);
     item.name = req.body.name;
@@ -113,10 +113,10 @@ api.post('/save', function(req, res) {
 // POST update
 api.post('/save/:id', function(req, res) {
     console.log("Handling SAVE request" + req);
-    let id = parseInt(req.params.id);
+    var id = parseInt(req.params.id);
     console.log("Handling SAVING ID=" + id);
-    let data = req.app.locals.waterproofingPrimers.query;
-    let item = find(data, { '_id': id });
+    var data = req.app.locals.waterproofingPrimers.query;
+    var item = find(data, { '_id': id });
     if (!item) { return res.end(notfoundstring); }
     console.log("ORIGINAL VALUES " + JSON.stringify(item));
     console.log("UPDATED VALUES: " + JSON.stringify(req.body));
@@ -128,15 +128,15 @@ api.post('/save/:id', function(req, res) {
     return res.redirect('/waterproofingPrimer');
 });
 
-// DELETE id (uses HTML5 form method POST)
-api.post('/delete/:id', function(req, res, next) {
-    console.log("Handling DELETE request" + req);
-    let id = parseInt(req.params.id);
+// DEvarE id (uses HTML5 form method POST)
+api.post('/devare/:id', function(req, res, next) {
+    console.log("Handling DEvarE request" + req);
+    var id = parseInt(req.params.id);
     console.log("Handling REMOVING ID=" + id);
-    let data = req.app.locals.waterproofingPrimers.query;
-    let item = remove(data, { '_id': id });
+    var data = req.app.locals.waterproofingPrimers.query;
+    var item = remove(data, { '_id': id });
     if (!item) { return res.end(notfoundstring); }
-    console.log("Deleted item " + JSON.stringify(item));
+    console.log("Devared item " + JSON.stringify(item));
     return res.redirect('/waterproofingPrimer');
 });
 
