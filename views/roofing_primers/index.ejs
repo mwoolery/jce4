@@ -4,7 +4,7 @@
  <h2>Material roofing primer costs</h2>
 
 <p>There are  <%= roofingPrimers.query.length %> roofing primers. <br/>
-<a href="create.ejs">Add a new one.</a></p>
+<a href="/roofingPrimer/create">Add a new one.</a></p>
 
 <table class="table" border="1">
     <thead>
@@ -23,7 +23,10 @@
             <td><%=  roofingPrimers.query[i].displayorder %></td>
             <td><%=  roofingPrimers.query[i].price %></td>
             <td><%=  roofingPrimers.query[i].unit %></td>
-            <td>Delete  Details  Edit</td>
+            <td><a target="blank" href="/roofingPrimer/delete"<%= roofingPrimers.query[i].id %>"><%style:"color:red"%>Delete</style></a> | 
+            <a  target="blank" href="/roofingPrimer/details"  <%= roofingPrimers.query[i].id %>"> Details</a> |
+            <a target="blank" href="/roofingPrimer/edit" <%= roofingPrimers.query[i].id %>">  Edit </a> 
+            </td>
          </tr>
          <% } %>
 </tbody>
