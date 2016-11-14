@@ -14,6 +14,23 @@ api.get("/", function (req, res) {
   return res.render('waterproofing_topcoats/index.ejs');
 });
 
+api.get("/delete", function (req, res) {
+  return res.render('waterproofing_topcoats/delete.ejs');
+});
+
+api.get("/create", function (req, res) {
+  return res.render('waterproofing_topcoats/create.ejs');
+});
+
+
+api.get("/details", function (req, res) {
+  return res.render('waterproofing_topcoats/details.ejs');
+});
+
+api.get("/edit", function (req, res) {
+  return res.render('waterproofing_topcoats/edit.ejs');
+});
+
 api.get('/findall', function(req, res){
     res.setHeader('Content-Type', 'application/json');
     var data = req.app.locals.waterproofingTopcoats.query;

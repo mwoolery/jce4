@@ -4,7 +4,7 @@
  <h2>Material waterproofing topcoat costs</h2>
 
 <p>There are  <%= waterproofingTopcoats.query.length %> waterproofing topcoat products. <br/>
-<a href="create.ejs">Add a new one.</a></p>
+<a href="waterproofingTopcoat/create.ejs">Add a new one.</a></p>
 
 <table class="table" border="1">
     <thead>
@@ -23,7 +23,11 @@
             <td><%=  waterproofingTopcoats.query[i].displayorder %></td>
             <td><%=  waterproofingTopcoats.query[i].price %></td>
             <td><%=  waterproofingTopcoats.query[i].unit %></td>
-            <td>Delete  Details  Edit</td>
+            <td>
+							<a href="waterproofingTopcoat/delete/<%=  waterproofingTopcoats.query[i]._id %>"> Delete </a> |
+							<a href="waterproofingTopcoat/details/<%= waterproofingTopcoats.query[i]._id %>"> Details </a> |
+							<a href="waterproofingTopcoat/edit/<%=    waterproofingTopcoats.query[i]._id %>"> Edit </a>
+						</td>
          </tr>
          <% } %>
 </tbody>
