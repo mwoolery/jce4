@@ -1,10 +1,5 @@
 var express = require('express');
 var api = express.Router();
-var find = require('lodash.find');
-var remove = require('lodash.remove');
-var findIndex = require('lodash.findindex');
-var Model = require('../models/waterproofingTopcoat.js');
-const notfoundstring = 'No such waterproofing topcoat';
 
 
 // see app.js for the root request this controller handles
@@ -14,14 +9,10 @@ api.get("/", function (req, res) {
   return res.render('waterproofing_topcoats/index.ejs');
 });
 
+<<<<<<< HEAD
 api.get("/delete", function (req, res) {
   return res.render('waterproofing_topcoats/delete.ejs');
 });
-
-api.get("/create", function (req, res) {
-  return res.render('waterproofing_topcoats/create.ejs');
-});
-
 
 api.get("/details", function (req, res) {
   return res.render('waterproofing_topcoats/details.ejs');
@@ -29,6 +20,10 @@ api.get("/details", function (req, res) {
 
 api.get("/edit", function (req, res) {
   return res.render('waterproofing_topcoats/edit.ejs');
+});
+
+api.get("/create", function (req, res) {
+  return res.render('waterproofing_topcoats/create.ejs');
 });
 
 api.get('/findall', function(req, res){
@@ -39,3 +34,11 @@ api.get('/findall', function(req, res){
 
 
 module.exports = api;
+
+// This model is managed by Team 4-14
+//Mudduluru Saikrishna
+//Malpani Sresth
+//Govindu Madanamohan
+=======
+module.exports = api;
+>>>>>>> 90c0f1484aaf4f9c508a6ee20204f2a0c8ca3f4b

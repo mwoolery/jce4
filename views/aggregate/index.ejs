@@ -23,9 +23,16 @@
             <td><%=  aggregateMaterials.query[i].displayorder %></td>
             <td><%=  aggregateMaterials.query[i].price %></td>
             <td><%=  aggregateMaterials.query[i].unit %></td>
-            <td>Delete  Details  Edit</td>
+            <td>
+            <a target="blank" href="/aggregateMaterials/delete"<%= aggregateMaterials.query[i].id %>"><%style:"color:red"%>Delete</style></a> | 
+            <a  target="blank" href="/aggregateMaterials/details"  <%= aggregateMaterials.query[i].id %>"> Details</a> |
+            <a target="blank" href="/aggregateMaterials/edit" <%= aggregateMaterials.query[i].id %>">  Edit </a> 
+            
+            </td>
          </tr>
          <% } %>
 </tbody>
 </table>
 </div>
+//Malipatlolla Harshavardhan Reddy
+//Rakesh Reddy Pakala
