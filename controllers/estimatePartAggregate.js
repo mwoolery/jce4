@@ -32,7 +32,7 @@ api.get('/findone/:id', function(req, res){
 
 // GET to this controller root URI
 api.get("/", function (request, response) {
-  response.render("aggregate_cost/index.ejs");
+  response.render("aggregate/index.ejs");
 });
 
 api.get("/create", function(req, res) {
@@ -53,7 +53,7 @@ api.get('/delete/:id', function(req, res) {
         {
             title: "Aggregate",
             layout: "layout.ejs",
-            estimatePartAggregate: item
+            aggregate: item
         });
 });
 
@@ -69,7 +69,7 @@ api.get('/details/:id', function(req, res) {
         {
             title: "Aggregate",
             layout: "layout.ejs",
-            estimatePartAggregate: item
+            aggregate: item
         });
 });
 
@@ -85,7 +85,7 @@ api.get('/edit/:id', function(req, res) {
         {
             title: "Aggregate",
             layout: "layout.ejs",
-            estimatePartAggregate: item
+            aggregate: item
         });
 });
 
@@ -104,7 +104,7 @@ api.post('/save', function(req, res) {
     item.displayorder = parseInt(req.body.displayorder);
     data.push(item);
     console.log("SAVING NEW ITEM " + JSON.stringify(item));
-    return res.redirect('/estimatePartAggregate');
+    return res.redirect('/aggregate');
 });
 
 // POST update
@@ -122,7 +122,7 @@ api.post('/save/:id', function(req, res) {
     item.price = req.body.price;
     item.displayorder = req.body.displayorder;
     console.log("SAVING UPDATED ITEM " + JSON.stringify(item));
-    return res.redirect('/estimatePartAggregate');
+    return res.redirect('/aggregate');
 });
 
 // DELETE id (uses HTML5 form method POST)
@@ -134,7 +134,7 @@ api.post('/delete/:id', function(req, res, next) {
     var item = remove(data, { '_id': id });
     if (!item) { return res.end(notfoundstring); }
     console.log("Deleted item " + JSON.stringify(item));
-    return res.redirect('/estimatePartAggregate');
+    return res.redirect('/aggregate');
 });
 
 
