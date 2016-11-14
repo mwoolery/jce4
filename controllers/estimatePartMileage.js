@@ -7,8 +7,7 @@ var Model = require('../models/estimatePartMileage.js');
 const notfoundstring = 'No such estimatePartMileage';
 
 
-// see app.js for the root request this controller handles
-// See app.js to find default view folder (e.g.,"views")
+
 // see app.js to find  default URI for this controller (e.g., "waterproofingPrimer")
 // Specify the handler for each required combination of URI and HTTP verb 
 // HTML5 forms can only have GET and POST methods (use POST for DELETE)
