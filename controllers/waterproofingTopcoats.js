@@ -9,4 +9,36 @@ api.get("/", function (req, res) {
   return res.render('waterproofing_topcoats/index.ejs');
 });
 
+<<<<<<< HEAD
+api.get("/delete", function (req, res) {
+  return res.render('waterproofing_topcoats/delete.ejs');
+});
+
+api.get("/details", function (req, res) {
+  return res.render('waterproofing_topcoats/details.ejs');
+});
+
+api.get("/edit", function (req, res) {
+  return res.render('waterproofing_topcoats/edit.ejs');
+});
+
+api.get("/create", function (req, res) {
+  return res.render('waterproofing_topcoats/create.ejs');
+});
+
+api.get('/findall', function(req, res){
+    res.setHeader('Content-Type', 'application/json');
+    var data = req.app.locals.waterproofingTopcoats.query;
+    res.send(JSON.stringify(data));
+});
+
+
 module.exports = api;
+
+// This model is managed by Team 4-14
+//Mudduluru Saikrishna
+//Malpani Sresth
+//Govindu Madanamohan
+=======
+module.exports = api;
+>>>>>>> 90c0f1484aaf4f9c508a6ee20204f2a0c8ca3f4b
