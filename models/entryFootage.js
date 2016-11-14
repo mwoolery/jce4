@@ -9,7 +9,3 @@ var EntryFootageSchema = new Schema({
 
 var entryFootage = mongoose.model('EntryFootage', EntryFootageSchema)
 module.exports = entryFootage
-// This model is managed by Team 4-4
-// Amarishwer Edam
-// Sivareddy Mekapothula
-// Vikas Bavikadi

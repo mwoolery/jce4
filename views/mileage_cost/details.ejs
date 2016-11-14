@@ -1,3 +1,23 @@
-// This model is managed by Team 4-11
-// Bapuji Dirisala
-// Karthik Nuli
+<!-- This model is managed by Team 4-11 --> 
+<!--  Nuli Kartik -->
+<!-- Bapuji Dirisala-->
+
+<br/>
+<br/>
+<h2>Edit <%= title %></h2>
+<br/>
+<br/>
+<p>Item
+	<%=  estimatePartMileage._id %>
+</p>
+<p>
+	<%=  estimatePartMileage.entry.description %>
+</p>
+<p>
+	<%=  estimatePartMileage.entry.cost %> 
+</p>
+
+<br/>
+<form method="get" action="/estimatePartMileage">
+	<input type="submit" value="Return to list" class="btn btn-caution" />
+</form>
