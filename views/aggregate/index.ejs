@@ -9,6 +9,7 @@
 <table class="table" border="1">
     <thead>
       <tr>
+        <th>ID</th>
         <th>Name</th>
         <th>Display Order</th>
         <th>Price</th>
@@ -19,11 +20,16 @@
     <tbody>
 <% for (var i = 0; i < aggregateMaterials.query.length; i++) { %>
          <tr>
+            <td><%=  aggregateMaterials.query[i].id %></td>
             <td><%=  aggregateMaterials.query[i].name %></td>
             <td><%=  aggregateMaterials.query[i].displayorder %></td>
             <td><%=  aggregateMaterials.query[i].price %></td>
             <td><%=  aggregateMaterials.query[i].unit %></td>
-            <td>Delete  Details  Edit</td>
+            <td>
+							<a href="estimatePartAggregate/delete/<%=  aggregateMaterials.query[i]._id %>"> Delete </a> |
+							<a href="estimatePartAggregate/details/<%= aggregateMaterials.query[i]._id %>"> Details </a> |
+							<a href="estimatePartAggregate/edit/<%=    aggregateMaterials.query[i]._id %>"> Edit </a>
+						</td>
          </tr>
          <% } %>
 </tbody>
