@@ -11,7 +11,3 @@ var EstimatePartFootageSchema = new Schema({
 
 var estimatePartFootage = mongoose.model('EstimatePartFootage', EstimatePartFootageSchema)
 module.exports = estimatePartFootage
-// This model is managed by Team 4-4
-// Amarishwer Edam
-// Sivareddy Mekapothula
-// Vikas Bavikadi

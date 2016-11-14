@@ -10,8 +10,3 @@ var WaterproofingTopcoatSchema = new Schema({
 
 var waterproofingTopcoat = mongoose.model('WaterproofingTopcoat', WaterproofingTopcoatSchema)
 module.exports = waterproofingTopcoat
-
-// This model is managed by Team 4-14
-//Mudduluru Saikrishna
-//Malpani Sresth
-//Govindu Madanamohan

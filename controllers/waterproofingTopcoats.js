@@ -6,27 +6,7 @@ var api = express.Router();
 
 // GET to this controller root URI
 api.get("/", function (req, res) {
-return res.render('waterproofing_topcoats/index.ejs');
-var find = require('lodash.find');
-var remove = require('lodash.remove');
-var findIndex = require('lodash.findindex');
-var Model = require('../models/waterproofingPrimer.js');
-const notfoundstring = 'No such waterproofing primer';
-});
-api.get("/", function (req, res) {
   return res.render('waterproofing_topcoats/index.ejs');
 });
 
-api.get('/findall', function(req, res){
-    res.setHeader('Content-Type', 'application/json');
-    var data = req.app.locals.waterproofingTopcoats.query;
-    res.send(JSON.stringify(data));
-});
-
-
 module.exports = api;
-
-// This model is managed by Team 4-14
-//Mudduluru Saikrishna
-//Malpani Sresth
-//Govindu Madanamohan
