@@ -8,6 +8,3 @@ var EntryMiscSchema = new Schema({
 
 var entryMisc = mongoose.model('EntryMisc', EntryMiscSchema)
 module.exports = entryMisc
-// This model is managed by Team 4-12
-// Bapuji Dirisala
-// Karthik Nuli
