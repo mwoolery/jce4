@@ -12,6 +12,10 @@ const notfoundstring = 'No such Estimate Part Aggregate';
 // Specify the handler for each required combination of URI and HTTP verb 
 // HTML5 forms can only have GET and POST methods (use POST for DELETE)
 
+/**
+ * We need to have 5 methods ...
+ */
+
 
 // HANDLE JSON REQUESTS --------------------------------------------
 api.get('/findall', function(req,res){
@@ -136,8 +140,6 @@ api.post('/delete/:id', function(req, res, next) {
     console.log("Deleted item " + JSON.stringify(item));
     return res.redirect('/aggregate');
 });
-
-
 
 
 
