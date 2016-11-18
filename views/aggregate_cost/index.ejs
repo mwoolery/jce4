@@ -1,4 +1,3 @@
-<% include ..\..\views\header.ejs %>
 <% console.log(estimatePartAggregates.query); %>
 <div class="container">
  <h2>All entries</h2>
@@ -28,15 +27,13 @@
             <td><%=  estimatePartAggregates.query[i].coverageSqFt %></td>
             <td><%=  estimatePartAggregates.query[i].subtotal %></td>
 
-
-            <td>
-             <a target="blank" href="/estimatePartAggregate/delete/"<%= estimatePartAggregates.query[i].id %>"><%style:"color:red"%>Delete</style></a> | 
-            <a  target="blank" href="/estimatePartAggregate/details/"  <%= estimatePartAggregates.query[i].id %>"> Details</a> |
-            <a target="blank" href="/estimatePartAggregate/edit/" <%= estimatePartAggregates.query[i].id %>">  Edit </a> 
-            
-            </td>
-         </tr>
-         <% } %>
-</tbody>
-</table>
-</div>
+              <td>
+							<a href="estimatePartAggregates/delete/<%=  estimatePartAggregates.query[i]._id %>"> Delete </a> 
+							<a href="estimatePartAggregates/details/<%= estimatePartAggregates.query[i]._id %>"> Details </a>
+							<a href="estimatePartAggregates/edit/<%= estimatePartAggregates.query[i]._id %>"> Edit </a>
+						</td>
+					</tr>
+					<% } %>
+			</tbody>
+		</table>
+	</div>

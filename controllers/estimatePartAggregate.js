@@ -22,13 +22,6 @@ api.get('/findall', function(req, res){
 
 // findall
 
-// HANDLE JSON REQUESTS --------------------------------------------
-api.get('/findall', function(req, res){
-    res.setHeader('Content-Type', 'application/json');
-    var data = req.app.locals.estimatePartAggregate.query[0].entries;
-    res.send(JSON.stringify(data));
-});
-
 //find all
 
 api.get('/delete/:id', function(req, res){
@@ -147,8 +140,11 @@ api.post('/delete/:id', function(req, res, next) {
 
 
 // GET to this controller root URI
-api.get("/", function (request, response) {
-  response.render("aggregate_cost/index.ejs");
+api.get("/", function (req, res) {
+    console.log("--- index part was requestted ----");
+     console.log("Handling GET " + req);
+    return res.render('aggregate_cost/index.ejs',
+        { title: "Estimate Parts", layout: "layout.ejs" });
 });
 
 module.exports = api;
