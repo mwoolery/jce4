@@ -9,14 +9,24 @@
 <table class="table" border="1">
     <thead>
       <tr>
-        <th>Subtotal</th>
+        <th>ID</th>
+        <th>description</th>
+        <th>numberOfVehicles</th>
+        <th>startLocation</th>
+        <th>endLocation</th>
+        <th>milesPerDrive</th>
        <th>Actions</th>
     </tr>
     </thead>
     <tbody>
-<% for (var i = 0; i < estimatePartMileages.query.length; i++) { %>
+<% for (var i = 0; i < estimatePartMileages.query[0].entries.length; i++) { %>
          <tr>
-            <td><%=  estimatePartMileages.query[i].subtotal %></td>
+            <td><%=  estimatePartMileages.query[0].entries[i]._id %></td>
+            <td><%=  estimatePartMileages.query[0].entries[i].description %></td>
+            <td><%=  estimatePartMileages.query[0].entries[i].numberOfVehicles %></td>
+            <td><%=  estimatePartMileages.query[0].entries[i].startLocation %></td>
+            <td><%=  estimatePartMileages.query[0].entries[i].endLocation %></td>
+            <td><%=  estimatePartMileages.query[0].entries[i].milesPerDrive %></td>
             <td><a href="estimatePartMileage/delete/<%= i+1 %>"> Delete</a> | <a href="estimatePartMileage/details/<%= i+1 %>"> Details</a> | <a href="estimatePartMileage/edit/<%= i+1 %>"> Edit</a></td>
          </tr>
          <% } %>

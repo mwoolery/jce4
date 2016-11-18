@@ -7,7 +7,6 @@ const notfoundstring = 'No such Estimate Part Aggregate';
 
 
 // see app.js for the root request this controller handles
-
 // see app.js to find  default URI for this controller (e.g., "estimatePartAggregate")
 // Specify the handler for each required combination of URI and HTTP verb 
 // HTML5 forms can only have GET and POST methods (use POST for DELETE)
@@ -15,20 +14,15 @@ const notfoundstring = 'No such Estimate Part Aggregate';
 /**
  * We need to have 5 methods ...
  */
-
-
 api.get('/findall', function(req, res){
     res.setHeader('Content-Type', 'application/json');
     var data = req.app.locals.estimatePartAggregate.query;
     res.send(JSON.stringify(data));
 });
 
-// HANDLE JSON REQUESTS --------------------------------------------
-api.get('/findall', function(req, res){
-    res.setHeader('Content-Type', 'application/json');
-    var data = req.app.locals.estimatePartAggregate.query[0].entries;
-    res.send(JSON.stringify(data));
-});
+// findall
+
+//find all
 
 api.get('/delete/:id', function(req, res){
     // res.setHeader('Content-Type', 'application/html');
@@ -48,6 +42,8 @@ api.get('/delete/:id', function(req, res){
     	estimatePartAggregate: item
     });
 });
+
+
 
 // GET create
 api.get("/create", function(req, res) {
@@ -89,6 +85,7 @@ api.get('/edit/:id', function(req, res) {
         });
 });
 
+
 // HANDLE EXECUTE DATA MODIFICATION REQUESTS --------------------------------------------
 
 // POST new
@@ -106,6 +103,7 @@ api.post('/save', function(req, res) {
     console.log("SAVING NEW ITEM " + JSON.stringify(item));
     return res.redirect('/aggregate');
 });
+
 
 // POST update
 api.post('/save/:id', function(req, res) {
@@ -125,6 +123,7 @@ api.post('/save/:id', function(req, res) {
     return res.redirect('/aggregate');
 });
 
+
 // DELETE id (uses HTML5 form method POST)
 api.post('/delete/:id', function(req, res, next) {
     console.log("Handling DELETE request" + req);
@@ -136,18 +135,30 @@ api.post('/delete/:id', function(req, res, next) {
     console.log("Deleted item " + JSON.stringify(item));
     return res.redirect('/aggregate');
 });
+
 // see app.js for the root request this controller handles
 
 
 // GET to this controller root URI
-api.get("/", function (request, response) {
-  response.render("aggregate_cost/index.ejs");
+api.get("/", function (req, res) {
+    console.log("--- index part was requestted ----");
+     console.log("Handling GET " + req);
+    return res.render('aggregate_cost/index.ejs',
+        { title: "Estimate Parts", layout: "layout.ejs" });
 });
 
-
-
-
 module.exports = api;
+
+//api functions in order
+//findall
+// delete part for crud functions
+//create part for crud functions
+// details part for crud functions
+//edit part for crud functions
+// handle the save for the new items
+// handle a save for an existing item aka update
+//delete the item with the certain id.
+
 
 // This model is managed by Team R09
 // Sandip Subedi
