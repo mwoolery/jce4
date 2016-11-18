@@ -5,10 +5,10 @@ var expect = require("chai").expect;
 const appport = 8081;
 const appname = "jce";
 const testId = 1;
-const resourceName = "roofingBasecoats";  
+const resourceName = "waterproofingEstimates";  
 var app = express();
 
-describe("Materials - roofingBasecoats  unit test",function(){
+describe("Materials - Waterproofing estimates unit test",function(){
 
   it("should return index page",function(done){
     request(app)
@@ -52,3 +52,6 @@ describe("Materials - roofingBasecoats  unit test",function(){
   });
 
 });
+// This model is managed by Team 4-03
+// Sai Venkat Poorna Chandu Bhogireddy
+// Santosh Ravi Teja Goteti
