@@ -1,4 +1,4 @@
-console.log("main.js was running");
+nmconsole.log("main.js was running");
 
 $(document).ready(function(){
 
