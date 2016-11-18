@@ -7,7 +7,7 @@ api.get("/", function (req, res) {
   return res.render('waterproofing_basecoats/index.ejs');
 });
 
-<<<<<<< HEAD
+
 api.get("/details", function (req, res) {
   return res.render('waterproofing_basecoats/details.ejs');
 });
@@ -31,8 +31,8 @@ api.get('/findall', function(req, res){
     var data = req.app.locals.waterproofingBasecoats.query;
     res.send(JSON.stringify(data));
 });
-=======
->>>>>>> 90c0f1484aaf4f9c508a6ee20204f2a0c8ca3f4b
+
+
 
 
 
