@@ -21,7 +21,12 @@ api.get('/findall', function(req, res){
     res.send(JSON.stringify(data));
 });
 
-module.exports = api;  // at the very end
+api.get('/findone/:id', function(req, res){
+    res.setHeader('Content-Type', 'application/json');
+    var data = req.app.locals.estimatePartLabors.query[0].entries;
+    var item = data.find(function(dt){ { return dt._id==req.params.id; }});
+    res.send(JSON.stringify(item));
+});
 
 
 // see app.js for the root request this controller handles
@@ -134,9 +139,6 @@ api.post('/delete/:id', function(req, res, next) {
     console.log("Deleted item " + JSON.stringify(item));
     return res.redirect('/estimatePartLabor');
 });
-
-
-
 
 
 module.exports = api;
