@@ -46,8 +46,15 @@ api.get("/", function (request, response) {
 response.render("flooring_cost/index.ejs");
 });
 
-api.get("/create", function (request, response) {
-response.render("flooring_cost/create.ejs");
+// api.get("/create", function (request, response) {
+// response.render("flooring_cost/create.ejs");
+// });
+
+// GET create
+api.get("/create", function(req, res) {
+    console.log('Handling GET /create' + req);
+    res.render("estimatePartFlooring/create.ejs",
+        { title: "EP Flooring", layout: "layout.ejs" });
 });
 
 api.get("/delete", function (request, response) {
@@ -64,6 +71,38 @@ response.render("flooring_cost/edit.ejs");
 
 
 module.exports = api;
+
+/* 10 controller methods handled by controller:
+	
+   controllers/estimatePartFlooring.js  
+
+
+2 Respond with JSON:
+
+
+http://127.0.0.1:8081/estimatePartFlooring/findall       [WORKING]
+http://127.0.0.1:8081/estimatePartFlooring/findone/1  [WORKING]
+
+
+5 Respond with CRUD Views:
+
+
+http://127.0.0.1:8081/estimatePartFlooring		   [WORKING]
+http://127.0.0.1:8081/estimatePartFlooring/create     [WORKING]
+http://127.0.0.1:8081/estimatePartFlooring/delete/1         [404]
+http://127.0.0.1:8081/estimatePartFlooring/details/1	 [404]
+http://127.0.0.1:8081/estimatePartFlooring/edit/1	        [404]
+
+
+3 Respond by executing CRUD actions:
+
+
+http://127.0.0.1:8081/estimatePartFlooring/save		[404]
+http://127.0.0.1:8081/estimatePartFlooring/save/1 	[404]
+http://127.0.0.1:8081/estimatePartFlooring/delete/1 	[404]
+
+
+*/
 
 // This controller is managed by Team 4-5
 // Chaitanya Kiran Moturu
