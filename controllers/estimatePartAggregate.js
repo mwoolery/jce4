@@ -7,7 +7,6 @@ const notfoundstring = 'No such Estimate Part Aggregate';
 
 
 // see app.js for the root request this controller handles
-
 // see app.js to find  default URI for this controller (e.g., "estimatePartAggregate")
 // Specify the handler for each required combination of URI and HTTP verb 
 // HTML5 forms can only have GET and POST methods (use POST for DELETE)
@@ -15,8 +14,6 @@ const notfoundstring = 'No such Estimate Part Aggregate';
 /**
  * We need to have 5 methods ...
  */
-
-
 api.get('/findall', function(req, res){
     res.setHeader('Content-Type', 'application/json');
     var data = req.app.locals.estimatePartAggregate.query;
@@ -143,9 +140,6 @@ api.post('/delete/:id', function(req, res, next) {
 api.get("/", function (request, response) {
   response.render("aggregate_cost/index.ejs");
 });
-
-
-
 
 module.exports = api;
 
