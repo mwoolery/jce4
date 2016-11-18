@@ -53,7 +53,7 @@ response.render("flooring_cost/index.ejs");
 // GET create
 api.get("/create", function(req, res) {
     console.log('Handling GET /create' + req);
-    res.render("estimatePartFlooring/create.ejs",
+    res.render("flooring_cost/create.ejs",
         { title: "EP Flooring", layout: "layout.ejs" });
 });
 
