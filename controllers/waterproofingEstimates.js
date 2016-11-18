@@ -7,6 +7,26 @@ var Model = require('../models/waterproofingEstimate.js');
 const notfoundstring = 'No such waterproofing estimates';
 //Base:  api/waterproofingEstimate
 
+// api.post('/save',function(req,res){
+
+// res.send('dkd');
+// });
+// POST new
+api.post('/save', function(req, res) {
+    // console.log("Handling POST " + req);
+    var data = req.app.locals.waterproofingEstimates.query;
+    var item = new Model;
+    // console.log("NEW ID " + req.body._id);
+    // item._id = parseInt(req.body._id);
+    // item.name = req.body.name;
+    // item.unit = req.body.unit;
+    // item.price = req.body.price;
+    // item.displayorder = parseInt(req.body.displayorder);
+    data.push(item);
+    console.log("SAVING NEW ITEM " + JSON.stringify(item));
+     res.redirect('/waterproofingEstimate');
+});
+
 //GET /api/waterproofingEstimate
 api.get("/", function (request, response) {
   response.render("waterproofing/waterproofing.ejs");
@@ -87,21 +107,7 @@ api.get('/edit/:id', function(req, res) {
 
 //HANDLE EXECUTE DATA MODIFICATION REQUESTS --------------------------------------------
 
-// POST new
-api.post('/save', function(req, res) {
-    console.log("Handling POST " + req);
-    var data = req.app.locals.waterproofingEstimates.query;
-    var item = new Model;
-    console.log("NEW ID " + req.body._id);
-    item._id = parseInt(req.body._id);
-    item.name = req.body.name;
-    item.unit = req.body.unit;
-    item.price = req.body.price;
-    item.displayorder = parseInt(req.body.displayorder);
-    data.push(item);
-    console.log("SAVING NEW ITEM " + JSON.stringify(item));
-    return res.redirect('/waterproofing');
-});
+
 
 // POST update
 api.post('/save/:id', function(req, res) {
