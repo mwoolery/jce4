@@ -36,6 +36,7 @@ api.get('/findall', function(req, res){
     res.setHeader('Content-Type', 'application/json');
     var data = req.app.locals.waterproofingEstimates.query;
     res.send(JSON.stringify(data));
+    res.ren("/waterproofingEstimate/findall");
 });
 
 
@@ -47,6 +48,7 @@ api.get('/findone/:id', function(req, res){
     var item = find(data, { '_id': id });
     if (!item) { return res.end(notfoundstring); }
     res.send(JSON.stringify(item));
+    res.ren("/waterproofingEstimate/findone/1");
 });
 
 // GET /api/waterproofingEstimate/{id}
@@ -58,6 +60,22 @@ api.get("/create", function (request, response) {
 });
 
 api.get('/delete/:id', function(req, res) {
+    console.log("Handling GET /delete/:id " + req);
+    var id = parseInt(req.params.id);
+    var data = req.app.locals.waterproofingEstimates.query;
+    var item = find(data, { '_id': id });
+    if (!item) { return res.end(notfoundstring); }
+    console.log("RETURNING VIEW FOR" + JSON.stringify(item));
+    return res.render('waterproofing/delete.ejs',
+        {
+            title: "WP Primers",
+            layout: "layout.ejs",
+            waterproofingEstimate: item
+        });
+});
+
+
+api.post('/delete/:id', function(req, res) {
     console.log("Handling GET /delete/:id " + req);
     var id = parseInt(req.params.id);
     var data = req.app.locals.waterproofingEstimates.query;
@@ -124,7 +142,7 @@ api.post('/save/:id', function(req, res) {
     item.price = req.body.price;
     item.displayorder = req.body.displayorder;
     console.log("SAVING UPDATED ITEM " + JSON.stringify(item));
-    return res.redirect('/waterproofing');
+    return res.redirect('/waterproofingEstimate');
 });
 
 
