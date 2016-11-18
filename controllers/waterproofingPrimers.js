@@ -9,7 +9,7 @@ const notfoundstring = 'No such waterproofing primer';
 // See app.js to find default view folder (e.g.,"views")
 // see app.js to find  default URI for this controller (e.g., "waterproofingPrimer")
 // Specify the handler for each required combination of URI and HTTP verb 
-// HTML5 forms can only have GET and POST methods (use POST for DELETE)
+// HTML5 forms can only have GET and POST methods (use POST for DEvarE)
 
 // HANDLE JSON REQUESTS --------------------------------------------
 
@@ -44,15 +44,15 @@ api.get("/create", function(req, res) {
         { title: "WP Primers", layout: "layout.ejs" });
 });
 
-// GET /delete/:id
-api.get('/delete/:id', function(req, res) {
-    console.log("Handling GET /delete/:id " + req);
+// GET /devare/:id
+api.get('/devare/:id', function(req, res) {
+    console.log("Handling GET /devare/:id " + req);
     var id = parseInt(req.params.id);
     var data = req.app.locals.waterproofingPrimers.query;
     var item = find(data, { '_id': id });
     if (!item) { return res.end(notfoundstring); }
     console.log("RETURNING VIEW FOR" + JSON.stringify(item));
-    return res.render('waterproofing_primers/delete.ejs',
+    return res.render('waterproofing_primers/devare.ejs',
         {
             title: "WP Primers",
             layout: "layout.ejs",
@@ -128,15 +128,21 @@ api.post('/save/:id', function(req, res) {
     return res.redirect('/waterproofingPrimer');
 });
 
+<<<<<<< HEAD
+// DEvarE id (uses HTML5 form method POST)
+api.post('/devare/:id', function(req, res, next) {
+    console.log("Handling DEvarE request" + req);
+=======
 // DELETE id (uses HTML5 form method POST)
 api.post('/delete/:id', function(req, res, next) {
     console.log("Handling DELETE request" + req);
+>>>>>>> 92697d2737a2629cef882c3bc89b9bccae834385
     var id = parseInt(req.params.id);
     console.log("Handling REMOVING ID=" + id);
     var data = req.app.locals.waterproofingPrimers.query;
     var item = remove(data, { '_id': id });
     if (!item) { return res.end(notfoundstring); }
-    console.log("Deleted item " + JSON.stringify(item));
+    console.log("Devared item " + JSON.stringify(item));
     return res.redirect('/waterproofingPrimer');
 });
 
