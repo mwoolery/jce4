@@ -59,6 +59,21 @@ api.get('/devare/:id', function(req, res) {
             waterproofingPrimer: item
         });
 });
+//Delete Get
+api.get('/delete/:id', function (req, res) {
+    console.log("Handling GET /delete/:id " + req);
+    var id = parseInt(req.params.id);
+    var data = req.app.locals.waterproofingPrimers.query;
+    var item = find(data, { '_id': id });
+    if (!item) { return res.end(notfoundstring); }
+    console.log("RETURNING VIEW FOR" + JSON.stringify(item));
+    return res.render('waterproofing_primers/delete.ejs',
+        {
+            title: "WP Primers",
+            layout: "layout.ejs",
+            waterproofingPrimer :item  
+        });     
+});
 
 // GET /details/:id
 api.get('/details/:id', function(req, res) {
@@ -128,21 +143,14 @@ api.post('/save/:id', function(req, res) {
     return res.redirect('/waterproofingPrimer');
 });
 
-<<<<<<< HEAD
-//<<<<<<< HEAD
+
 // DEvarE id (uses HTML5 form method POST)
 api.post('/devare/:id', function(req, res, next) {
     console.log("Handling DEvarE request" + req);
-//=======
+});
 // DELETE id (uses HTML5 form method POST)
 api.post('/delete/:id', function(req, res, next) {
     console.log("Handling DELETE request" + req);
-//>>>>>>> 92697d2737a2629cef882c3bc89b9bccae834385
-=======
-// DELETE id (uses HTML5 form method POST)
-api.post('/delete/:id', function(req, res, next) {
-    console.log("Handling DELETE request" + req);
->>>>>>> 6e594192b26ae9b275638b02d9f51870686d1910
     var id = parseInt(req.params.id);
     console.log("Handling REMOVING ID=" + id);
     var data = req.app.locals.waterproofingPrimers.query;
@@ -151,5 +159,6 @@ api.post('/delete/:id', function(req, res, next) {
     console.log("Devared item " + JSON.stringify(item));
     return res.redirect('/waterproofingPrimer');
 });
-}),
+
+
 module.exports = api;
