@@ -23,12 +23,16 @@ api.get('/findall', function(req, res){
     res.send(JSON.stringify(data));
 });
 
+// findall
+
 // HANDLE JSON REQUESTS --------------------------------------------
 api.get('/findall', function(req, res){
     res.setHeader('Content-Type', 'application/json');
     var data = req.app.locals.estimatePartAggregate.query[0].entries;
     res.send(JSON.stringify(data));
 });
+
+//find all
 
 api.get('/delete/:id', function(req, res){
     // res.setHeader('Content-Type', 'application/html');
@@ -48,6 +52,8 @@ api.get('/delete/:id', function(req, res){
     	estimatePartAggregate: item
     });
 });
+
+
 
 // GET create
 api.get("/create", function(req, res) {
@@ -89,6 +95,7 @@ api.get('/edit/:id', function(req, res) {
         });
 });
 
+
 // HANDLE EXECUTE DATA MODIFICATION REQUESTS --------------------------------------------
 
 // POST new
@@ -106,6 +113,7 @@ api.post('/save', function(req, res) {
     console.log("SAVING NEW ITEM " + JSON.stringify(item));
     return res.redirect('/aggregate');
 });
+
 
 // POST update
 api.post('/save/:id', function(req, res) {
@@ -125,6 +133,7 @@ api.post('/save/:id', function(req, res) {
     return res.redirect('/aggregate');
 });
 
+
 // DELETE id (uses HTML5 form method POST)
 api.post('/delete/:id', function(req, res, next) {
     console.log("Handling DELETE request" + req);
@@ -136,6 +145,7 @@ api.post('/delete/:id', function(req, res, next) {
     console.log("Deleted item " + JSON.stringify(item));
     return res.redirect('/aggregate');
 });
+
 // see app.js for the root request this controller handles
 
 
@@ -143,11 +153,22 @@ api.post('/delete/:id', function(req, res, next) {
 api.get("/", function (request, response) {
   response.render("aggregate_cost/index.ejs");
 });
-
+// get back to the index.
 
 
 
 module.exports = api;
+
+//api functions in order
+//findall
+// delete part for crud functions
+//create part for crud functions
+// details part for crud functions
+//edit part for crud functions
+// handle the save for the new items
+// handle a save for an existing item aka update
+//delete the item with the certain id.
+
 
 // This model is managed by Team R09
 // Sandip Subedi
