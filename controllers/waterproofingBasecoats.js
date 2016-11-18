@@ -1,16 +1,30 @@
 var express = require('express');
 var api = express.Router();
-var find = require('lodash.find');
-var remove = require('lodash.remove');
-var findIndex = require('lodash.findindex');
-var Model = require('../models/waterproofingPrimer.js');
-const notfoundstring = 'No such waterproofing primer';
 // see app.js for the root request this controller handles
 
 // GET to this controller root URI
 api.get("/", function (req, res) {
   return res.render('waterproofing_basecoats/index.ejs');
 });
+
+
+api.get("/details", function (req, res) {
+  return res.render('waterproofing_basecoats/details.ejs');
+});
+
+api.get("/delete", function (req, res) {
+  return res.render('waterproofing_basecoats/delete.ejs');
+});
+
+api.get("/edit", function (req, res) {
+  return res.render('waterproofing_basecoats/edit.ejs');
+});
+
+api.get("/create", function (req, res) {
+  return res.render('waterproofing_basecoats/create.ejs');
+});
+
+
 
 api.get('/findall', function(req, res){
     res.setHeader('Content-Type', 'application/json');
@@ -20,9 +34,6 @@ api.get('/findall', function(req, res){
 
 
 
-module.exports = api;
 
-// This model is managed by Team 4-14
-//Mudduluru Saikrishna
-//Malpani Sresth
-//Govindu Madanamohan
+
+module.exports = api;

@@ -4,7 +4,7 @@
  <h2>Material Waterproofing Basecoat costs</h2>
 
 <p>There are  <%= waterproofingBasecoats.query.length %> waterproofing basecoats. <br/>
-<a href="create.ejs">Add a new one.</a></p>
+<a href="waterproofingBasecoat/create">Add a new one.</a></p>
 
 <table class="table" border="1">
     <thead>
@@ -23,9 +23,19 @@
             <td><%=  waterproofingBasecoats.query[i].displayorder %></td>
             <td><%=  waterproofingBasecoats.query[i].price %></td>
             <td><%=  waterproofingBasecoats.query[i].unit %></td>
-            <td>Delete  Details  Edit</td>
+            <td>
+							<a href="waterproofingBasecoat/delete/<%=  waterproofingBasecoats.query[i]._id %>"> Delete </a> |
+							<a href="/waterproofingBasecoat/details<%= waterproofingBasecoats.query[i]._id %>"> Details </a> |
+							<a href="waterproofingBasecoat/edit/<%=    waterproofingBasecoats.query[i]._id %>"> Edit </a>
+						</td>
          </tr>
          <% } %>
 </tbody>
 </table>
 </div>
+
+<!--  This model is managed by Team 4-14
+Mudduluru Saikrishna
+Malpani Sresth
+Govindu Madanamohan
+-->

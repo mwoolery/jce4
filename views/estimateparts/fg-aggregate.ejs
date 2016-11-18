@@ -1,30 +1,28 @@
+<script src="../js/main.js"></script>
+
 <div class="form-group">
 <label for="usesAggregate">Uses Aggregate?</label>
 <input type="checkbox" class="form-control" id="usesAggregate" name="usesAggregate" >
 </div>
-<div class="form-group">
+<div class="form-group" id="aggregateOptions">
 <label for="aggregateTypeSelection">Aggregate Type</label>
-<div class="funkyradio">
-        <div class="funkyradio-primary">
+<div class="row">
+        <div class="col-md-3 funkyradio funkyradio-primary ">
             <input type="radio" name="radio" id="Sand" checked/>
             <label for="Sand">Sand</label>
         </div>
-        <div class="funkyradio-success">
+        <div class="funkyradio-success funkyradio col-md-3">
             <input type="radio" name="radio" id="Quartz" />
             <label for="Quartz">Quartz</label>
         </div>
-        <div class="funkyradio-warning">
+        <div class="funkyradio-warning funkyradio col-md-3">
             <input type="radio" name="radio" id="Flake" />
             <label for="Flake">Flake</label>
         </div>
-        <div class="funkyradio-danger">
+        <div class="funkyradio-danger  funkyradio col-md-3">
             <input type="radio" name="radio" id="Glass" />
             <label for="Glass">Glass Beads</label>
         </div>
     </div>
-</div>
 
-<!-- // This model is managed by Team R09
-// Sandip Subedi
-// Matthew Woolery
--->
+</div>

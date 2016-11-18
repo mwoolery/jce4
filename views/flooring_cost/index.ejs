@@ -1,7 +1,6 @@
-
 <% console.log(estimatePartFloorings.query); %>
 <div class="container">
- <h2>All entries</h2>
+<h2>All entries</h2>
 
 <p>There are  <%= estimatePartFloorings.query.length %> entries. <br/>
 <a href="create.ejs">Add a new one.</a></p>
@@ -17,7 +16,12 @@
 <% for (var i = 0; i < estimatePartFloorings.query.length; i++) { %>
          <tr>
             <td><%=  estimatePartFloorings.query[i].subtotal %></td>
-            <td>Delete  Details  Edit</td>
+          <!--  <td> Delete Details Edit </td> -->
+            <td>
+                <a href="estimatePartFlooring/delete/<%=  estimatePartFloorings.query[i]._id %>"> Delete </a> |
+                <a href="estimatePartFlooring/details/<%= estimatePartFloorings.query[i]._id %>"> Details </a> |
+                <a href="estimatePartFlooring/edit/<%=    estimatePartFloorings.query[i]._id %>"> Edit </a>
+            </td>
          </tr>
          <% } %>
 </tbody>
@@ -26,5 +30,5 @@
 
 <!-- This model is managed by Team 4-5
      Chaitanya Kiran Moturu
-     Manikanteswara Ra Earla
+     Manikanteswara Rao Earla
      Sainath Gulla -->

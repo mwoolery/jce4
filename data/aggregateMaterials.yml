@@ -1,30 +1,22 @@
 ---
-- 
-  id: 1
-  name: 7992 - 16/30 mesh sand
+- name: 7992 - 16/30 mesh sand
   aggregateType: Sand
   defaultCoverageSqFt: 200
   unit: 100lb bag
   displayorder: 10
   price: 18.80
-- 
-  id: 2
-  name: 86301 - quartz
+- name: 86301 - quartz
   aggregateType: Quartz
   defaultCoverageSqFt: 100
   unit: 50lb bag
   displayorder: 20
   price: 22.15
-- 
-  id: 3
-  name: 86302 - uv stable quartz
+- name: 86302 - uv stable quartz
   type: Quartz
   unit: 50lb bag
   displayorder: 30
   price: 29.00
-- 
-  id: 4
-  name: 86500 - glass beads
+- name: 86500 - glass beads
   type: Glass Beads
   unit: 50lb bag
   displayorder: 40

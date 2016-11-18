@@ -23,7 +23,11 @@
             <td><%=  roofingTopcoats.query[i].displayorder %></td>
             <td><%=  roofingTopcoats.query[i].price %></td>
             <td><%=  roofingTopcoats.query[i].unit %></td>
-            <td>Delete  Details  Edit</td>
+            <td>
+            <a target="blank" href="/roofingTopcoat/delete"<%= roofingTopcoats.query[i].id %>"><%style:"color:red"%>Delete</style></a> | 
+            <a  target="blank" href="/roofingTopcoat/details"  <%= roofingTopcoats.query[i].id %>"> Details</a> |
+            <a target="blank" href="/roofingTopcoat/edit" <%= roofingTopcoats.query[i].id %>">  Edit </a> 
+            </td>
          </tr>
          <% } %>
 </tbody>

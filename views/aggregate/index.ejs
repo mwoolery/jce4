@@ -9,7 +9,6 @@
 <table class="table" border="1">
     <thead>
       <tr>
-        <th>ID</th>
         <th>Name</th>
         <th>Display Order</th>
         <th>Price</th>
@@ -20,22 +19,20 @@
     <tbody>
 <% for (var i = 0; i < aggregateMaterials.query.length; i++) { %>
          <tr>
-            <td><%=  aggregateMaterials.query[i].id %></td>
             <td><%=  aggregateMaterials.query[i].name %></td>
             <td><%=  aggregateMaterials.query[i].displayorder %></td>
             <td><%=  aggregateMaterials.query[i].price %></td>
             <td><%=  aggregateMaterials.query[i].unit %></td>
             <td>
-							<a href="estimatePartAggregate/delete/<%=  aggregateMaterials.query[i]._id %>"> Delete </a> |
-							<a href="estimatePartAggregate/details/<%= aggregateMaterials.query[i]._id %>"> Details </a> |
-							<a href="estimatePartAggregate/edit/<%=    aggregateMaterials.query[i]._id %>"> Edit </a>
-						</td>
+            <a target="blank" href="/aggregateMaterials/delete"<%= aggregateMaterials.query[i].id %>"><%style:"color:red"%>Delete</style></a> | 
+            <a  target="blank" href="/aggregateMaterials/details"  <%= aggregateMaterials.query[i].id %>"> Details</a> |
+            <a target="blank" href="/aggregateMaterials/edit" <%= aggregateMaterials.query[i].id %>">  Edit </a> 
+            
+            </td>
          </tr>
          <% } %>
 </tbody>
 </table>
 </div>
-<!-- // This model is managed by Team R09
-// Sandip Subedi
-// Matthew Woolery
---> 
+//Malipatlolla Harshavardhan Reddy
+//Rakesh Reddy Pakala

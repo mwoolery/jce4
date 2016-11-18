@@ -1,5 +1,6 @@
 var express = require('express');
 var api = express.Router();
+
 var find = require('lodash.find');
 var remove = require('lodash.remove');
 var findIndex = require('lodash.findindex');
@@ -14,14 +15,16 @@ const notfoundstring = 'No such waterproofing estimates';
 
 // HANDLE JSON REQUESTS --------------------------------------------
 
+
 //Base:  api/waterproofingEstimate
 
 //GET /api/waterproofingEstimate
 api.get("/", function (request, response) {
-  response.render("waterproofing/index.ejs");
+  response.render("waterproofing/waterproofing.ejs");
 });
 
 // GET /api/waterproofingEstimate/{id}
+
 
 api.get('/findall', function(req, res){
     res.setHeader('Content-Type', 'application/json');
@@ -38,10 +41,12 @@ api.get('/findone/:id', function(req, res){
     res.send(JSON.stringify(item));
 });
 
+
 //GET create 
 api.get("/create", function (request, response) {
   response.render("waterproofing/create.ejs");
 });
+
 
 // GET /delete/:id
 api.get('/delete/:id', function(req, res) {
@@ -143,3 +148,4 @@ module.exports = api;
 // This model is managed by Team 4-03
 // Sai Venkat Poorna Chandu Bhogireddy
 // Santosh Ravi Teja Goteti
+

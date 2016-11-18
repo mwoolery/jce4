@@ -5,12 +5,5 @@
     "aggregateMaterialSelection": "7992 - 16/30 mesh sand",
     "coverageSqFt": 100,
     "subtotal": 0
-  },
-   {
-    "isUsed": false,
-    "aggregateTypeSelection": "Rock",
-    "aggregateMaterialSelection": "1029 - 16/30 rock",
-    "coverageSqFt": 500,
-    "subtotal": 10
   }
 ]

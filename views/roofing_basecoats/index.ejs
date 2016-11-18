@@ -3,7 +3,7 @@
  <h2>Material roofing basecoat costs</h2>
 
 <p>There are  <%= roofingBasecoats.query.length %> roofing basecoats. <br/>
-<a href="create.ejs">Add a new one.</a></p>
+<a target="blank" href="/roofingBasecoat/create">Add a new one.</a></p>
 
 <table class="table" border="1">
     <thead>
@@ -22,9 +22,18 @@
             <td><%=  roofingBasecoats.query[i].displayorder %></td>
             <td><%=  roofingBasecoats.query[i].price %></td>
             <td><%=  roofingBasecoats.query[i].unit %></td>
-            <td>Delete  Details  Edit</td>
+            <td>
+            <a target="blank" href="/roofingBasecoat/delete"<%= roofingBasecoats.query[i].id %>"><%style:"color:red"%>Delete</style></a> | 
+            <a  target="blank" href="/roofingBasecoat/details"  <%= roofingBasecoats.query[i].id %>"> Details</a> |
+            <a target="blank" href="/roofingBasecoat/edit" <%= roofingBasecoats.query[i].id %>">  Edit </a> 
+            
+            </td>
          </tr>
          <% } %>
 </tbody>
 </table>
 </div>
+<!-- These views are managed by Team 4-13-->
+<!-- Jaswanth Jonnalagadda-->
+<!--Haritha Arikapudi-->
+<!--Susmitha patlolla-->

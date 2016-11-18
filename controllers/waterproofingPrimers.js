@@ -7,7 +7,7 @@ var Model = require('../models/waterproofingPrimer.js');
 const notfoundstring = 'No such waterproofing primer';
 
 // See app.js to find default view folder (e.g.,"views")
-// see app.js to find  default URI for this controller (e.g., "waterproofingPrimer")   
+// see app.js to find  default URI for this controller (e.g., "waterproofingPrimer")
 // Specify the handler for each required combination of URI and HTTP verb 
 // HTML5 forms can only have GET and POST methods (use POST for DELETE)
 
@@ -141,8 +141,3 @@ api.post('/delete/:id', function(req, res, next) {
 });
 
 module.exports = api;
-
-// This model is managed by Team 4-14
-//Mudduluru Saikrishna
-//Malpani Sresth
-//Govindu Madanamohan

@@ -1,9 +1,7 @@
 <h2>Recent waterproofing estimates</h2>
 <p>There are  <%= waterproofingEstimates.query.length %> waterproofing estimates. <br/>
 <a href="/waterproofingEstimate/create">Add a new one.</a></p>
-<% c=0; %>
 <% for(var item in waterproofingEstimates.query) { %>
-<% c++; %>
 <div class="panel panel-default">
 <div class="panel-heading">
 <div class="text-muted pull-right">
@@ -15,18 +13,10 @@
 <% include ..\..\views\estimateparts\est-aggregate %>
 <% include ..\..\views\estimateparts\est-labor %>
 <% include ..\..\views\estimateparts\est-mileage %>
-<% include ..\..\views\estimateparts\est-misc %> 
+<% include ..\..\views\estimateparts\est-misc %>
 <% include ..\..\views\estimateparts\est-result %>
 <div class="panel-body">
 <%= waterproofingEstimates.comment %>
-<a href="/waterproofingEstimate/delete/<%= c %>">delete</a> |
-<a href="/waterproofingEstimate/details/<%= c %>">details</a> |
-<a href="/waterproofingEstimate/edit/<%= c %>">edit</a>
-
-
 </div>
 </div>
 <% } %>
-<!-- This model is managed by Team 4-03
-Sai Venkat Poorna Chandu Bhogireddy
-Santosh Ravi Teja Goteti -->

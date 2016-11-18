@@ -10,3 +10,7 @@ var RoofingTopcoatSchema = new Schema({
 
 var roofingTopcoat = mongoose.model('RoofingTopcoat', RoofingTopcoatSchema)
 module.exports = roofingTopcoat
+//This model is managed by Team 4-13
+// Jonnalagadda Jaswanth
+// Haritha Arikapudi
+// Susmitha patlolla
