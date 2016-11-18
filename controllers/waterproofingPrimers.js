@@ -128,15 +128,9 @@ api.post('/save/:id', function(req, res) {
     return res.redirect('/waterproofingPrimer');
 });
 
-<<<<<<< HEAD
-// DEvarE id (uses HTML5 form method POST)
-api.post('/devare/:id', function(req, res, next) {
-    console.log("Handling DEvarE request" + req);
-=======
 // DELETE id (uses HTML5 form method POST)
 api.post('/delete/:id', function(req, res, next) {
     console.log("Handling DELETE request" + req);
->>>>>>> 92697d2737a2629cef882c3bc89b9bccae834385
     var id = parseInt(req.params.id);
     console.log("Handling REMOVING ID=" + id);
     var data = req.app.locals.waterproofingPrimers.query;

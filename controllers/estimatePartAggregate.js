@@ -150,12 +150,6 @@ api.post('/delete/:id', function(req, res, next) {
 api.get("/", function (request, response) {
   response.render("aggregate_cost/index.ejs");
 });
-<<<<<<< HEAD
-=======
-// get back to the index.
-
-
->>>>>>> 95df99b8a8480a3b36db7496338177641e4cb5fa
 
 module.exports = api;
 
