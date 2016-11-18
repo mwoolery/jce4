@@ -9,10 +9,6 @@ api.get("/", function (req, res) {
   return res.render('waterproofing_topcoats/index.ejs');
 });
 
-<<<<<<< HEAD
-
-=======
->>>>>>> 4346a327c4ce3685a64cdf2ec315838906841661
 api.get("/delete", function (req, res) {
   return res.render('waterproofing_topcoats/delete.ejs');
 });
@@ -43,8 +39,6 @@ module.exports = api;
 //Malpani Sresth
 //Govindu Madanamohan
 
-<<<<<<< HEAD
 module.exports = api;
 
-=======
->>>>>>> 4346a327c4ce3685a64cdf2ec315838906841661
+

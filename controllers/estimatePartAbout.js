@@ -14,6 +14,22 @@ api.get("/", function (request, response) {
   response.render("about/index.ejs");
 });
 
+api.get('/findall', function(req, res){
+    res.setHeader('Content-Type', 'application/json');
+    var data = req.app.locals.estimatePartAbouts.query;
+    res.send(JSON.stringify(data));
+});
+
+api.get('/findone/:id', function(req, res){
+     res.setHeader('Content-Type', 'application/json');
+    var id = parseInt(req.params.id);
+    var data = req.app.locals.estimatePartAbouts.query;
+    var item = find(data, { '_id': id });
+    if (!item) { return res.end(notfoundstring); }
+    res.send(JSON.stringify(item));
+});
+
+
 // GET create
 api.get("/create", function(req, res) {
     console.log('Handling GET /create' + req);
@@ -52,6 +68,7 @@ api.get('/details/:id', function(req, res) {
             waterproofingPrimer: item
         });
 });
+
 
 // GET one
 api.get('/edit/:id', function(req, res) {

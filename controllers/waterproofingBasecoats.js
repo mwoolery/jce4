@@ -32,10 +32,6 @@ api.get('/findall', function(req, res){
     res.send(JSON.stringify(data));
 });
 
-<<<<<<< HEAD
-
-=======
->>>>>>> 4346a327c4ce3685a64cdf2ec315838906841661
 
 
 
