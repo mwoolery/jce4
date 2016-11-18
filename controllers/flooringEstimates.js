@@ -42,14 +42,14 @@ api.get("/", function (request, response) {
 api.get('/', function(req, res) {
     console.log("Handling GET " + req);
     return res.render('flooring/index.ejs',
-        { title: "R Estimates", layout: "layout.ejs" });
+        { title: "F Estimates", layout: "layout.ejs" });
 });
 
 // GET create
 api.get("/create", function(req, res) {
     console.log('Handling GET /create' + req);
     res.render("flooring/create.ejs",
-        { title: "R Estimates", layout: "layout.ejs" });
+        { title: "F Estimates", layout: "layout.ejs" });
 });
 
 // GET /delete/:id
@@ -62,7 +62,7 @@ api.get('/delete/:id', function(req, res) {
     console.log("RETURNING VIEW FOR" + JSON.stringify(item));
     return res.render('flooring/delete.ejs',
         {
-            title: "R Estimates",
+            title: "F Estimates",
             layout: "layout.ejs",
             flooringEstimate: item
         });
@@ -78,7 +78,7 @@ api.get('/details/:id', function(req, res) {
     console.log("RETURNING VIEW FOR" + JSON.stringify(item));
     return res.render('flooring/details.ejs',
         {
-            title: "R Estimates",
+            title: "F Estimates",
             layout: "layout.ejs",
             flooringEstimate: item
         });
@@ -94,7 +94,7 @@ api.get('/edit/:id', function(req, res) {
     console.log("RETURNING VIEW FOR" + JSON.stringify(item));
     return res.render('flooring/edit.ejs',
         {
-            title: "R Estimates",
+            title: "F Estimates",
             layout: "layout.ejs",
             flooringEstimate: item
         });

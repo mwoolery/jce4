@@ -5,10 +5,10 @@ var expect = require("chai").expect;
 const appport = 8081;
 const appname = "jce";
 const testId = 1;
-const resourceName = "waterproofingPrimers";  
+const resourceName = "estimatePartAggregate";  
 var app = express();
 
-describe("Materials - estimate part labor primers unit test",function(){
+describe("Aggregate Test",function(){
 
   it("should return index page",function(done){
     request(app)
@@ -52,3 +52,4 @@ describe("Materials - estimate part labor primers unit test",function(){
   });
 
 });
+//code managed by Matthew Woolery and Sandip Subedi
