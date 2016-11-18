@@ -3,60 +3,61 @@ var api = express.Router();
 var find = require('lodash.find');
 var remove = require('lodash.remove');
 var findIndex = require('lodash.findindex');
-var Model = require('../models/estimatePartLabor.js');
-const notfoundstring = 'No such estimate PartLabor';
+var Model = require('../models/mileageRate.js');
+const notfoundstring = 'No such mileage rate';
 
-
+// see app.js for the root request this controller handles
 // See app.js to find default view folder (e.g.,"views")
-// see app.js to find  default URI for this controller (e.g., "waterproofingPrimer")
+// see app.js to find  default URI for this controller (e.g., "mileageRate")
 // Specify the handler for each required combination of URI and HTTP verb 
 // HTML5 forms can only have GET and POST methods (use POST for DELETE)
-
 
 // HANDLE JSON REQUESTS --------------------------------------------
 
 api.get('/findall', function(req, res){
     res.setHeader('Content-Type', 'application/json');
-    var data = req.app.locals.estimatePartLabors.query;
+    var data = req.app.locals.mileageRates.query;
     res.send(JSON.stringify(data));
 });
 
 api.get('/findone/:id', function(req, res){
-    res.setHeader('Content-Type', 'application/json');
-    var data = req.app.locals.estimatePartLabors.query[0].entries;
-    var item = data.find(function(dt){ { return dt._id==req.params.id; }});
+     res.setHeader('Content-Type', 'application/json');
+    var id = parseInt(req.params.id);
+    var data = req.app.locals.mileageRates.query;
+    var item = find(data, { '_id': id });
+    if (!item) { return res.end(notfoundstring); }
     res.send(JSON.stringify(item));
 });
 
+// HANDLE VIEW DISPLAY REQUESTS --------------------------------------------
 
-// see app.js for the root request this controller handles
-
-// GET to this controller root URI
-api.get("/", function (request, response) {
-  response.render("labor_cost/index.ejs");
+// GET all
+api.get('/', function(req, res) {
+    console.log("Handling GET " + req);
+    return res.render('mileage_rate/index.ejs',
+        { title: "WP Primers", layout: "layout.ejs" });
 });
-
 
 // GET create
 api.get("/create", function(req, res) {
     console.log('Handling GET /create' + req);
-    res.render("labor_cost/create.ejs",
-        { title: "WP Primers", layout: "layout.ejs" });
+    res.render("mileage_rate/create.ejs",
+        { title: "Mileage Rates", layout: "layout.ejs" });
 });
 
 // GET /delete/:id
 api.get('/delete/:id', function(req, res) {
     console.log("Handling GET /delete/:id " + req);
     var id = parseInt(req.params.id);
-    var data = req.app.locals.waterproofingPrimers.query;
+    var data = req.app.locals.mileageRates.query;
     var item = find(data, { '_id': id });
     if (!item) { return res.end(notfoundstring); }
     console.log("RETURNING VIEW FOR" + JSON.stringify(item));
-    return res.render('labor_cost/delete.ejs',
+    return res.render('mileage_rate/delete.ejs',
         {
-            title: "WP Primers",
+            title: "Mileage Rates",
             layout: "layout.ejs",
-            waterproofingPrimer: item
+            mileageRate: item
         });
 });
 
@@ -64,15 +65,15 @@ api.get('/delete/:id', function(req, res) {
 api.get('/details/:id', function(req, res) {
     console.log("Handling GET /details/:id " + req);
     var id = parseInt(req.params.id);
-    var data = req.app.locals.waterproofingPrimers.query;
+    var data = req.app.locals.mileageRates.query;
     var item = find(data, { '_id': id });
     if (!item) { return res.end(notfoundstring); }
     console.log("RETURNING VIEW FOR" + JSON.stringify(item));
-    return res.render('labor_cost/details.ejs',
+    return res.render('mileage_rate/details.ejs',
         {
-            title: "WP Primers",
+            title: "Mileage Rates",
             layout: "layout.ejs",
-            waterproofingPrimer: item
+            mileageRate: item
         });
 });
 
@@ -80,15 +81,15 @@ api.get('/details/:id', function(req, res) {
 api.get('/edit/:id', function(req, res) {
     console.log("Handling GET /edit/:id " + req);
     var id = parseInt(req.params.id);
-    var data = req.app.locals.waterproofingPrimers.query;
+    var data = req.app.locals.mileageRates.query;
     var item = find(data, { '_id': id });
     if (!item) { return res.end(notfoundstring); }
     console.log("RETURNING VIEW FOR" + JSON.stringify(item));
-    return res.render('labor_cost/edit.ejs',
+    return res.render('mileage_rate/edit.ejs',
         {
-            title: "WP Primers",
+            title: "Mileage Rates",
             layout: "layout.ejs",
-            waterproofingPrimer: item
+            mileageRate: item
         });
 });
 
@@ -97,7 +98,7 @@ api.get('/edit/:id', function(req, res) {
 // POST new
 api.post('/save', function(req, res) {
     console.log("Handling POST " + req);
-    var data = req.app.locals.waterproofingPrimers.query;
+    var data = req.app.locals.mileageRates.query;
     var item = new Model;
     console.log("NEW ID " + req.body._id);
     item._id = parseInt(req.body._id);
@@ -107,7 +108,7 @@ api.post('/save', function(req, res) {
     item.displayorder = parseInt(req.body.displayorder);
     data.push(item);
     console.log("SAVING NEW ITEM " + JSON.stringify(item));
-    return res.redirect('/estimatePartLabor');
+    return res.redirect('/mileageRate');
 });
 
 // POST update
@@ -115,7 +116,7 @@ api.post('/save/:id', function(req, res) {
     console.log("Handling SAVE request" + req);
     var id = parseInt(req.params.id);
     console.log("Handling SAVING ID=" + id);
-    var data = req.app.locals.waterproofingPrimers.query;
+    var data = req.app.locals.mileageRates.query;
     var item = find(data, { '_id': id });
     if (!item) { return res.end(notfoundstring); }
     console.log("ORIGINAL VALUES " + JSON.stringify(item));
@@ -125,7 +126,7 @@ api.post('/save/:id', function(req, res) {
     item.price = req.body.price;
     item.displayorder = req.body.displayorder;
     console.log("SAVING UPDATED ITEM " + JSON.stringify(item));
-    return res.redirect('/estimatePartLabor');
+    return res.redirect('/mileageRate');
 });
 
 // DELETE id (uses HTML5 form method POST)
@@ -133,11 +134,11 @@ api.post('/delete/:id', function(req, res, next) {
     console.log("Handling DELETE request" + req);
     var id = parseInt(req.params.id);
     console.log("Handling REMOVING ID=" + id);
-    var data = req.app.locals.waterproofingPrimers.query;
+    var data = req.app.locals.mileageRates.query;
     var item = remove(data, { '_id': id });
     if (!item) { return res.end(notfoundstring); }
     console.log("Deleted item " + JSON.stringify(item));
-    return res.redirect('/estimatePartLabor');
+    return res.redirect('/mileageRate');
 });
 
 

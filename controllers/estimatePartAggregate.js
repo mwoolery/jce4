@@ -7,7 +7,6 @@ const notfoundstring = 'No such Estimate Part Aggregate';
 
 
 // see app.js for the root request this controller handles
-
 // see app.js to find  default URI for this controller (e.g., "estimatePartAggregate")
 // Specify the handler for each required combination of URI and HTTP verb 
 // HTML5 forms can only have GET and POST methods (use POST for DELETE)
@@ -15,65 +14,58 @@ const notfoundstring = 'No such Estimate Part Aggregate';
 /**
  * We need to have 5 methods ...
  */
-
-
-// HANDLE JSON REQUESTS --------------------------------------------
-api.get('/findall', function(req,res){
-  res.setHeader('Content-Type','application/json');
-  var data = req.app.locals.estimatePartAggregates.query;
-  res.send(JSON.stringify(data));
+api.get('/findall', function(req, res){
+    res.setHeader('Content-Type', 'application/json');
+    var data = req.app.locals.estimatePartAggregate.query;
+    res.send(JSON.stringify(data));
 });
 
-api.get('/findone/:id', function(req, res){
-     res.setHeader('Content-Type', 'application/json');
-    var id = parseInt(req.params.id);
-    var data = req.app.locals.estimatePartAggregates.query;
-    var item = find(data, { '_id': id });
-    if (!item) { return res.end(notfoundstring); }
-    res.send(JSON.stringify(item));
+// findall
+
+//find all
+
+api.get('/delete/:id', function(req, res){
+    // res.setHeader('Content-Type', 'application/html');
+    var data = req.app.locals.estimatePartAggregate.query[0].entries;
+    id = req.params.id;
+    var item = data.find(function(dt){
+    	return dt._id==id;
+    });
+    console.log("delete data ",item);
+    if(!item){
+    	 res.end(notfoundstring);
+    }
+    console.log("RETURNING VIEW FOR"+ JSON.stringify(item));
+     res.render('aggregate_cost/delete.ejs',{
+    	title: "Aggregate Costs",
+    	layout: "layout.ejs",
+    	estimatePartAggregate: item
+    });
 });
 
 
-// GET to this controller root URI
-api.get("/", function (request, response) {
-  response.render("aggregate/index.ejs");
-});
 
+// GET create
 api.get("/create", function(req, res) {
     console.log('Handling GET /create' + req);
-    res.render("aggregate/create.ejs",
-        { title: "Aggregate", layout: "layout.ejs" });
+    res.render("aggregate_cost/create.ejs",
+        { title: "Aggregate Cost", layout: "layout.ejs" });
 });
 
-// GET /delete/:id
-api.get('/delete/:id', function(req, res) {
-    console.log("Handling GET /delete/:id " + req);
-    var id = parseInt(req.params.id);
-    var data = req.app.locals.estimatePartAggregates.query;
-    var item = find(data, { '_id': id });
-    if (!item) { return res.end(notfoundstring); }
-    console.log("RETURNING VIEW FOR" + JSON.stringify(item));
-    return res.render('aggregate/delete.ejs',
-        {
-            title: "Aggregate",
-            layout: "layout.ejs",
-            aggregate: item
-        });
-});
 
 // GET /details/:id
 api.get('/details/:id', function(req, res) {
     console.log("Handling GET /details/:id " + req);
     var id = parseInt(req.params.id);
-    var data = req.app.locals.estimatePartAggregates.query;
+    var data = req.app.locals.estimatePartAggregate.query[0].entries;
     var item = find(data, { '_id': id });
     if (!item) { return res.end(notfoundstring); }
     console.log("RETURNING VIEW FOR" + JSON.stringify(item));
-    return res.render('aggregate/details.ejs',
+    return res.render('aggregate_cost/details.ejs',
         {
-            title: "Aggregate",
+            title: "Aggregate Cost",
             layout: "layout.ejs",
-            aggregate: item
+            estimatePartAggregate: item
         });
 });
 
@@ -81,24 +73,25 @@ api.get('/details/:id', function(req, res) {
 api.get('/edit/:id', function(req, res) {
     console.log("Handling GET /edit/:id " + req);
     var id = parseInt(req.params.id);
-    var data = req.app.locals.estimatePartAggregates.query;
+    var data = req.app.locals.estimatePartAggregate.query[0].entries;
     var item = find(data, { '_id': id });
     if (!item) { return res.end(notfoundstring); }
     console.log("RETURNING VIEW FOR" + JSON.stringify(item));
-    return res.render('aggregate/edit.ejs',
+    return res.render('aggregate_cost/edit.ejs',
         {
-            title: "Aggregate",
+            title: "estimatePartAggregate",
             layout: "layout.ejs",
-            aggregate: item
+            estimatePartAggregate: item
         });
 });
+
 
 // HANDLE EXECUTE DATA MODIFICATION REQUESTS --------------------------------------------
 
 // POST new
 api.post('/save', function(req, res) {
     console.log("Handling POST " + req);
-    var data = req.app.locals.estimatePartAggregates.query;
+    var data = req.app.locals.estimatePartAggregate.query[0].entries;
     var item = new Model;
     console.log("NEW ID " + req.body._id);
     item._id = parseInt(req.body._id);
@@ -111,12 +104,13 @@ api.post('/save', function(req, res) {
     return res.redirect('/aggregate');
 });
 
+
 // POST update
 api.post('/save/:id', function(req, res) {
     console.log("Handling SAVE request" + req);
     var id = parseInt(req.params.id);
     console.log("Handling SAVING ID=" + id);
-    var data = req.app.locals.estimatePartAggregates.query;
+    var data = req.app.locals.estimatePartAggregate.query[0].entries;
     var item = find(data, { '_id': id });
     if (!item) { return res.end(notfoundstring); }
     console.log("ORIGINAL VALUES " + JSON.stringify(item));
@@ -129,21 +123,42 @@ api.post('/save/:id', function(req, res) {
     return res.redirect('/aggregate');
 });
 
+
 // DELETE id (uses HTML5 form method POST)
 api.post('/delete/:id', function(req, res, next) {
     console.log("Handling DELETE request" + req);
     var id = parseInt(req.params.id);
     console.log("Handling REMOVING ID=" + id);
-    var data = req.app.locals.estimatePartAggregates.query;
+    var data = req.app.locals.estimatePartAggregate.query[0].entries;
     var item = remove(data, { '_id': id });
     if (!item) { return res.end(notfoundstring); }
     console.log("Deleted item " + JSON.stringify(item));
     return res.redirect('/aggregate');
 });
 
+// see app.js for the root request this controller handles
 
 
-module.exports = api; // at the very end
+// GET to this controller root URI
+api.get("/", function (req, res) {
+    console.log("--- index part was requestted ----");
+     console.log("Handling GET " + req);
+    return res.render('aggregate_cost/index.ejs',
+        { title: "Estimate Parts", layout: "layout.ejs" });
+});
+
+module.exports = api;
+
+//api functions in order
+//findall
+// delete part for crud functions
+//create part for crud functions
+// details part for crud functions
+//edit part for crud functions
+// handle the save for the new items
+// handle a save for an existing item aka update
+//delete the item with the certain id.
+
 
 // This model is managed by Team R09
 // Sandip Subedi
