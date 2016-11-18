@@ -16,7 +16,7 @@ const notfoundstring = 'No such waterproofing primer';
 // HANDLE JSON REQUESTS --------------------------------------------
 api.get('/findall', function(req, res){
     res.setHeader('Content-Type', 'application/json');
-    let data = req.app.locals.roofingEstimates.query;
+    var data = req.app.locals.roofingEstimates.query;
     res.send(JSON.stringify(data));
 });
 

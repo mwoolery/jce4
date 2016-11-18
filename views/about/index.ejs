@@ -18,7 +18,10 @@
          <tr>
             <td><%=  estimatePartAbouts.query[i].client %></td>
             <td><%=  estimatePartAbouts.query[i].city %></td>
-            <td>Delete  Details  Edit</td>
+            <td><a href="estimatePartAbout/delete/<%= i+1 %>"> Delete</a> 
+            <a href="estimatePartAbout/details/<%= i+1 %>"> Details</a>
+            <a href="estimatePartAbout/edit/<%= i+1 %>"> Edit</a>
+          </td>
          </tr>
          <% } %>
 </tbody>
