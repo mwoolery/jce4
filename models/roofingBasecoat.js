@@ -11,6 +11,7 @@ var RoofingBasecoatSchema = new Schema({
 
 var roofingBasecoat = mongoose.model('RoofingBasecoat', RoofingBasecoatSchema)
 module.exports = roofingBasecoat
-// This model is managed by Team 3-13
-// Gajula, Vineeth
-// Emani, Venkata Sainath Reddy
+// This model is managed by Team 4-13
+// Jaswanth Jonnalagadda
+// Haritha Arikapudi
+//Sushmitha Patlola
