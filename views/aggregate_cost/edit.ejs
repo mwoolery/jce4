@@ -3,38 +3,38 @@
 <h2>Edit waterproofing primer product</h2>
 <div class="content">
 	<div>
-		<form method="POST" action="/waterproofingPrimer/save/<%= waterproofingPrimer._id %>">
+		<form method="POST" action="/estimatePartAggregate/save/<%= estimatePartAggregate._id %>">
 
 			<div class="form-group" id=frm>
 				<label for="_id">ID</label>
-				<input type="number" class="form-control" id="_id" name="_id" value="<%= waterproofingPrimer._id %>" required disabled>
+				<input type="number" class="form-control" id="_id" name="_id" value="<%= estimatePartAggregate._id %>" required disabled>
 			</div>
 
 			<div class="form-group">
 				<label for="name">Name</label>
-				<input type="text" class="form-control" id="name" name="name" value="<%= waterproofingPrimer.name %>" required>
+				<input type="text" class="form-control" id="name" name="name" value="<%= estimatePartAggregate.name %>" required>
 			</div>
 
 			<div class="form-group">
 				<label for="unit">Unit</label>
-				<input type="text" class="form-control" id="unit" name="unit" value="<%= waterproofingPrimer.unit %>" required>
+				<input type="text" class="form-control" id="unit" name="unit" value="<%= estimatePartAggregate.unit %>" required>
 			</div>
 
 			<div class="form-group">
 				<label for="price">Price</label>
-				<input type="number" class="form-control" id="price" name="price" value="<%= waterproofingPrimer.price %>" required>
+				<input type="number" class="form-control" id="price" name="price" value="<%= estimatePartAggregate.price %>" required>
 			</div>
 
 			<div class="form-group">
 				<label for="displayorder">Display Order</label>
-				<input type="number" class="form-control" id="displayorder" name="displayorder" value="<%= waterproofingPrimer.displayorder %>"
+				<input type="number" class="form-control" id="displayorder" name="displayorder" value="<%= estimatePartAggregate.displayorder %>"
 					required>
 			</div>
 
 			<input type="submit" value="Save" class="btn btn-primary" />
 		</form>
 		<br/>
-		<form method="get" action="/waterproofingPrimer">
+		<form method="get" action="/estimatePartAggregate">
 			<input type="submit" value="Return to list" class="btn btn-caution" />
 		</form>
 	</div>
@@ -42,4 +42,5 @@
 
 <!--// This model is managed by Team R09
 // Sandip Subedi
+Dhanalakota Neelesh Varma
 // Matthew Woolery-->
