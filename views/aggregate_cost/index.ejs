@@ -9,16 +9,26 @@
 <table class="table" border="1">
     <thead>
       <tr>
+        <th>ID</th>
         <th>isUsed?</th>
         <th>Type</th>
+        <th>Selection </th>
+        <th>Coverage</th>
+        <th>subtotal</th>
        <th>Actions</th>
     </tr>
     </thead>
     <tbody>
 <% for (var i = 0; i < estimatePartAggregates.query.length; i++) { %>
          <tr>
+            <td><%=  estimatePartAggregates.query[i].id %></td>
             <td><%=  estimatePartAggregates.query[i].isUsed %></td>
             <td><%=  estimatePartAggregates.query[i].aggregateTypeSelection %></td>
+            <td><%=  estimatePartAggregates.query[i].aggregateMaterialSelection %></td>
+            <td><%=  estimatePartAggregates.query[i].coverageSqFt %></td>
+            <td><%=  estimatePartAggregates.query[i].subtotal %></td>
+
+
             <td>
              <a target="blank" href="/estimatePartAggregate/delete/"<%= estimatePartAggregates.query[i].id %>"><%style:"color:red"%>Delete</style></a> | 
             <a  target="blank" href="/estimatePartAggregate/details/"  <%= estimatePartAggregates.query[i].id %>"> Details</a> |
