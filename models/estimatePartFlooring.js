@@ -15,8 +15,3 @@ var EstimatePartFlooringSchema = new Schema({
 
 var estimatePartFlooring = mongoose.model('EstimatePartFlooring', EstimatePartFlooringSchema)
 module.exports = estimatePartFlooring
-
-// This model is managed by Team 4-5
-// Chaitanya Kiran Moturu
-// Manikanteswara Ra Earla
-// Sainath Gulla

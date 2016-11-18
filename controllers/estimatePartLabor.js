@@ -1,5 +1,6 @@
 var express = require('express');
 var api = express.Router();
+<<<<<<< HEAD
 var find = require('lodash.find');
 var remove = require('lodash.remove');
 var findIndex = require('lodash.findindex');
@@ -27,6 +28,8 @@ api.get('/findone/:id', function(req, res){
     var item = data.find(function(dt){ { return dt._id==req.params.id; }});
     res.send(JSON.stringify(item));
 });
+=======
+>>>>>>> 4346a327c4ce3685a64cdf2ec315838906841661
 
 
 // see app.js for the root request this controller handles
@@ -37,6 +40,7 @@ api.get("/", function (request, response) {
 });
 
 
+<<<<<<< HEAD
 // GET create
 api.get("/create", function(req, res) {
     console.log('Handling GET /create' + req);
@@ -139,6 +143,8 @@ api.post('/delete/:id', function(req, res, next) {
     console.log("Deleted item " + JSON.stringify(item));
     return res.redirect('/estimatePartLabor');
 });
+=======
+>>>>>>> 4346a327c4ce3685a64cdf2ec315838906841661
 
 
 module.exports = api;
