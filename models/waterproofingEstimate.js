@@ -8,6 +8,7 @@ var mongoose = require('mongoose')
   , Mileage = require('./estimatePartMileage.js')
   , Miscellaneous = require('./estimatePartAbout.js')
 
+
 var WaterproofingEstimateSchema = new Schema({
   about: { type: Schema.Types.ObjectId, ref: About },
   footage: { type: Schema.Types.ObjectId, ref: Footage },
