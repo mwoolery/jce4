@@ -47,6 +47,7 @@ api.get('/delete/:id', function(req, res){
 
 // GET create
 api.get("/create", function(req, res) {
+    console.log("---- create was called ---");
     console.log('Handling GET /create' + req);
     res.render("aggregate_cost/create.ejs",
         { title: "Aggregate Cost", layout: "layout.ejs" });
@@ -75,8 +76,13 @@ api.get('/edit/:id', function(req, res) {
     var id = parseInt(req.params.id);
     var data = req.app.locals.estimatePartAggregates.query;
     var item = find(data, { '_id': id });
-    if (!item) { return res.end(notfoundstring); }
+    console.log("----------");
+    console.log("Item was : " + item);
+    if (!item) { 
+        console.log('-- no item found ---');
+        return res.end(notfoundstring); }
     console.log("RETURNING VIEW FOR" + JSON.stringify(item));
+    console.log((item._id));
     return res.render('aggregate_cost/edit.ejs',
         {
             title: "estimatePartAggregate",

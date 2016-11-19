@@ -3,19 +3,19 @@
 <br/>
 <h2>Create a new waterproofing primer product</h2>
 <p>There are currently
-	<%= waterproofingPrimers.query.length %> waterproofing primers. </p>
+	<%= estimatePartAggregate.query.length %> waterproofing primers. </p>
 <br/>
 <% 
 maxID=0; 
-for (var i=0; i<waterproofingPrimers.query.length; i++) {
-    if(waterproofingPrimers.query[i]._id > maxID) {
-        maxID=waterproofingPrimers.query[i]._id;
+for (var i=0; i<estimatePartAggregate.query.length; i++) {
+    if(estimatePartAggregate.query[i]._id > maxID) {
+        maxID=estimatePartAggregate.query[i]._id;
         }
 }
 maxDisplayorder=0; 
-for (var i=0; i<waterproofingPrimers.query.length; i++) {
-    if(waterproofingPrimers.query[i].displayorder > maxDisplayorder) {
-        maxDisplayorder=waterproofingPrimers.query[i].displayorder;
+for (var i=0; i<estimatePartAggregate.query.length; i++) {
+    if(estimatePartAggregate.query[i].displayorder > maxDisplayorder) {
+        maxDisplayorder=estimatePartAggregate.query[i].displayorder;
         }
 }
 %>
@@ -25,7 +25,7 @@ for (var i=0; i<waterproofingPrimers.query.length; i++) {
 		<%= maxDisplayorder %>. </p><br/>
 	<div class="content">
 		<div>
-			<form name="waterproofingPrimer" method="POST" action="/waterproofingPrimer/save" + _id.value>
+			<form name="estimatePartAggregate" method="POST" action="/estimatePartAggregate/save" + _id.value>
 
 				<div class="form-group" id=frm>
 					<label for="_id">ID</label>
@@ -33,22 +33,26 @@ for (var i=0; i<waterproofingPrimers.query.length; i++) {
 				</div>
 
 				<div class="form-group">
-					<label for="name">Name</label>
+					<label for="name">isUsed?</label>
 					<input type="text" class="form-control" id="name" name="name" value="Name" required>
 				</div>
 
 				<div class="form-group">
-					<label for="unit">Unit</label>
+					<label for="unit">Aggregae Type Selection</label>
 					<input type="text" class="form-control" id="unit" name="unit" value="gal" required>
 				</div>
 
 				<div class="form-group">
-					<label for="price">Price</label>
+					<label for="price">Aggreate Material Selection</label>
 					<input type="text" class="form-control" id="price" name="price" value="30" required>
 				</div>
 
 				<div class="form-group">
-					<label for="displayorder">Display Order</label>
+					<label for="displayorder">Coverage Sq. Ft.</label>
+					<input type="number" class="form-control" id="displayorder" name="displayorder" value="<%= maxDisplayorder+10 %>" required>					required>
+				</div>
+				<div class="form-group">
+					<label for="displayorder">Sub Total</label>
 					<input type="number" class="form-control" id="displayorder" name="displayorder" value="<%= maxDisplayorder+10 %>" required>					required>
 				</div>
 
@@ -57,7 +61,7 @@ for (var i=0; i<waterproofingPrimers.query.length; i++) {
 				</div>
 			</form>
 			<br/>
-			<form method="get" action="/waterproofingPrimer">
+			<form method="get" action="/estimatePartAggregate">
 				<input type="submit" value="Return to list" class="btn btn-caution" />
 			</form>
 		</div>
