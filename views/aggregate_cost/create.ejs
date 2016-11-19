@@ -1,9 +1,9 @@
 <br/>
 
 <br/>
-<h2>Create a new waterproofing primer product</h2>
+<h2>Create a new aggregate cost</h2>
 <p>There are currently
-	<%= estimatePartAggregate.query.length %> waterproofing primers. </p>
+	<%= estimatePartAggregate.query.length %> Aggregate  Costs. </p>
 <br/>
 <% 
 maxID=0; 
@@ -25,7 +25,7 @@ for (var i=0; i<estimatePartAggregate.query.length; i++) {
 		<%= maxDisplayorder %>. </p><br/>
 	<div class="content">
 		<div>
-			<form name="estimatePartAggregate" method="POST" action="/estimatePartAggregate/save" + _id.value>
+			<form name="estimatePartAggregate" method="POST" action="/aggregate_cost/save" + _id.value>
 
 				<div class="form-group" id=frm>
 					<label for="_id">ID</label>
@@ -54,6 +54,25 @@ for (var i=0; i<estimatePartAggregate.query.length; i++) {
 				<div class="form-group">
 					<label for="displayorder">Sub Total</label>
 					<input type="number" class="form-control" id="displayorder" name="displayorder" value="<%= maxDisplayorder+10 %>" required>					required>
+
+
+				<div class="form-group">
+					<label for="aggregateTypeSelection">Type</label>
+					<input type="text" class="form-control" id="aggregateTypeSelection" name="aggregateTypeSelection" value="" required>
+				</div>
+
+				<div class="form-group">
+					<label for="aggregateMaterialSelection">Selection</label>
+					<input type="text" class="form-control" id="aggregateMaterialSelection" name="aggregateMaterialSelection" value="" required>
+				</div>
+
+				<div class="form-group">
+					<label for="coverage">Coverage</label>
+					<input type="number" class="form-control" id="coverage" name="coverage" value="" required>	
+				</div>
+				<div class="form-group">
+					<label for="subtotal">Subtotal</label>
+					<input type="number" class="form-control" id="cosubtotalverage" name="subtotal" value="" required>	
 				</div>
 
 				<div class="form-group">

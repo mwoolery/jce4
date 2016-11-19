@@ -11,7 +11,7 @@
 			</div>
 
 			<div class="form-group">
-				<label for="name">isused</label>
+				<label for="name">isUsed</label>
 				<input type="text" class="form-control" id="name" name="name" value="<%= estimatePartAggregate.isUsed %>" required>
 			</div>
 
@@ -33,7 +33,28 @@
 			<div class="form-group">
 				<label for="displayorder">Sub Total</label>
 				<input type="number" class="form-control" id="displayorder" name="displayorder" value="<%= estimatePartAggregate.subtotal %>"
+				<label for="isUsed">isUsed</label>
+				<input type="text" class="form-control" id="isUsed" name="isUsed" value="<%= estimatePartAggregate.isUsed %>" required>
+			</div>
+
+			<div class="form-group">
+				<label for="aggregateTypeSelection">Type</label>
+				<input type="text" class="form-control" id="aggregateTypeSelection" name="aggregateTypeSelection" value="<%= estimatePartAggregate.aggregateTypeSelection %>" required>
+			</div>
+
+			<div class="form-group">
+				<label for="aggregateMaterialSelection">Selection</label>
+				<input type="number" class="form-control" id="aggregateMaterialSelection" name="aggregateMaterialSelection" value="<%= estimatePartAggregate.aggregateMaterialSelection %>" required>
+			</div>
+
+			<div class="form-group">
+				<label for="coverageSqFt">Coverage</label>
+				<input type="number" class="form-control" id="coverageSqFt" name="coverageSqFt" value="<%= estimatePartAggregate.coverageSqFt %>"
 					required>
+			</div>
+			<div class="form-group">
+				<label for="subtotal">Subtotal</label>
+				<input type="number" class="form-control" id="subtotal" name="subtotal" value="<%= estimatePartAggregate.subtotal %>"
 			</div>
 
 			<input type="submit" value="Save" class="btn btn-primary" />
