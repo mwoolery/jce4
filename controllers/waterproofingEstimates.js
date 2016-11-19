@@ -183,9 +183,6 @@ api.post('/save/:id', function(req, res) {
     item.price = req.body.price;
     item.displayorder = req.body.displayorder;
     console.log("SAVING UPDATED ITEM " + JSON.stringify(item));
-    return res.redirect('/waterproofing');
-});
-
     return res.redirect('/waterproofingEstimate');
 });
 
