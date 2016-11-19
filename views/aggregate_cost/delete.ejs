@@ -1,25 +1,23 @@
 <br/>
 <br/>
-<h2>Confirm deletion of waterproofing primer product</h2>
+<h2>Confirm deletion of aggregate cost</h2>
 <br/>
 <br/>
-<p>Item
-	<%=  waterproofingPrimer._id %>
-</p>
+<p>ID 	<%=  estimatePartAggregate._id %> </p>
+<p> isUsed? 	<%=  estimatePartAggregate.isUsed %> </p>
 <p>
-	<%=  waterproofingPrimer.name %>
-</p>
-<p>
-	<%=  waterproofingPrimer.price %> per
-		<%=  waterproofingPrimer.unit %>
+	    Type : <%=  estimatePartAggregate.type %> </br>
+	Selection :	<%=  estimatePartAggregate.selection %> </br>
+    Coverage :    <%=  estimatePartAggregate.coverage %> per </br>
+	Subtotal:	<%=  estimatePartAggregate.subtotal %> </br>
 </p>
 
 <br/>
-<form method="get" action="/waterproofingPrimer">
+<form method="get" action="/estimatePartAggregate">
 	<input type="submit" value="Return to list" class="btn btn-caution" />
 </form>
 <br/>
-<form method="POST" action="/waterproofingPrimer/delete/<%= waterproofingPrimer._id %>">
+<form method="POST" action="/aggregate_cost/delete/<%= estimatePartAggregate._id %>">
 	<input type="submit" value="Delete this item" class="btn btn-danger pull-right" />
 </form>
 
