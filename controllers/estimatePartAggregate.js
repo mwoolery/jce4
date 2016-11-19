@@ -32,20 +32,20 @@ api.get('/findone/:id', function(req, res){
 
 //find all
 
-
-
 api.get('/delete/:id', function (req, res) {
     console.log("Handling GET /delete/:id " + req);
     var id = parseInt(req.params.id);
     var data = req.app.locals.estimatePartAggregates.query;
     var item = find(data, { '_id': id });
-    if (!item) { return res.end(notfoundstring); }
-    console.log("RETURNING VIEW FOR" + JSON.stringify(item));
+    if (!item) {
+         return res.end(notfoundstring);
+     }
+    console.log("Delete page --- Returning view for" + JSON.stringify(item));
     return res.render('aggregate_cost/delete.ejs',
         {
             title: "Aggregate Cost",
             layout: "layout.ejs",
-            waterproofingPrimer :item  
+            estimatePartAggregate :item[0]  
         });     
 });
 
