@@ -1,16 +1,15 @@
 var express = require('express');
 var api = express.Router();
 var find =  require('lodash.remove');
+var remove = require('lodash.remove');
 var findIndex = require('lodash.remove');
 var Model = require('../models/estimatePartAggregate.js');
 const notfoundstring = 'No such Estimate Part Aggregate';
-
 
 // see app.js for the root request this controller handles
 // see app.js to find  default URI for this controller (e.g., "estimatePartAggregate")
 // Specify the handler for each required combination of URI and HTTP verb 
 // HTML5 forms can only have GET and POST methods (use POST for DELETE)
-
 /**
  * We need to have 5 methods ...
  */
@@ -20,29 +19,35 @@ api.get('/findall', function(req, res){
     res.send(JSON.stringify(data));
 });
 
+api.get('/findone/:id', function(req, res){
+     res.setHeader('Content-Type', 'application/json');
+    var id = parseInt(req.params.id);
+    var data = req.app.locals.estimatePartAggregate.query;
+    var item = find(data, { '_id': id });
+    if (!item) { return res.end(notfoundstring); }
+    res.send(JSON.stringify(item));
+});
+
 // findall
 
 //find all
 
-api.get('/delete/:id', function(req, res){
-    // res.setHeader('Content-Type', 'application/html');
-    var data = req.app.locals.estimatePartAggregates.query;
-    id = req.params.id;
-    var item = data.find(function(dt){
-    	return dt._id==id;
-    });
-    console.log("delete data ",item);
-    if(!item){
-    	 res.end(notfoundstring);
-    }
-    console.log("RETURNING VIEW FOR"+ JSON.stringify(item));
-     res.render('aggregate_cost/delete.ejs',{
-    	title: "Aggregate Costs",
-    	layout: "layout.ejs",
-    	estimatePartAggregate: item
-    });
-});
 
+
+api.get('/delete/:id', function (req, res) {
+    console.log("Handling GET /delete/:id " + req);
+    var id = parseInt(req.params.id);
+    var data = req.app.locals.estimatePartAggregates.query;
+    var item = find(data, { '_id': id });
+    if (!item) { return res.end(notfoundstring); }
+    console.log("RETURNING VIEW FOR" + JSON.stringify(item));
+    return res.render('aggregate_cost/delete.ejs',
+        {
+            title: "Aggregate Cost",
+            layout: "layout.ejs",
+            waterproofingPrimer :item  
+        });     
+});
 
 
 // GET create
@@ -50,6 +55,22 @@ api.get("/create", function(req, res) {
     console.log('Handling GET /create' + req);
     res.render("aggregate_cost/create.ejs",
         { title: "Aggregate Cost", layout: "layout.ejs" });
+});
+
+//GET devare
+api.get('/devare/:id', function(req, res) {
+    console.log("Handling GET /devare/:id " + req);
+    var id = parseInt(req.params.id);
+    var data = req.app.locals.estimatePartAggregates.query;
+    var item = find(data, { '_id': id });
+    if (!item) { return res.end(notfoundstring); }
+    console.log("RETURNING VIEW FOR" + JSON.stringify(item));
+    return res.render('aggregate_cost/devare.ejs',
+        {
+            title: "Aggregate Cost",
+            layout: "layout.ejs",
+            waterproofingPrimer: item
+        });
 });
 
 
@@ -104,7 +125,6 @@ api.post('/save', function(req, res) {
     return res.redirect('/aggregate');
 });
 
-
 // POST update
 api.post('/save/:id', function(req, res) {
     console.log("Handling SAVE request" + req);
@@ -123,7 +143,10 @@ api.post('/save/:id', function(req, res) {
     return res.redirect('/aggregate');
 });
 
-
+// DEvarE id (uses HTML5 form method POST)
+api.post('/devare/:id', function(req, res, next) {
+    console.log("Handling Devare request" + req);
+});
 // DELETE id (uses HTML5 form method POST)
 api.post('/delete/:id', function(req, res, next) {
     console.log("Handling DELETE request" + req);
