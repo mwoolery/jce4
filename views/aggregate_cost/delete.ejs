@@ -3,13 +3,13 @@
 <h2>Confirm deletion of aggregate cost</h2>
 <br/>
 <br/>
-<p>ID 	<%=  estimatePartAggregate._id %> </p>
-<p> isUsed? 	<%=  estimatePartAggregate.isUsed %> </p>
+<p>ID 	<%=  estimatePartAggregates._id %> </p>
+<p> isUsed? 	<%=  estimatePartAggregates.isUsed %> </p>
 <p>
-	Type : <%=  estimatePartAggregate.type %> </br>
-	Selection :	<%=  estimatePartAggregate.selection %> </br>
-    Coverage :    <%=  estimatePartAggregate.coverage %> per </br>
-	Subtotal:	<%=  estimatePartAggregate.subtotal %> </br>
+	    Type : <%=  estimatePartAggregates.type %> </br>
+	Selection :	<%=  estimatePartAggregates.selection %> </br>
+    Coverage :    <%=  estimatePartAggregates.coverage %> per </br>
+	Subtotal:	<%=  estimatePartAggregates.subtotal %> </br>
 </p>
 
 <br/>
@@ -17,7 +17,7 @@
 	<input type="submit" value="Return to list" class="btn btn-caution" />
 </form>
 <br/>
-<form method="POST" action="/aggregate_cost/delete/<%= estimatePartAggregate._id %>">
+<form method="POST" action="/aggregate_cost/delete/<%= estimatePartAggregates._id %>">
 	<input type="submit" value="Delete this item" class="btn btn-danger pull-right" />
 </form>
 

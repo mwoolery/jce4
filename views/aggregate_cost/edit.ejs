@@ -3,11 +3,12 @@
 <h2>Edit waterproofing primer product ***</h2>
 <div class="content">
 	<div>
-		<form method="POST" action="/estimatePartAggregate/save/<%= estimatePartAggregate._id %>">
+		<form method="POST" action="/estimatePartAggregate/save/<%= estimatePartAggregates._id %>">
 
+			
 			<div class="form-group" id=frm>
 				<label for="_id">ID</label>
-				<input type="number" class="form-control" id="_id" name="_id" value="<%= estimatePartAggregate._id %>" required disabled>
+				<input type="number" class="form-control" id="_id" name="_id" value="<%= estimatePartAggregates._id %>" required disabled>
 			</div>
 
 			<div class="form-group">
@@ -34,27 +35,32 @@
 				<label for="displayorder">Sub Total</label>
 				<input type="number" class="form-control" id="displayorder" name="displayorder" value="<%= estimatePartAggregate.subtotal %>"
 				<label for="isUsed">isUsed</label>
-				<input type="text" class="form-control" id="isUsed" name="isUsed" value="<%= estimatePartAggregate.isUsed %>" required>
+				<input type="text" class="form-control" id="isUsed" name="isUsed" value="<%= estimatePartAggregates.isUsed %>" required>
 			</div>
 
 			<div class="form-group">
 				<label for="aggregateTypeSelection">Type</label>
-				<input type="text" class="form-control" id="aggregateTypeSelection" name="aggregateTypeSelection" value="<%= estimatePartAggregate.aggregateTypeSelection %>" required>
+				<input type="text" class="form-control" id="aggregateTypeSelection" name="aggregateTypeSelection" value="<%= estimatePartAggregates.aggregateTypeSelection %>" required>
 			</div>
 
 			<div class="form-group">
 				<label for="aggregateMaterialSelection">Selection</label>
-				<input type="number" class="form-control" id="aggregateMaterialSelection" name="aggregateMaterialSelection" value="<%= estimatePartAggregate.aggregateMaterialSelection %>" required>
+				<input type="number" class="form-control" id="aggregateMaterialSelection" name="aggregateMaterialSelection" value="<%= estimatePartAggregates.aggregateMaterialSelection %>" required>
 			</div>
 
 			<div class="form-group">
 				<label for="coverageSqFt">Coverage</label>
-				<input type="number" class="form-control" id="coverageSqFt" name="coverageSqFt" value="<%= estimatePartAggregate.coverageSqFt %>"
+				<input type="number" class="form-control" id="coverageSqFt" name="coverageSqFt" value="<%= estimatePartAggregates.coverageSqFt %>"
 					required>
 			</div>
 			<div class="form-group">
 				<label for="subtotal">Subtotal</label>
+<<<<<<< HEAD
 				<input type="number" class="form-control" id="subtotal" name="subtotal" value="<%= estimatePartAggregate.subtotal %>"
+=======
+				<input type="number" class="form-control" id="subtotal" name="subtotal" value="<%= estimatePartAggregates.subtotal %>"
+					required>
+>>>>>>> bf051633a008bbac8a68605dec9ed7ebe6b217ad
 			</div>
 
 			<input type="submit" value="Save" class="btn btn-primary" />
