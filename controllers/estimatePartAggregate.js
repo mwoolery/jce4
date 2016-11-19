@@ -87,7 +87,7 @@ api.get('/details/:id', function(req, res) {
         {
             title: "Aggregate Cost",
             layout: "layout.ejs",
-            estimatePartAggregate: item
+            estimatePartAggregate: item[0]
         });
 });
 
@@ -102,14 +102,16 @@ api.get('/edit/:id', function(req, res) {
     if (!item) { 
         console.log('-- no item found ---');
         return res.end(notfoundstring); }
+    else{        
     console.log("RETURNING VIEW FOR" + JSON.stringify(item));
     console.log((item._id));
     return res.render('aggregate_cost/edit.ejs',
         {
             title: "estimatePartAggregate",
             layout: "layout.ejs",
-            estimatePartAggregate: item
+            estimatePartAggregate: item[0]
         });
+    }
 });
 
 
