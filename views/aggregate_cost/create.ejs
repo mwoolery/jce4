@@ -12,10 +12,6 @@ for (var i=0; i<estimatePartAggregates.query.length; i++) {
         maxID=estimatePartAggregates.query[i]._id;
         }
 }
-
-
-
-
 %>
 	<p>The largest ID is
 		<%= maxID %>. </p>
@@ -31,51 +27,26 @@ for (var i=0; i<estimatePartAggregates.query.length; i++) {
 
 				<div class="form-group">
 					<label for="name">isUsed?</label>
-					<input type="text" class="form-control" id="name" name="name" value="Name" required>
+					<input type="text" class="form-control" id="name" name="name"  required>
 				</div>
 
 				<div class="form-group">
 					<label for="unit">Aggregae Type Selection</label>
-					<input type="text" class="form-control" id="unit" name="unit" value="gal" required>
+					<input type="text" class="form-control" id="unit" name="unit"  required>
 				</div>
 
 				<div class="form-group">
 					<label for="price">Aggreate Material Selection</label>
-					<input type="text" class="form-control" id="price" name="price" value="30" required>
+					<input type="text" class="form-control" id="price" name="price" required>
 				</div>
 
 				<div class="form-group">
 					<label for="displayorder">Coverage Sq. Ft.</label>
-					<input type="number" class="form-control" id="displayorder" name="displayorder" value="<%= maxDisplayorder+10 %>" required>					required>
+					<input type="number" class="form-control" id="displayorder" name="displayorder" required>
 				</div>
 				<div class="form-group">
 					<label for="displayorder">Sub Total</label>
-					<input type="number" class="form-control" id="displayorder" name="displayorder" value="<%= maxDisplayorder+10 %>" required>					required>
-
-
-				<div class="form-group">
-					<label for="aggregateTypeSelection">Type</label>
-					<input type="text" class="form-control" id="aggregateTypeSelection" name="aggregateTypeSelection" value="" required>
-				</div>
-
-				<div class="form-group">
-					<label for="aggregateMaterialSelection">Selection</label>
-					<input type="text" class="form-control" id="aggregateMaterialSelection" name="aggregateMaterialSelection" value="" required>
-				</div>
-
-				<div class="form-group">
-					<label for="coverage">Coverage</label>
-<<<<<<< HEAD
-					<input type="number" class="form-control" id="coverage" name="coverage" value="" required>	
-=======
-					<input type="number" class="form-control" id="coverage" name="coverage" value="" required>
->>>>>>> bf051633a008bbac8a68605dec9ed7ebe6b217ad
-				</div>
-				<div class="form-group">
-					<label for="subtotal">Subtotal</label>
-					<input type="number" class="form-control" id="cosubtotalverage" name="subtotal" value="" required>	
-				</div>
-
+					<input type="number" class="form-control" id="displayorder" name="displayorder"  required>
 				<div class="form-group">
 					<input type="submit" value="Post new entry" class="btn btn-primary" />
 				</div>
