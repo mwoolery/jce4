@@ -71,10 +71,10 @@ Misc : <% include ..\..\views\estimateparts\est-misc %><br/>
 
 <div class="panel-body">
 <%= waterproofingEstimates.comment %>
-<a href="/waterproofingEstimate/delete/<%= c %>">delete</a> |
-<a href="/waterproofingEstimate/details/<%= c %>">details</a> |
-<a href="/waterproofingEstimate/edit/<%= c %>">edit</a>
- 
+<a href="/waterproofingEstimate/delete/<%= waterproofingEstimates.query[0]._id %>">delete</a> |
+<a href="/waterproofingEstimate/details/<%= waterproofingEstimates.query[0]._id %>">details</a> |
+<a href="/waterproofingEstimate/edit/<%= waterproofingEstimates.query[0]._id %>">edit</a>
+
  
 </div>
 </div>

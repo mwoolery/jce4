@@ -76,18 +76,14 @@ api.get('/delete/:id', function(req, res) {
 
 
 api.post('/delete/:id', function(req, res) {
-    console.log("Handling GET /delete/:id " + req);
+    console.log("Handling DELETE request" + req);
     var id = parseInt(req.params.id);
+    console.log("Handling REMOVING ID=" + id);
     var data = req.app.locals.waterproofingEstimates.query;
-    var item = find(data, { '_id': id });
+    var item = remove(data, { '_id': id });
     if (!item) { return res.end(notfoundstring); }
-    console.log("RETURNING VIEW FOR" + JSON.stringify(item));
-    return res.render('waterproofing/delete.ejs',
-        {
-            title: "WP Primers",
-            layout: "layout.ejs",
-            waterproofingEstimate: item
-        });
+    console.log("Deleted item " + JSON.stringify(item));
+    return res.redirect('/waterproofingEstimate');
 });
 
 // GET /details/:id
