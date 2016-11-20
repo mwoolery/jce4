@@ -1,23 +1,41 @@
 
-<% console.log(estimatePartLabors.query); %>
+<% console.log(estimatePartLabors.query[0].entries); %>
 <div class="container">
  <h2>All entries</h2>
 
-<p>There are  <%= estimatePartLabors.query.length %> entries. <br/>
-<a href="create.ejs">Add a new one.</a></p>
+<p>There are  <%= estimatePartLabors.query[0].entries.length %> entries. <br/>
+<a href="/estimatePartLabor/create">Add new one.</a></p>
 
 <table class="table" border="1">
     <thead>
       <tr>
-        <th>Subtotal</th>
-       <th>Actions</th>
+        <th>id</th>       
+       <th>type</th>
+       <th>count</th>
+       <th>hoursPerPerson </th>
+       <th>dollarsPerHour</th>
+       <th>nightsPerPerson</th>
+       <th>costPerNight</th>
+       <th>Labour Cost</th>
+        <th>Actions</th>
     </tr>
     </thead>
     <tbody>
-<% for (var i = 0; i < estimatePartLabors.query.length; i++) { %>
+<% for (var i = 0; i < estimatePartLabors.query[0].entries.length; i++) { %>
          <tr>
-            <td><%=  estimatePartLabors.query[i].subtotal %></td>
-            <td>Delete  Details  Edit</td>
+            <td><%=  estimatePartLabors.query[0].entries[i]._id %></td>
+            <td><%=  estimatePartLabors.query[0].entries[i].type %></td>
+            <td><%=  estimatePartLabors.query[0].entries[i].count %></td>
+            <td><%=  estimatePartLabors.query[0].entries[i].hoursPerPerson %></td>
+            <td><%=  estimatePartLabors.query[0].entries[i].dollarsPerHour %></td>
+            <td><%=  estimatePartLabors.query[0].entries[i].nightsPerPerson%></td>
+            <td><%=  estimatePartLabors.query[0].entries[i].costPerNight %></td>
+            <td>$<%= (estimatePartLabors.query[0].entries[i].count*estimatePartLabors.query[0].entries[i].hoursPerPerson* estimatePartLabors.query[0].entries[i].dollarsPerHour) +(estimatePartLabors.query[0].entries[i].nightsPerPerson*estimatePartLabors.query[0].entries[i].costPerNight)%>
+            </td>
+            <td><a href="estimatePartLabor/delete/<%= estimatePartLabors.query[0].entries[i]._id %>"> Delete </a>
+            <a href="estimatePartLabor/details/<%= estimatePartLabors.query[0].entries[i]._id %>">Details</a>
+            <a href="estimatePartLabor/edit/<%= estimatePartLabors.query[0].entries[i]._id%>"> Edit</a>
+            </td>
          </tr>
          <% } %>
 </tbody>
