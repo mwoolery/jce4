@@ -33,14 +33,14 @@ api.get('/findone/:id', function(req, res){
 // GET all
 api.get('/', function(req, res) {
     console.log("Handling GET " + req);
-    return res.render('aggregate/index.ejs',
+    return res.render('aggregate_cost/index.ejs',
         { title: "AG Materials", layout: "layout.ejs" });
 });
 
 // GET create
 api.get("/create", function(req, res) {
     console.log('Handling GET /create' + req);
-    res.render("aggregate/create.ejs",
+    res.render("aggregate_cost/create.ejs",
         { title: "WP Primers", layout: "layout.ejs" });
 });
 
@@ -52,7 +52,7 @@ api.get('/delete/:id', function(req, res) {
     var item = find(data, { '_id': id });
     if (!item) { return res.end(notfoundstring); }
     console.log("RETURNING VIEW FOR" + JSON.stringify(item));
-    return res.render('aggregate/delete.ejs',
+    return res.render('aggregate_cost/delete.ejs',
         {
             title: "WP Primers",
             layout: "layout.ejs",
@@ -84,7 +84,7 @@ api.get('/edit/:id', function(req, res) {
     var item = find(data, { '_id': id });
     if (!item) { return res.end(notfoundstring); }
     console.log("RETURNING VIEW FOR" + JSON.stringify(item));
-    return res.render('aggregate/edit.ejs',
+    return res.render('aggregate_cost/edit.ejs',
         {
             title: "AG Materials",
             layout: "layout.ejs",

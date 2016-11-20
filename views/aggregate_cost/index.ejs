@@ -1,10 +1,9 @@
-<% include ..\..\views\header.ejs %>
 <% console.log(estimatePartAggregates.query); %>
 <div class="container">
  <h2>All entries</h2>
 
 <p>There are  <%= estimatePartAggregates.query.length %> entries. <br/>
-<a href="aggregate_cost/create.ejs">Add a new one.</a></p>
+<a href="estimatePartAggregate/create">Add a new one.</a></p>
 
 <table class="table" border="1">
     <thead>
@@ -28,15 +27,20 @@
             <td><%=  estimatePartAggregates.query[i].coverageSqFt %></td>
             <td><%=  estimatePartAggregates.query[i].subtotal %></td>
 
+              <td>
+							<a href="estimatePartAggregate/delete/<%=  estimatePartAggregates.query[i]._id %>"> Delete </a> 
+							<a href="estimatePartAggregate/details/<%= estimatePartAggregates.query[i]._id %>"> Details </a>
+							<a href="estimatePartAggregate/edit/<%= estimatePartAggregates.query[i]._id %>"> Edit </a>
+						</td>
+					</tr>
+					<% } %>
+			</tbody>
+		</table>
+	</div>
 
-            <td>
-             <a target="blank" href="/estimatePartAggregate/delete/"<%= estimatePartAggregates.query[i].id %>"><%style:"color:red"%>Delete</style></a> | 
-            <a  target="blank" href="/estimatePartAggregate/details/"  <%= estimatePartAggregates.query[i].id %>"> Details</a> |
-            <a target="blank" href="/estimatePartAggregate/edit/" <%= estimatePartAggregates.query[i].id %>">  Edit </a> 
-            
-            </td>
-         </tr>
-         <% } %>
-</tbody>
-</table>
-</div>
+  
+<!--// This model is managed by Team R09
+// Sandip Subedi
+// Matthew Woolery
+Dhanalakota Neelesh Varma-->
+
