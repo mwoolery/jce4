@@ -59,6 +59,21 @@ api.get('/devare/:id', function(req, res) {
             waterproofingPrimer: item
         });
 });
+//Delete Get
+api.get('/delete/:id', function (req, res) {
+    console.log("Handling GET /delete/:id " + req);
+    var id = parseInt(req.params.id);
+    var data = req.app.locals.waterproofingPrimers.query;
+    var item = find(data, { '_id': id });
+    if (!item) { return res.end(notfoundstring); }
+    console.log("RETURNING VIEW FOR" + JSON.stringify(item));
+    return res.render('waterproofing_primers/delete.ejs',
+        {
+            title: "WP Primers",
+            layout: "layout.ejs",
+            waterproofingPrimer :item  
+        });     
+});
 
 // GET /details/:id
 api.get('/details/:id', function(req, res) {
@@ -128,6 +143,11 @@ api.post('/save/:id', function(req, res) {
     return res.redirect('/waterproofingPrimer');
 });
 
+
+// DEvarE id (uses HTML5 form method POST)
+api.post('/devare/:id', function(req, res, next) {
+    console.log("Handling DEvarE request" + req);
+});
 // DELETE id (uses HTML5 form method POST)
 api.post('/delete/:id', function(req, res, next) {
     console.log("Handling DELETE request" + req);
@@ -139,5 +159,6 @@ api.post('/delete/:id', function(req, res, next) {
     console.log("Devared item " + JSON.stringify(item));
     return res.redirect('/waterproofingPrimer');
 });
+
 
 module.exports = api;
