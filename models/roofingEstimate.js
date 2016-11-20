@@ -27,7 +27,6 @@ RoofingEstimateSchema.virtual('created').get(function () {
 })
 var roofingEstimate = mongoose.model('RoofingEstimate', RoofingEstimateSchema)
 module.exports = roofingEstimate
-
-// This model is managed by Team 4-2
-// Adam Pool
-// Robert Carstensen
+// This model is managed by Team 3-02
+// Goda, Sai
+// Linga, Balamani Sandeep
