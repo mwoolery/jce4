@@ -180,15 +180,33 @@ api.get("/", function (req, res) {
 
 module.exports = api;
 
-//api functions in order
-//findall
-// delete part for crud functions
-//create part for crud functions
-// details part for crud functions
-//edit part for crud functions
-// handle the save for the new items
-// handle a save for an existing item aka update
-//delete the item with the certain id.
+/*GET
+
+findall          Find all values
+
+findall/:id           Find one value
+
+/delete/:id          Delete this value
+
+/create               Create New
+
+/details/:id          Details this value
+
+/edit/:id              Edit this value
+
+data modification
+
+/save                Save changes
+
+/save/:id            Save this change
+
+/delete/:id         Delete this value
+
+get root uri        Get the index
+
+/
+
+*/
 
 
 // This model is managed by Team R09
