@@ -40,7 +40,7 @@ api.get("/", function (request, response) {
 // GET create
 api.get("/create", function(req, res) {
     console.log('Handling GET /create' + req);
-    res.render("labor_cost/create.ejs",
+    res.render("labor_cost/create",
         { title: "WP Primers", layout: "layout.ejs" });
 });
 
@@ -48,7 +48,7 @@ api.get("/create", function(req, res) {
 api.get('/delete/:id', function(req, res) {
     console.log("Handling GET /delete/:id " + req);
     var id = parseInt(req.params.id);
-    var data = req.app.locals.waterproofingPrimers.query;
+    var data = req.app.locals.estimatePartLabors.query[0].entries;
     var item = find(data, { '_id': id });
     if (!item) { return res.end(notfoundstring); }
     console.log("RETURNING VIEW FOR" + JSON.stringify(item));
@@ -56,7 +56,7 @@ api.get('/delete/:id', function(req, res) {
         {
             title: "WP Primers",
             layout: "layout.ejs",
-            waterproofingPrimer: item
+            estimatePartLabor: item
         });
 });
 
@@ -64,7 +64,7 @@ api.get('/delete/:id', function(req, res) {
 api.get('/details/:id', function(req, res) {
     console.log("Handling GET /details/:id " + req);
     var id = parseInt(req.params.id);
-    var data = req.app.locals.waterproofingPrimers.query;
+    var data = req.app.locals.estimatePartLabors.query[0].entries;
     var item = find(data, { '_id': id });
     if (!item) { return res.end(notfoundstring); }
     console.log("RETURNING VIEW FOR" + JSON.stringify(item));
@@ -72,7 +72,7 @@ api.get('/details/:id', function(req, res) {
         {
             title: "WP Primers",
             layout: "layout.ejs",
-            waterproofingPrimer: item
+            estimatePartLabor: item
         });
 });
 
@@ -80,7 +80,7 @@ api.get('/details/:id', function(req, res) {
 api.get('/edit/:id', function(req, res) {
     console.log("Handling GET /edit/:id " + req);
     var id = parseInt(req.params.id);
-    var data = req.app.locals.waterproofingPrimers.query;
+    var data = req.app.locals.estimatePartLabors.query[0].entries;
     var item = find(data, { '_id': id });
     if (!item) { return res.end(notfoundstring); }
     console.log("RETURNING VIEW FOR" + JSON.stringify(item));
@@ -88,7 +88,7 @@ api.get('/edit/:id', function(req, res) {
         {
             title: "WP Primers",
             layout: "layout.ejs",
-            waterproofingPrimer: item
+            estimatePartLabor: item
         });
 });
 
@@ -97,7 +97,7 @@ api.get('/edit/:id', function(req, res) {
 // POST new
 api.post('/save', function(req, res) {
     console.log("Handling POST " + req);
-    var data = req.app.locals.waterproofingPrimers.query;
+    var data = req.app.locals.estimatePartLabors.query;
     var item = new Model;
     console.log("NEW ID " + req.body._id);
     item._id = parseInt(req.body._id);
@@ -115,15 +115,17 @@ api.post('/save/:id', function(req, res) {
     console.log("Handling SAVE request" + req);
     var id = parseInt(req.params.id);
     console.log("Handling SAVING ID=" + id);
-    var data = req.app.locals.waterproofingPrimers.query;
+    var data = req.app.locals.estimatePartLabors.query[0].entries;
     var item = find(data, { '_id': id });
     if (!item) { return res.end(notfoundstring); }
     console.log("ORIGINAL VALUES " + JSON.stringify(item));
     console.log("UPDATED VALUES: " + JSON.stringify(req.body));
-    item.name = req.body.name;
-    item.unit = req.body.unit;
-    item.price = req.body.price;
-    item.displayorder = req.body.displayorder;
+    item.type = req.body.type;
+    item.count = req.body.count;
+    item.hoursPerPerson = req.body.hoursPerPerson;
+    item.dollarsPerHour = req.body.dollarsPerHour;
+    item.nightsPerPerson = req.body.nightsPerPerson;
+    item.costPerNight	 = req.body.costPerNight;
     console.log("SAVING UPDATED ITEM " + JSON.stringify(item));
     return res.redirect('/estimatePartLabor');
 });
@@ -133,7 +135,7 @@ api.post('/delete/:id', function(req, res, next) {
     console.log("Handling DELETE request" + req);
     var id = parseInt(req.params.id);
     console.log("Handling REMOVING ID=" + id);
-    var data = req.app.locals.waterproofingPrimers.query;
+    var data = req.app.locals.estimatePartLabors.query;
     var item = remove(data, { '_id': id });
     if (!item) { return res.end(notfoundstring); }
     console.log("Deleted item " + JSON.stringify(item));
