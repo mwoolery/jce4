@@ -1,6 +1,6 @@
 <br/>
 <br/>
-<h2>waterproofing estimates</h2>
+<h2>Details of waterproofing estimates</h2>
 <% c=0; %>
 <% c++; %>
 <div class="panel panel-default">
@@ -61,20 +61,19 @@ Misc : <% include ..\..\views\estimateparts\est-misc %><br/>
         </td>
     </tr> 
 <% } %>
-      <tr>
+    <tr>
         <td>Display Bid price, $/sqft : <strong id="dis_bid_<%= (c+1) %>"></strong></td>
     </tr>
 </table>
 
 
 
-
 <div class="panel-body">
 <%= waterproofingEstimates.comment %>
-<a href="/waterproofingEstimate/delete/<%= c %>">delete</a> |
-<a href="/waterproofingEstimate/details/<%= c %>">details</a> |
-<a href="/waterproofingEstimate/edit/<%= c %>">edit</a>
- 
+<a href="/waterproofingEstimate/delete/<%= waterproofingEstimates.query[0]._id %>">delete</a> |
+<a href="/waterproofingEstimate/details/<%= waterproofingEstimates.query[0]._id %>">details</a> |
+<a href="/waterproofingEstimate/edit/<%= waterproofingEstimates.query[0]._id %>">edit</a>
+
  
 </div>
 </div>
