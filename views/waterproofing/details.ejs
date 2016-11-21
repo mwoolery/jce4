@@ -3,9 +3,7 @@
 <h2>Details of waterproofing estimates</h2>
 <% c=0; %>
 <% c++; %>
-<div class="panel panel-default">
-<div class="panel-heading">
-<div class="text-muted pull-right">
+<div class = "content">
 <%= waterproofingEstimates.published %></div>
 <%= waterproofingEstimates.title %></div>
 <% include ..\..\views\estimateparts\est-about %>
@@ -20,62 +18,12 @@ Misc : <% include ..\..\views\estimateparts\est-misc %><br/>
     var footage=5000, flooring=500,  aggregate = 1500, labour_cost = 2000, mileage = 400, misc = 200, job_cost = 3.50, profit=100 , bid=7.00
     var total_cost = flooring+aggregate+labour_cost+mileage+misc;
     var total_unit_cost = total_cost/footage;
-%>   
-<table class="table table-bordered">
-<tr>
-    <th colspan="2">Estimate Summary</th>
-</tr>
-<tr>
-    <td>Total area, sqft</td>
-    <td>$<%= footage %></td>
-</tr>
-<tr>
-    <td>Total cost, $USD</td>
-    <td>$<%= total_cost %></td>
-</tr>
-<tr>
-    <td>Overall unit cost, $/sqft</td>
-    <td>$<%= total_unit_cost %></td>
-</tr>
-</table>
-
-<table class="table table-bordered table-hover">
-<tr>
-    <th colspan="4">Bid price by profit margin</th>
-</tr>
-<tr>
-    <th>Margin</th>
-    <th>Total cost, $USD</th>
-    <th>Bid Price, $/sqft</th>
-    <th>Select</th>
-</tr>
-<% for(var i=0; i<7; i++){
-    var margin_per = 40+(i*10);
-     %>
-    <tr>
-        <td><%= margin_per %>%</td>
-        <td>$<%= total_cost*(1+margin_per/100) %></td>
-        <td id="mbid_<%= ((c+1)+""+i+1) %>">$<%= (total_unit_cost*(1+margin_per/100)).toFixed(2) %></td>
-        <td>
-            <input type="radio" name="bid" id="<%= ((c+1)+""+i+1) %>" />
-        </td>
-    </tr> 
-<% } %>
-    <tr>
-        <td>Display Bid price, $/sqft : <strong id="dis_bid_<%= (c+1) %>"></strong></td>
-    </tr>
-</table>
-
-
-
-<div class="panel-body">
-<%= waterproofingEstimates.comment %>
-<a href="/waterproofingEstimate/delete/<%= waterproofingEstimates.query[0]._id %>">delete</a> |
-<a href="/waterproofingEstimate/details/<%= waterproofingEstimates.query[0]._id %>">details</a> |
-<a href="/waterproofingEstimate/edit/<%= waterproofingEstimates.query[0]._id %>">edit</a>
-
- 
-</div>
+%>
+<br>
+</br>  
+<form method="get" action="/waterproofingEstimate">
+	<input type="submit" value="Return to list" class="btn btn-caution" />
+</form> 
 </div>
 <!-- This model is managed by Team 4-03
 Sai Venkat Poorna Chandu Bhogireddy

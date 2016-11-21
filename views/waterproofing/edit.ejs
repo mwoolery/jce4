@@ -1,14 +1,49 @@
-<h2>Create a new waterproofing estimate</h2>
-<form method="post" action="/waterproofingEstimate/save/<%= waterproofingEstimate._id %>"" role="form">
-<% include ..\estimateparts\fg-about %>
-<% include ..\estimateparts\fg-footage %>
-<% include ..\estimateparts\fg-waterproofing %>
-<% include ..\estimateparts\fg-aggregate %>
-<% include ..\estimateparts\fg-labor %>
-<% include ..\estimateparts\fg-mileage %>
-<% include ..\estimateparts\fg-misc %>
-<% include ..\estimateparts\fg-comment %>
+<br>
+</br>
+<h2>edit waterproofing estimate</h2>
+
+<form method="post" action="/waterproofingEstimate/save/<%= waterproofingEstimate._id %>">
+<!--<% include ..\estimateparts\fg-about %>-->
 <div class="form-group">
-<input type="submit" value="Post entry" class="btn btn-primary">
+<label for="client">Client</label>
+<input type="text" class="form-control" id="client" name="client"  value="Bob's Warehouse" required >
+</div>
+<div class="form-group">
+<label for="city">City</label>
+<input type="text" class="form-control" id="city" name="city"  value="Maryville" required>
+</div>
+
+<!--<% include ..\estimateparts\fg-footage %>-->
+<div class="form-group">
+<label for="footage">Square Footage</label>
+<input type="number" class="form-control" id="footage" name="footage" min=0 max=500000 value="5000"required default=2000>
+</div>
+<!--<% include ..\estimateparts\fg-waterproofing %>-->
+<div class="form-group">
+<label for="subtotal">Waterproofing-specific materials subtotal</label>
+<input type="number" class="form-control" id="subtotal" name="subtotal" min=0 max=500000 value="500" required default=0>
+</div>
+<% include ..\estimateparts\fg-aggregate %> 
+
+
+<!--<% include ..\estimateparts\fg-labor %>-->
+<div class="form-group">
+<label for="labor">Labor</label>
+<input type="number" class="form-control" id="labor" name="labor" min=0 max=500000 value="2000"required>
+</div>
+<!--<% include ..\estimateparts\fg-mileage %>-->
+<div class="form-group">
+<label for="mileage">Mileage</label>
+<input type="number" class="form-control" id="mileage" name="mileage" min=0 max=500000 value="400" required>
+</div>
+<% include ..\estimateparts\fg-misc %>
+
+<!--<% include ..\estimateparts\fg-comment %>-->
+<div class="form-group">
+<label for="comment">Comment</label>
+<textarea class="form-control" id="comment" name="comment" placeholder="Great client - looking forward to this job!" rows="3" required></textarea>
+</div>
+<div class="form-group">
+<input type="submit" value="Save" class="btn btn-primary" />
 </div>
 </form>
