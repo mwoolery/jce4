@@ -20,11 +20,22 @@
     <tbody>
 <% for (var i = 0; i < waterproofingTopcoats.query.length; i++) { %>
          <tr>
-            <td><%=  waterproofingTopcoats.query[i]._id %>	</td>
-            <td><%=  waterproofingTopcoats.query[i].name %></td>
-            <td><%=  waterproofingTopcoats.query[i].displayorder %></td>
-            <td><%=  waterproofingTopcoats.query[i].price %></td>
-            <td><%=  waterproofingTopcoats.query[i].unit %></td>
+            <td>
+            <%=  waterproofingTopcoats.query[i]._id %>
+          	</td>
+            <td>
+            <%=  waterproofingTopcoats.query[i].name %>
+            </td>
+            <td>
+            <%=  waterproofingTopcoats.query[i].displayorder %>
+            </td>
+            <td>
+            <%=  waterproofingTopcoats.query[i].price %>
+            </td>
+            <td>
+            <%=  waterproofingTopcoats.query[i].unit %>
+            </td>
+            
             <td>
 							<a href="waterproofingTopcoat/delete/<%=  waterproofingTopcoats.query[i]._id %>"> Delete </a> |
 							<a href="waterproofingTopcoat/details/<%= waterproofingTopcoats.query[i]._id %>"> Details </a> |
