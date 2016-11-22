@@ -1,6 +1,6 @@
 
 <h2>Create a new waterproofing estimate</h2>
-<form method="post" role="form">
+<form method="post" action="/waterproofingEstimate/save" role="form">
 <% include ..\estimateparts\fg-about %>
 <% include ..\estimateparts\fg-footage %>
 <% include ..\estimateparts\fg-waterproofing %>
@@ -10,6 +10,7 @@
 <% include ..\estimateparts\fg-misc %>
 <% include ..\estimateparts\fg-comment %>
 <div class="form-group">
-<input type="submit" value="Post entry" class="btn btn-primary">
+<input type="submit" value="Post new entry" class="btn btn-primary">
+</div>
 </div>
 </form>

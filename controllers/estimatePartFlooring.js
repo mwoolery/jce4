@@ -46,24 +46,137 @@ api.get("/", function (request, response) {
 response.render("flooring_cost/index.ejs");
 });
 
-api.get("/create", function (request, response) {
-response.render("flooring_cost/create.ejs");
+// api.get("/create", function (request, response) {
+// response.render("flooring_cost/create.ejs");
+// });
+
+// GET create
+api.get("/create", function(req, res) {
+    console.log('Handling GET /create' + req);
+    res.render("flooring_cost/create.ejs",
+        { title: "EP Flooring", layout: "layout.ejs" });
 });
 
-api.get("/delete", function (request, response) {
-response.render("flooring_cost/delete.ejs");
+
+// GET /delete/:id
+api.get('/delete/:id', function(req, res) {
+    console.log("Handling GET /delete/:id " + req);
+    var id = parseInt(req.params.id);
+    var data = req.app.locals.estimatePartFloorings.query;
+    var item = find(data, { '_id': id });
+    if (!item) { return res.end(notfoundstring); }
+    console.log("RETURNING VIEW FOR" + JSON.stringify(item));
+    return res.render('flooring_cost/delete.ejs',
+        {
+            title: "EP Flooring",
+            layout: "layout.ejs",
+            estimatePartFlooring: item
+        });
 });
 
-api.get("/details", function (request, response) {
-response.render("flooring_cost/details.ejs");
+// GET /details/:id
+api.get('/details/:id', function(req, res) {
+    console.log("Handling GET /details/:id " + req);
+    var id = parseInt(req.params.id);
+    var data = req.app.locals.estimatePartFloorings.query;
+    var item = find(data, { '_id': id });
+    if (!item) { return res.end(notfoundstring); }
+    console.log("RETURNING VIEW FOR" + JSON.stringify(item));
+    return res.render('flooring_cost/details.ejs',
+        {
+            title: "EP Flooring",
+            layout: "layout.ejs",
+            estimatePartFlooring: item
+        });
 });
 
-api.get("/edit", function (request, response) {
-response.render("flooring_cost/edit.ejs");
+// GET one
+api.get('/edit/:id', function(req, res) {
+    console.log("Handling GET /edit/:id " + req);
+    var id = parseInt(req.params.id);
+    var data = req.app.locals.estimatePartFloorings.query;
+    var item = find(data, { '_id': id });
+    if (!item) { return res.end(notfoundstring); }
+    console.log("RETURNING VIEW FOR" + JSON.stringify(item));
+    return res.render('flooring_cost/edit.ejs',
+        {
+            title: "EP Flooring",
+            layout: "layout.ejs",
+            estimatePartFlooring: item
+        });
 });
 
+// HANDLE EXECUTE DATA MODIFICATION REQUESTS --------------------------------------------
+
+// POST new
+api.post('/save', function(req, res) {
+    console.log("Handling POST " + req);
+    var data = req.app.locals.estimatePartFloorings.query;
+    var item = new Model;
+    console.log("NEW ID " + req.body._id);
+    item._id = parseInt(req.body._id);
+    item.name = req.body.name;
+    item.unit = req.body.unit;
+    item.price = req.body.price;
+    item.displayorder = parseInt(req.body.displayorder);
+    data.push(item);
+    console.log("SAVING NEW ITEM " + JSON.stringify(item));
+    return res.redirect('/estimatePartFlooring');
+});
+
+// POST update
+api.post('/save/:id', function(req, res) {
+    console.log("Handling SAVE request" + req);
+    var id = parseInt(req.params.id);
+    console.log("Handling SAVING ID=" + id);
+    var data = req.app.locals.estimatePartFloorings.query;
+    var item = find(data, { '_id': id });
+    if (!item) { return res.end(notfoundstring); }
+    console.log("ORIGINAL VALUES " + JSON.stringify(item));
+    console.log("UPDATED VALUES: " + JSON.stringify(req.body));
+    item.floorSystemType = req.body.floorSystemType;
+    
+    item.name = req.body.name;
+    item.unit = req.body.unit;
+    item.price = req.body.price;
+    item.displayorder = req.body.displayorder;
+    console.log("SAVING UPDATED ITEM " + JSON.stringify(item));
+    return res.redirect('/estimatePartFlooring');
+});
 
 module.exports = api;
+
+/* 10 controller methods handled by controller:
+	
+   controllers/estimatePartFlooring.js  
+
+
+2 Respond with JSON:
+
+
+http://127.0.0.1:8081/estimatePartFlooring/findall       [WORKING]
+http://127.0.0.1:8081/estimatePartFlooring/findone/1  [WORKING]
+
+
+5 Respond with CRUD Views:
+
+
+http://127.0.0.1:8081/estimatePartFlooring		   [WORKING]
+http://127.0.0.1:8081/estimatePartFlooring/create     [WORKING]
+http://127.0.0.1:8081/estimatePartFlooring/delete/1         [WORKING]
+http://127.0.0.1:8081/estimatePartFlooring/details/1	 [WORKING]
+http://127.0.0.1:8081/estimatePartFlooring/edit/1	        [WORKING]
+
+
+3 Respond by executing CRUD actions:
+
+
+http://127.0.0.1:8081/estimatePartFlooring/save		[WORKING]
+http://127.0.0.1:8081/estimatePartFlooring/save/1 	[WORKING]
+http://127.0.0.1:8081/estimatePartFlooring/delete/1 	[WORKING]
+
+
+*/
 
 // This controller is managed by Team 4-5
 // Chaitanya Kiran Moturu

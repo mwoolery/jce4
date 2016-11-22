@@ -1,65 +1,79 @@
 var express = require('express');
 var api = express.Router();
 var find =  require('lodash.remove');
+var remove = require('lodash.remove');
 var findIndex = require('lodash.remove');
 var Model = require('../models/estimatePartAggregate.js');
 const notfoundstring = 'No such Estimate Part Aggregate';
 
-
 // see app.js for the root request this controller handles
-
 // see app.js to find  default URI for this controller (e.g., "estimatePartAggregate")
 // Specify the handler for each required combination of URI and HTTP verb 
 // HTML5 forms can only have GET and POST methods (use POST for DELETE)
-
 /**
  * We need to have 5 methods ...
  */
-
-
-// HANDLE JSON REQUESTS --------------------------------------------
-api.get('/findall', function(req,res){
-  res.setHeader('Content-Type','application/json');
-  var data = req.app.locals.estimatePartAggregates.query;
-  res.send(JSON.stringify(data));
+api.get('/findall', function(req, res){
+    res.setHeader('Content-Type', 'application/json');
+    var data = req.app.locals.estimatePartAggregate.query;
+    res.send(JSON.stringify(data));
 });
 
 api.get('/findone/:id', function(req, res){
      res.setHeader('Content-Type', 'application/json');
     var id = parseInt(req.params.id);
-    var data = req.app.locals.estimatePartAggregates.query;
+    var data = req.app.locals.estimatePartAggregate.query;
     var item = find(data, { '_id': id });
     if (!item) { return res.end(notfoundstring); }
     res.send(JSON.stringify(item));
 });
 
+// findall
 
-// GET to this controller root URI
-api.get("/", function (request, response) {
-  response.render("aggregate/index.ejs");
-});
+//find all
 
-api.get("/create", function(req, res) {
-    console.log('Handling GET /create' + req);
-    res.render("aggregate/create.ejs",
-        { title: "Aggregate", layout: "layout.ejs" });
-});
-
-// GET /delete/:id
-api.get('/delete/:id', function(req, res) {
+api.get('/delete/:id', function (req, res) {
     console.log("Handling GET /delete/:id " + req);
+    var id = parseInt(req.params.id);
+    var data = req.app.locals.estimatePartAggregates.query;
+    var item = find(data, { '_id': id });
+    if (!item) {
+         return res.end(notfoundstring);
+     }
+    console.log("Delete page --- Returning view for" + JSON.stringify(item));
+    return res.render('aggregate_cost/delete.ejs',
+        {
+            title: "Aggregate Cost",
+            layout: "layout.ejs",
+            estimatePartAggregate :item[0]  
+        });     
+});
+
+
+// GET create
+api.get("/create", function(req, res) {
+    console.log("---- create was called ---");
+    console.log('Handling GET /create' + req);
+    res.render("aggregate_cost/create.ejs",
+        { title: "Aggregate Cost", layout: "layout.ejs" });
+});
+
+//GET devare
+api.get('/devare/:id', function(req, res) {
+    console.log("Handling GET /devare/:id " + req);
     var id = parseInt(req.params.id);
     var data = req.app.locals.estimatePartAggregates.query;
     var item = find(data, { '_id': id });
     if (!item) { return res.end(notfoundstring); }
     console.log("RETURNING VIEW FOR" + JSON.stringify(item));
-    return res.render('aggregate/delete.ejs',
+    return res.render('aggregate_cost/devare.ejs',
         {
-            title: "Aggregate",
+            title: "Aggregate Cost",
             layout: "layout.ejs",
-            aggregate: item
+            waterproofingPrimer: item
         });
 });
+
 
 // GET /details/:id
 api.get('/details/:id', function(req, res) {
@@ -69,11 +83,11 @@ api.get('/details/:id', function(req, res) {
     var item = find(data, { '_id': id });
     if (!item) { return res.end(notfoundstring); }
     console.log("RETURNING VIEW FOR" + JSON.stringify(item));
-    return res.render('aggregate/details.ejs',
+    return res.render('aggregate_cost/details.ejs',
         {
-            title: "Aggregate",
+            title: "Aggregate Cost",
             layout: "layout.ejs",
-            aggregate: item
+            estimatePartAggregate: item[0]
         });
 });
 
@@ -83,15 +97,23 @@ api.get('/edit/:id', function(req, res) {
     var id = parseInt(req.params.id);
     var data = req.app.locals.estimatePartAggregates.query;
     var item = find(data, { '_id': id });
-    if (!item) { return res.end(notfoundstring); }
+    console.log("----------");
+    console.log("Item was : " + item);
+    if (!item) { 
+        console.log('-- no item found ---');
+        return res.end(notfoundstring); }
+    else{        
     console.log("RETURNING VIEW FOR" + JSON.stringify(item));
-    return res.render('aggregate/edit.ejs',
+    console.log((item._id));
+    return res.render('aggregate_cost/edit.ejs',
         {
-            title: "Aggregate",
+            title: "estimatePartAggregate",
             layout: "layout.ejs",
-            aggregate: item
+            estimatePartAggregate: item[0]
         });
+    }
 });
+
 
 // HANDLE EXECUTE DATA MODIFICATION REQUESTS --------------------------------------------
 
@@ -129,6 +151,10 @@ api.post('/save/:id', function(req, res) {
     return res.redirect('/aggregate');
 });
 
+// DEvarE id (uses HTML5 form method POST)
+api.post('/devare/:id', function(req, res, next) {
+    console.log("Handling Devare request" + req);
+});
 // DELETE id (uses HTML5 form method POST)
 api.post('/delete/:id', function(req, res, next) {
     console.log("Handling DELETE request" + req);
@@ -141,10 +167,49 @@ api.post('/delete/:id', function(req, res, next) {
     return res.redirect('/aggregate');
 });
 
+// see app.js for the root request this controller handles
 
 
-module.exports = api; // at the very end
+// GET to this controller root URI
+api.get("/", function (req, res) {
+    console.log("--- index part was requestted ----");
+     console.log("Handling GET " + req);
+    return res.render('aggregate_cost/index.ejs',
+        { title: "Estimate Parts", layout: "layout.ejs" });
+});
+
+module.exports = api;
+
+/*GET
+
+findall          Find all values
+
+findall/:id           Find one value
+
+/delete/:id          Delete this value
+
+/create               Create New
+
+/details/:id          Details this value
+
+/edit/:id              Edit this value
+
+data modification
+
+/save                Save changes
+
+/save/:id            Save this change
+
+/delete/:id         Delete this value
+
+get root uri        Get the index
+
+/
+
+*/
+
 
 // This model is managed by Team R09
 // Sandip Subedi
 // Matthew Woolery
+// Dhanalakota Neelesh Varma
