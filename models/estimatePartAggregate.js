@@ -13,3 +13,8 @@ var EstimatePartAggregateSchema = new Schema({
 
 var estimatePartAggregate = mongoose.model('estimatePartAggregate', EstimatePartAggregateSchema)
 module.exports = estimatePartAggregate
+
+// This model is managed by Team R09
+// Sandip Subedi
+//Dhanalakota Neelesh Varma
+// Matthew Woolery
