@@ -2,6 +2,7 @@ var mongoose = require('mongoose')
   , Schema = mongoose.Schema
 
 var EstimatePartAboutSchema = new Schema({
+  _id: { type: Number, required: true },
   client: { type: String, required: true },
   address: { type: String, required: false },
   city: { type: String, required: true },
@@ -13,3 +14,10 @@ var EstimatePartAboutSchema = new Schema({
 
 var estimatePartAbout = mongoose.model('EstimatePartAbout', EstimatePartAboutSchema)
 module.exports = estimatePartAbout
+
+/*
+Team set - R08
+Team members:
+Venkatesh Karri
+Varun Kumar Reddy Cheekolu
+*/
