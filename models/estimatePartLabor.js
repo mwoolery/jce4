@@ -11,6 +11,6 @@ var EstimatePartLaborSchema = new Schema({
 
 var estimatePartLabor = mongoose.model('EstimatePartLabor', EstimatePartLaborSchema)
 module.exports = estimatePartLabor
-<!--  This model is managed by Team 4-10
-Gudavalli Jagadeesh
-Mourya
+//This model is managed by Team 4-10
+//Gudavalli Jagadeesh
+//Mourya

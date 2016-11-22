@@ -144,6 +144,6 @@ api.post('/delete/:id', function(req, res, next) {
 
 
 module.exports = api;
-<!--  This model is managed by Team 4-10
-Gudavalli Jagadeesh
-Mourya
+//--  This model is managed by Team 4-10
+//Gudavalli Jagadeesh
+//Mourya
