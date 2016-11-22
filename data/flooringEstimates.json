@@ -32,5 +32,22 @@
     },
     "costPerSquareFoot": 2.00,
     "bidPerSquareFoot": 4.00
+  },
+  {
+    "_type": "flooringEstimate",
+    "_id": 3,
+    "estimatePartAbout": {
+      "client": "Maryville public library",
+      "created": "2016-10-04",
+      "address": "N.main st",
+      "city": "Maryville",
+      "state": "MO",
+      "zipcode": 64468
+    },
+    "estimateSquareFootage": {
+      "sqft": 5000
+    },
+    "costPerSquareFoot": 3.00,
+    "bidPerSquareFoot": 6.00
   }
 ]
