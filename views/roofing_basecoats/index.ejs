@@ -28,15 +28,17 @@
             <td><%=  roofingBasecoats.query[i].price %></td>
             <td><%=  roofingBasecoats.query[i].unit %></td>
             <td>
-							<a href="roofingBasecoat/delete/<%=  count%>"> Delete </a> |
-							<a href="roofingBasecoat/details/<%= count%>"> Details </a> |
-							<a href="roofingBasecoat/edit/<%= count %>"> Edit </a>
+							
+							<a href="roofingBasecoat/details/<%= count%><button type="button" class="btn btn-info"> <span class="glyphicon glyphicon-edit"></span> Details </a> 
+							<a href="roofingBasecoat/edit/<%= count%><button type="button" class="btn btn-warning"> <span class="glyphicon glyphicon-pencil"></span> Edit </a>
+							<a href="roofingBasecoat/delete/<%=  count%><button type="button" class="btn btn-danger"> <span class="glyphicon glyphicon-trash"></span> Delete </a> 
 						</td>
          </tr>
          <% } %>
 </tbody>
 </table>
 </div>
-<!-- This view is managed by team 3-13 -->
-<!--  Gajula, Vineeth -->
-<!--  Emani, Venkata Sainath Reddy -->
+    <!-- This view is managed by team 4-13 -->
+<!--  Jaswanth Jonnalagadda -->
+<!-- Haritha Arikapudi -->
+<!-- Sushmitha Patlola -->
