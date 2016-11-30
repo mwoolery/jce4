@@ -1,14 +1,16 @@
-
 <% console.log(estimatePartWaterproofings.query); %>
 <div class="container">
  <h2>All entries</h2>
 
 <p>There are  <%= estimatePartWaterproofings.query.length %> entries. <br/>
-<a href="edit.html">Add a new one.</a></p>
+<a href="/estimatePartWaterproofing/create">Add a new one.</a></p>
 
 <table class="table" border="1">
     <thead>
       <tr>
+        <th>ID</th>
+        <th>ProductType</th>
+        <th>UsesUrethane</th>
         <th>Subtotal</th>
        <th>Actions</th>
     </tr>
@@ -16,10 +18,20 @@
     <tbody>
 <% for (var i = 0; i < estimatePartWaterproofings.query.length; i++) { %>
          <tr>
+            <td><%=  estimatePartWaterproofings.query[i]._id %></td>
+            <td><%=  estimatePartWaterproofings.query[i].productType %></td>
+            <td><%=  estimatePartWaterproofings.query[i].usesUrethane %></td>
             <td><%=  estimatePartWaterproofings.query[i].subtotal %></td>
-            <td>Delete  Details  Edit</td>
+            <td>
+							<a href="/estimatePartWaterproofing/delete/<%= estimatePartWaterproofings.query[i]._id %>"> Delete </a> |
+							<a href="/estimatePartWaterproofing/details/<%= estimatePartWaterproofings.query[i]._id %>"> Details </a> |
+							<a href="/estimatePartWaterproofing/edit/<%= estimatePartWaterproofings.query[i]._id %>"> Edit </a>
+						</td>
          </tr>
          <% } %>
 </tbody>
 </table>
 </div>
+	<!-- These Views are managed by Team 04-07 -->
+<!-- KamalaPriya Bharam -->
+<!-- Sirisha, Vanamali -->
