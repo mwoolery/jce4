@@ -4,7 +4,7 @@
  <h2>Material Waterproofing Basecoat costs</h2>
 
 <p>There are  <%= waterproofingBasecoats.query.length %> waterproofing basecoats. <br/>
-<a href="waterproofingBasecoat/create"><button type="button" class="btn btn-primary"> <span class="glyphicon glyphicon-pencil"></span> New Entry</button> </a></p>
+<a href="waterproofingBasecoat/create">Add a new one.</a></p>
 
 <table class="table" border="1">
     <thead>
@@ -26,8 +26,8 @@
             <td><%=  waterproofingBasecoats.query[i].price %></td>
             <td><%=  waterproofingBasecoats.query[i].unit %></td>
             <td>
-							<a href="waterproofingBasecoat/delete/<%=  waterproofingBasecoats.query[i]._id %>"> <button type="button" class="btn btn-danger"> <span class="glyphicon glyphicon-trash"></span> Delete </button></a> |
-							<a href="/waterproofingBasecoat/details/<%= waterproofingBasecoats.query[i]._id %>"> <button type="button" class="btn btn-info"> <span class="glyphicon glyphicon-list-alt"></span> Details</button> </a> |
+							<a href="waterproofingBasecoat/delete/<%=  waterproofingBasecoats.query[i]._id %>"> <button type="button" class="btn btn-danger"> <span class="glyphicon glyphicon-trash"></span>Delete</button> </a> |
+							<a href="/waterproofingBasecoat/details/<%= waterproofingBasecoats.query[i]._id %>"> <button type="button" class="btn btn-info"> <span class="glyphicon glyphicon-list-alt">Details</button></a> |
 							<a href="waterproofingBasecoat/edit/<%=    waterproofingBasecoats.query[i]._id %>"> <button type="button" class="btn btn-warning"><span class="glyphicon glyphicon-edit"></span> Edit</button> </a>
 						</td>
          </tr>
