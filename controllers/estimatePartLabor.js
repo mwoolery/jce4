@@ -27,7 +27,10 @@ api.get('/findone/:id', function(req, res){
     var item = data.find(function(dt){ { return dt._id==req.params.id; }});
     res.send(JSON.stringify(item));
 });
+// <<<<<<< HEAD
+// =======
 
+// >>>>>>> 9166914322040862df324413a8977dbe0eea4540
 
 // see app.js for the root request this controller handles
 
@@ -36,7 +39,10 @@ api.get("/", function (request, response) {
   response.render("labor_cost/index.ejs");
 });
 
+// <<<<<<< HEAD
+// =======
 
+// >>>>>>> 9166914322040862df324413a8977dbe0eea4540
 // GET create
 api.get("/create", function(req, res) {
     console.log('Handling GET /create' + req);
@@ -141,9 +147,18 @@ api.post('/delete/:id', function(req, res, next) {
     console.log("Deleted item " + JSON.stringify(item));
     return res.redirect('/estimatePartLabor');
 });
+// <<<<<<< HEAD
+// =======
 
+// >>>>>>> 9166914322040862df324413a8977dbe0eea4540
 
 module.exports = api;
+<<<<<<< HEAD
 // This model is managed by Team 4-10
 //Gudavalli Jagadeesh
 //Mourya -
+=======
+//--  This model is managed by Team 4-10
+//Gudavalli Jagadeesh
+//Mourya
+>>>>>>> e674d9f29f4a9ca0ff363d45ea56c0f2ecc407ea

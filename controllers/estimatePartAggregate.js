@@ -124,13 +124,14 @@ api.post('/save', function(req, res) {
     var item = new Model;
     console.log("NEW ID " + req.body._id);
     item._id = parseInt(req.body._id);
-    item.name = req.body.name;
-    item.unit = req.body.unit;
-    item.price = req.body.price;
-    item.displayorder = parseInt(req.body.displayorder);
+    item.isUsed = req.body.isUsed;
+    item.aggregateTypeSelection = req.body.aggregateTypeSelection;
+    item.aggregateMaterialSelection = req.body.aggregateMaterialSelection;
+    item.coverageSqFt = req.body.coverageSqFt;
+    item.subtotal = req.body.subtotal;
     data.push(item);
     console.log("SAVING NEW ITEM " + JSON.stringify(item));
-    return res.redirect('/aggregate');
+    return res.redirect('/estimatePartAggregate');
 });
 
 // POST update
@@ -138,17 +139,19 @@ api.post('/save/:id', function(req, res) {
     console.log("Handling SAVE request" + req);
     var id = parseInt(req.params.id);
     console.log("Handling SAVING ID=" + id);
-    var data = req.app.locals.estimatePartAggregates.query;
+    var data = req.app.locals.estimatePartAggregate.query;
     var item = find(data, { '_id': id });
     if (!item) { return res.end(notfoundstring); }
     console.log("ORIGINAL VALUES " + JSON.stringify(item));
     console.log("UPDATED VALUES: " + JSON.stringify(req.body));
-    item.name = req.body.name;
-    item.unit = req.body.unit;
-    item.price = req.body.price;
-    item.displayorder = req.body.displayorder;
+    item._id = parseInt(req.body._id);
+    item.isUsed = req.body.isUsed;
+    item.aggregateTypeSelection = req.body.aggregateTypeSelection;
+    item.aggregateMaterialSelection = req.body.aggregateMaterialSelection;
+    item.coverageSqFt = req.body.coverageSqFt;
+    item.subtotal = req.body.subtotal;
     console.log("SAVING UPDATED ITEM " + JSON.stringify(item));
-    return res.redirect('/aggregate');
+    return res.redirect('/estimatePartAggregate');
 });
 
 // DEvarE id (uses HTML5 form method POST)
@@ -164,7 +167,7 @@ api.post('/delete/:id', function(req, res, next) {
     var item = remove(data, { '_id': id });
     if (!item) { return res.end(notfoundstring); }
     console.log("Deleted item " + JSON.stringify(item));
-    return res.redirect('/aggregate');
+    return res.redirect('/estimatePartAggregate');
 });
 
 // see app.js for the root request this controller handles

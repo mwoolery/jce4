@@ -4,7 +4,7 @@
  <h2>Material waterproofing topcoat costs</h2>
 
 <p>There are  <%= waterproofingTopcoats.query.length %> waterproofing topcoat products. <br/>
-<a href="waterproofingTopcoat/create">Add a new one.</a></p>
+<a href="waterproofingTopcoat/create"><button type="button" class="btn btn-primary"> <span class="glyphicon glyphicon-pencil"></span> New Entry</button></a></p>
 
 <table class="table" border="1">
     <thead>
@@ -20,15 +20,26 @@
     <tbody>
 <% for (var i = 0; i < waterproofingTopcoats.query.length; i++) { %>
          <tr>
-            <td><%=  waterproofingTopcoats.query[i]._id %>	</td>
-            <td><%=  waterproofingTopcoats.query[i].name %></td>
-            <td><%=  waterproofingTopcoats.query[i].displayorder %></td>
-            <td><%=  waterproofingTopcoats.query[i].price %></td>
-            <td><%=  waterproofingTopcoats.query[i].unit %></td>
             <td>
-							<a href="waterproofingTopcoat/delete/<%=  waterproofingTopcoats.query[i]._id %>"> Delete </a> |
-							<a href="waterproofingTopcoat/details/<%= waterproofingTopcoats.query[i]._id %>"> Details </a> |
-							<a href="waterproofingTopcoat/edit/<%=    waterproofingTopcoats.query[i]._id %>"> Edit </a>
+            <%=  waterproofingTopcoats.query[i]._id %>
+          	</td>
+            <td>
+            <%=  waterproofingTopcoats.query[i].name %>
+            </td>
+            <td>
+            <%=  waterproofingTopcoats.query[i].displayorder %>
+            </td>
+            <td>
+            <%=  waterproofingTopcoats.query[i].price %>
+            </td>
+            <td>
+            <%=  waterproofingTopcoats.query[i].unit %>
+            </td>
+            
+            <td>
+							<a href="waterproofingTopcoat/delete/<%=  waterproofingTopcoats.query[i]._id %>"><button type="button" class="btn btn-danger"> <span class="glyphicon glyphicon-trash"></span>Delete</button> </a> |
+							<a href="waterproofingTopcoat/details/<%= waterproofingTopcoats.query[i]._id %>"> <button type="button" class="btn btn-info"> <span class="glyphicon glyphicon-list-alt">Details</button> </a> |
+							<a href="waterproofingTopcoat/edit/<%=    waterproofingTopcoats.query[i]._id %>"><button type="button" class="btn btn-warning"><span class="glyphicon glyphicon-edit"></span> Edit</button> </a>
 						</td>
          </tr>
          <% } %>
