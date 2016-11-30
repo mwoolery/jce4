@@ -1,7 +1,47 @@
 [
   {
+    "_id":1,
+    "floorSystemType": "Urethane",
+    "usesUrethane": "Yes",
+    "urethaneProductSelection": "chem resistant urethane",
+    "urethaneCoverageSqFt": 100,
+    "usesEpoxy": "Yes",
+    "expoxyProductSelection": "floor brite epoxy",
+    "expoxyCoverageSqFt": 150,
+    "subtotal": 250
+  },
+  {
+    "_id":2,
+    "floorSystemType": "Urethane",
+    "usesUrethane": "Yes",
+    "urethaneProductSelection": "chem resistant urethane",
+    "urethaneCoverageSqFt": 100,
+    "usesEpoxy": "Yes",
+    "expoxyProductSelection": "floor brite epoxy",
+    "expoxyCoverageSqFt":100,
+    "subtotal": 200
+  },
+  {
+    "_id":3,
     "floorSystemType": "Epoxy",
-    "usesUrethane": false,
-    "subtotal": 22
+    "usesUrethane": "Yes",
+    "urethaneProductSelection": "chem resistant urethane",
+    "urethaneCoverageSqFt": 100,
+    "usesEpoxy": "Yes",
+    "expoxyProductSelection": "floor brite epoxy",
+    "expoxyCoverageSqFt": 150,
+    "subtotal": 250
+  },
+  {
+    "_id":4,
+    "floorSystemType": "Epoxy",
+    "usesUrethane": "Yes",
+    "urethaneProductSelection": "chem resistant urethane",
+    "urethaneCoverageSqFt": 100,
+    "usesEpoxy": "Yes",
+    "expoxyProductSelection": "floor brite epoxy",
+   "expoxyCoverageSqFt": 150,
+    "subtotal": 300
   }
 ]
+
