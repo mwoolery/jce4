@@ -4,7 +4,7 @@
 
 		<p>There are
 			<%= waterproofingPrimers.query.length %> waterproofing primers. <br/>
-				<a href="waterproofingPrimer/create">Add a new one.</a></p>
+				<a href="waterproofingPrimer/create"><button type="button" class="btn btn-primary"> <span class="glyphicon glyphicon-pencil"></span> New Entry</button> </a></p>
 
 		<table class="table" border="1">
 			<thead>
@@ -36,9 +36,9 @@
 							<%=  waterproofingPrimers.query[i].unit %>
 						</td>
 						<td>
-							<a href="waterproofingPrimer/delete/<%=  waterproofingPrimers.query[i]._id %>"> Delete </a> |
-							<a href="waterproofingPrimer/details/<%= waterproofingPrimers.query[i]._id %>"> Details </a> |
-							<a href="waterproofingPrimer/edit/<%=    waterproofingPrimers.query[i]._id %>"> Edit </a>
+							<a href="waterproofingPrimer/delete/<%=  waterproofingPrimers.query[i]._id %>"><button type="button" class="btn btn-danger"> <span class="glyphicon glyphicon-trash"></span> Delete </button></a> |
+							<a href="waterproofingPrimer/details/<%= waterproofingPrimers.query[i]._id %>"> <button type="button" class="btn btn-info"> <span class="glyphicon glyphicon-list-alt"></span> Details</button></a> |
+							<a href="waterproofingPrimer/edit/<%=    waterproofingPrimers.query[i]._id %>"><button type="button" class="btn btn-warning"><span class="glyphicon glyphicon-edit"></span> Edit</button></a>
 						</td>
 					</tr>
 					<% } %>
