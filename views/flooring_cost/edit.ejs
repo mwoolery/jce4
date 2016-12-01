@@ -18,13 +18,22 @@
 			</div>
 
             <div class="form-group">
-				<label for="type">Uses Erethane</label>
-				<input type="text" class="form-control" id="type" name="unit" value="<%= estimatePartFlooring.usesUrethane %>" required>
+				<label for="type">Uses Erethane ?</label>
+				<input type="checkbox" class="form-control" id="type" name="unit" value="<%= estimatePartFlooring.usesUrethane %>">
 			</div>
 
-            <div class="form-group">
+            <!--<div class="form-group">
 				<label for="type">Urethane Product Selection:</label>
 				<input type="text" class="form-control" id="type" name="unit" value="<%= estimatePartFlooring.urethaneProductSelection %>" required>
+			</div> -->
+
+			<div class="form-group">
+				<label for="urethaneProductSelection">Urethane Product Selection (<%=     flooringCoatings.query.length    %>):</label>
+				<select name="urethaneProductSelection">
+	 				<%  for (var i = 0; i < flooringCoatings.query.length ; i++){  %>
+	 					<option value="<%= flooringCoatings.query[i]._id %>"><%= flooringCoatings.query[i].name %></option>
+					<%    }  %>
+				</select>
 			</div>
 			
             <div class="form-group">
@@ -34,12 +43,21 @@
 
             <div class="form-group">
 				<label for="usesEpo">Uses Epoxy?</label>
-				<input type="text" class="form-control" id="type" name="usesEpo" value="<%= estimatePartFlooring.usesEpoxy %>" required>
+				<input type="checkbox" class="form-control" id="type" name="usesEpo" value="<%= estimatePartFlooring.usesEpoxy %>">
 			</div>
                         
-			<div class="form-group">
+			<!-- <div class="form-group">
 				<label for="epoProduct">Epoxy Product Selection:</label>
 				<input type="text" class="form-control" id="epoProduct" name="epoProduct" value="<%= estimatePartFlooring.expoxyProductSelection %>" required>
+			</div> -->
+
+			<div class="form-group">
+				<label for="expoxyProductSelection">Epoxy Product Selection (<%= flooringCoatings.query.length %>):</label>
+				<select name="expoxyProductSelection">
+	 				<%  for (var i = 0; i < flooringCoatings.query.length ; i++){  %>
+	 					<option value="<%= flooringCoatings.query[i]._id %>"><%= flooringCoatings.query[i].name %></option>
+					<%    }  %>
+				</select>
 			</div>
 
             <div class="form-group">
@@ -50,7 +68,14 @@
 
 		    <div class="form-group">
 				<label for="subtotal">Subtotal</label>
-				<input type="number" class="form-control" id="subtotal" name="subtotal" value="<%= estimatePartFlooring.subtotal %>" required>
+				<!--<input type="number" class="form-control" id="subtotal" name="subtotal" value="<%= estimatePartFlooring.subtotal %>" required>-->
+				<% 
+                    var sqft = 2000;
+                    var urethaneCost = 0;
+                    var epoxyCost = 0;
+                    var subTotal = urethaneCost  + epoxyCost;
+                 %>
+                <%=  subTotal %>
 			</div>
 
 			<input type="submit" value="Save" class="btn btn-primary" />
