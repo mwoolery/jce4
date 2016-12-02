@@ -38,7 +38,7 @@ for (var i=0; i<estimatePartAggregates.query.length; i++) {
 
 			<div class="form-group">
 					<label for="aggregateTypeSelection">Type Selection (<%=     estimatePartAggregates.query.length    %>):</label>
-					<select name="aggregateTypeSelection" class="btn btn-default">
+					<select name="aggregateTypeSelection" class="form-control selcls">
 	 					<%  for (var i = 0; i < estimatePartAggregates.query.length ; i++){  %>
 	 						<option value="<%= estimatePartAggregates.query[i].aggregateTypeSelection %>"><%= estimatePartAggregates.query[i].aggregateTypeSelection %></option>
 						<%    }  %>
@@ -54,7 +54,7 @@ for (var i=0; i<estimatePartAggregates.query.length; i++) {
 -->
 				<div class="dropdown">
 					<label for="aggregateMaterialSelection">Material Selection: (<%= estimatePartAggregates.query.length %>):</label>
-					<select name="aggregateMaterialSelection" class="btn btn-default">
+					<select name="aggregateMaterialSelection" class="form-control selcls">
 	 					<%  for (var i = 0; i < estimatePartAggregates.query.length ; i++){  %>
 	 						<option value="<%= estimatePartAggregates.query[i].aggregateMaterialSelection %>"><%= estimatePartAggregates.query[i].aggregateMaterialSelection %></option>
 						<%    }  %>
