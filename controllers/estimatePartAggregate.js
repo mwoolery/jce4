@@ -58,21 +58,21 @@ api.get("/create", function(req, res) {
         { title: "Aggregate Cost", layout: "layout.ejs" });
 });
 
-//GET devare
-api.get('/devare/:id', function(req, res) {
-    console.log("Handling GET /devare/:id " + req);
-    var id = parseInt(req.params.id);
-    var data = req.app.locals.estimatePartAggregates.query;
-    var item = find(data, { '_id': id });
-    if (!item) { return res.end(notfoundstring); }
-    console.log("RETURNING VIEW FOR" + JSON.stringify(item));
-    return res.render('aggregate_cost/devare.ejs',
-        {
-            title: "Aggregate Cost",
-            layout: "layout.ejs",
-            waterproofingPrimer: item
-        });
-});
+// //GET devare
+// api.get('/devare/:id', function(req, res) {
+//     console.log("Handling GET /devare/:id " + req);
+//     var id = parseInt(req.params.id);
+//     var data = req.app.locals.estimatePartAggregates.query;
+//     var item = find(data, { '_id': id });
+//     if (!item) { return res.end(notfoundstring); }
+//     console.log("RETURNING VIEW FOR" + JSON.stringify(item));
+//     return res.render('aggregate_cost/devare.ejs',
+//         {
+//             title: "Aggregate Cost",
+//             layout: "layout.ejs",
+//             waterproofingPrimer: item
+//         });
+// });
 
 
 // GET /details/:id
@@ -124,7 +124,14 @@ api.post('/save', function(req, res) {
     var item = new Model;
     console.log("NEW ID " + req.body._id);
     item._id = parseInt(req.body._id);
-    item.isUsed = req.body.isUsed;
+
+    var temp = "true";
+    if(!req.body.isUsed || req.body.isUsed == null || req.body.isUsed == undefined){
+        temp = false;
+    }
+    item.isUsed = temp;
+    console.log("----- getting isUSed : after checkbox: " + req.body.isUsed);
+    console.log("--- the temp was: --- " + temp);
     item.aggregateTypeSelection = req.body.aggregateTypeSelection;
     item.aggregateMaterialSelection = req.body.aggregateMaterialSelection;
     item.coverageSqFt = req.body.coverageSqFt;
