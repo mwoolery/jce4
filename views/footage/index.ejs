@@ -4,7 +4,7 @@
  <h2>All entries</h2>
 
 <p>There are  <%= estimatePartFootages.query.length %> entries. <br/>
-<a href="estimatePartFootage/create">Add a new one.</a></p>
+<a href="estimatePartFootage/create" class="btn btn-primary"><span class="glyphicon glyphicon-pencil"></span>Add a new one.</a></p>
 
 <table class="table" border="1">
 	<thead>
@@ -26,9 +26,9 @@
 		<td><%=  estimatePartFootages.query[i].width %></td>
 		<td><%=  estimatePartFootages.query[i].displayorder %></td>
 		<td>
-			<a href="estimatePartFootage/delete/<%= estimatePartFootages.query[i]._id %>"> Delete </a> | 
-            <a href="estimatePartFootage/details/<%= estimatePartFootages.query[i]._id %>"> Details</a> |
-            <a href="estimatePartFootage/edit/<%= estimatePartFootages.query[i]._id %>">  Edit </a> 
+			<a href="estimatePartFootage/delete/<%= estimatePartFootages.query[i]._id %>" class="btn btn-danger" >	<span class="glyphicon glyphicon-trash"></span> Delete </a>  
+            <a href="estimatePartFootage/details/<%= estimatePartFootages.query[i]._id %>"class="btn btn-info">	  <span class="glyphicon glyphicon-list-alt"></span> Details</a> 
+            <a href="estimatePartFootage/edit/<%= estimatePartFootages.query[i]._id %>"class="btn btn-warning"> <span class="glyphicon glyphicon-edit"></span>  Edit </a> 
 		</td>
 	</tr>
 	<% } %>

@@ -3,7 +3,7 @@
 <h2>Edit waterproofing primer product ***</h2>
 <div class="content">
 	<div>
-		<form method="POST" action="/estimatePartAggregate/save/<%= estimatePartAggregates._id %>">
+		<form method="POST" action="/estimatePartAggregate/save/<%= estimatePartAggregate._id %>">
 
 			
 			<div class="form-group" id=frm>
@@ -12,23 +12,23 @@
 			</div>
 
 			<div class="form-group">
-				<label for="name">isUsed</label>
-				<input type="text" class="form-control" id="name" name="name" value="<%= estimatePartAggregate.isUsed %>" required>
+				<label for="isUsed">isUsed</label>
+				<input type="text" class="form-control" id="isUsed" name="isUsed" value="<%= estimatePartAggregate.isUsed %>" required>
 			</div>
 
 			<div class="form-group">
-				<label for="unit">Aggregate Type Selection</label>
-				<input type="text" class="form-control" id="unit" name="unit" value="<%= estimatePartAggregate.aggregateTypeSelection %>" required>
+				<label for="aggregateTypeSelection">Aggregate Type Selection</label>
+				<input type="text" class="form-control" id="aggregateTypeSelection" name="aggregateTypeSelection" value="<%= estimatePartAggregate.aggregateTypeSelection %>" required>
 			</div>
 
 			<div class="form-group">
-				<label for="price">Aggregate Material Selection</label>
-				<input type="text" class="form-control" id="price" name="price" value="<%= estimatePartAggregate.aggregateMaterialSelection %>" required>
+				<label for="aggregateMaterialSelection">Aggregate Material Selection</label>
+				<input type="text" class="form-control" id="aggregateMaterialSelection" name="aggregateMaterialSelection" value="<%= estimatePartAggregate.aggregateMaterialSelection %>" required>
 			</div>
 
 			<div class="form-group">
-				<label for="displayorder">Coverage Sq. Ft.</label>
-				<input type="number" class="form-control" id="displayorder" name="displayorder" value="<%= estimatePartAggregate.coverageSqFt %>" required>
+				<label for="coverageSqFt">Coverage Sq. Ft.</label>
+				<input type="number" class="form-control" id="coverageSqFt" name="coverageSqFt" value="<%= estimatePartAggregate.coverageSqFt %>" required>
 			</div>
 		<div class="form-group">
 				<label for="subtotal">Subtotal</label>
