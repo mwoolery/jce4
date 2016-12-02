@@ -4,30 +4,30 @@
     "entries": [
         {
           "_id":1,
-          "description": "Commercial truck",
-          "numberOfVehicles": 3,
-          "startLocation": "OPKS",
-          "endLocation": "Maryville, MO",
-          "milesPerDrive": 100
+          "description": "Big truck",
+          "numberOfVehicles": 2,
+          "startLocation": "MC",
+          "endLocation": "Mk",
+          "milesPerDrive": 400
          
         }
         ,
         {
           "_id":2,
-          "description": "personal vehicle",
-          "numberOfVehicles": 2,
-          "startLocation": "OPKS",
-          "endLocation": "Maryville, MO",
-          "milesPerDrive": 100
+          "description": "vehicle",
+          "numberOfVehicles": 1,
+          "startLocation": "mc",
+          "endLocation": "mo",
+          "milesPerDrive": 500
        
       },
       {
           "_id":3,
-          "description": "goods vehicle",
+          "description": "Very Big truck",
           "numberOfVehicles": 2,
-          "startLocation": "OPKS",
-          "endLocation": "Maryville, MO",
-          "milesPerDrive": 100
+          "startLocation": "MCC",
+          "endLocation": "M MO",
+          "milesPerDrive": 400
        
       }
     ],
