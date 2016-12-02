@@ -114,11 +114,14 @@ api.post('/save', function(req, res) {
     var data = req.app.locals.estimatePartFloorings.query;
     var item = new Model;
     console.log("NEW ID " + req.body._id);
-    item._id = parseInt(req.body._id);
-    item.name = req.body.name;
-    item.unit = req.body.unit;
-    item.price = req.body.price;
-    item.displayorder = parseInt(req.body.displayorder);
+    item.floorSystemType = req.body.floorSystemType;
+    item.usesUrethane = req.body.usesUrethane;    
+    item.urethaneProductSelection = req.body.urethaneProductSelection;
+    item.urethaneCoverageSqFt = req.body.urethaneCoverageSqFt;
+    item.usesEpoxy = req.body.usesEpoxy;
+    item.expoxyProductSelection = req.body.expoxyProductSelection;
+    item.expoxyCoverageSqFt = req.body.expoxyCoverageSqFt;
+    item.subtotal = req.body.subtotal;
     data.push(item);
     console.log("SAVING NEW ITEM " + JSON.stringify(item));
     return res.redirect('/estimatePartFlooring');
@@ -135,11 +138,13 @@ api.post('/save/:id', function(req, res) {
     console.log("ORIGINAL VALUES " + JSON.stringify(item));
     console.log("UPDATED VALUES: " + JSON.stringify(req.body));
     item.floorSystemType = req.body.floorSystemType;
-    
-    item.name = req.body.name;
-    item.unit = req.body.unit;
-    item.price = req.body.price;
-    item.displayorder = req.body.displayorder;
+    item.usesUrethane = req.body.usesUrethane;    
+    item.urethaneProductSelection = req.body.urethaneProductSelection;
+    item.urethaneCoverageSqFt = req.body.urethaneCoverageSqFt;
+    item.usesEpoxy = req.body.usesEpoxy;
+    item.expoxyProductSelection = req.body.expoxyProductSelection;
+    item.expoxyCoverageSqFt = req.body.expoxyCoverageSqFt;
+    item.subtotal = req.body.subtotal;
     console.log("SAVING UPDATED ITEM " + JSON.stringify(item));
     return res.redirect('/estimatePartFlooring');
 });
