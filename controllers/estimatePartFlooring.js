@@ -74,6 +74,17 @@ api.get('/delete/:id', function(req, res) {
         });
 });
 
+api.post('/delete/:id', function(req, res) {
+    console.log("Handling DELETE request" + req);
+    var id = parseInt(req.params.id);
+    console.log("Handling REMOVING ID=" + id);
+    var data = req.app.locals.estimatePartFloorings.query;
+    var item = remove(data, { '_id': id });
+    if (!item) { return res.end(notfoundstring); }
+    console.log("Deleted item " + JSON.stringify(item));
+    return res.redirect('/estimatePartFlooring');
+});
+
 // GET /details/:id
 api.get('/details/:id', function(req, res) {
     console.log("Handling GET /details/:id " + req);
@@ -108,18 +119,27 @@ api.get('/edit/:id', function(req, res) {
 
 // HANDLE EXECUTE DATA MODIFICATION REQUESTS --------------------------------------------
 
-// POST new
+// adding a new one
 api.post('/save', function(req, res) {
     console.log("Handling POST " + req);
     var data = req.app.locals.estimatePartFloorings.query;
     var item = new Model;
     console.log("NEW ID " + req.body._id);
+    item._id = req.body._id;
+    //var temp = "true";
+    // if(!req.body.isUsed || req.body.isUsed == null || req.body.isUsed == undefined){
+    //     temp = false;
+    // }
+    // item.isUsed = temp;
+    
     item.floorSystemType = req.body.floorSystemType;
-    item.usesUrethane = req.body.usesUrethane;    
-    item.urethaneProductSelection = req.body.urethaneProductSelection;
+    item.usesUrethane = req.body.usesUrethane ? true: false;   
+    item.urethaneProductSelection.name = req.body.urethaneProductSelection;
+    console.log("----------------");
+    console.log("urethaneProductSelection was: " + req.body.urethaneProductSelection);
     item.urethaneCoverageSqFt = req.body.urethaneCoverageSqFt;
-    item.usesEpoxy = req.body.usesEpoxy;
-    item.expoxyProductSelection = req.body.expoxyProductSelection;
+    item.usesEpoxy = req.body.usesEpoxy ? true: false; 
+    item.expoxyProductSelection.name = req.body.expoxyProductSelection;
     item.expoxyCoverageSqFt = req.body.expoxyCoverageSqFt;
     item.subtotal = req.body.subtotal;
     data.push(item);
@@ -138,10 +158,10 @@ api.post('/save/:id', function(req, res) {
     console.log("ORIGINAL VALUES " + JSON.stringify(item));
     console.log("UPDATED VALUES: " + JSON.stringify(req.body));
     item.floorSystemType = req.body.floorSystemType;
-    item.usesUrethane = req.body.usesUrethane;    
+    item.usesUrethane = req.body.usesUrethane ? true: false; ;    
     item.urethaneProductSelection = req.body.urethaneProductSelection;
     item.urethaneCoverageSqFt = req.body.urethaneCoverageSqFt;
-    item.usesEpoxy = req.body.usesEpoxy;
+    item.usesEpoxy = req.body.usesEpoxy ? true: false; ;
     item.expoxyProductSelection = req.body.expoxyProductSelection;
     item.expoxyCoverageSqFt = req.body.expoxyCoverageSqFt;
     item.subtotal = req.body.subtotal;

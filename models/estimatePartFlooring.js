@@ -14,6 +14,7 @@ var EstimatePartFlooringSchema = new Schema({
   subtotal: { type: Number, required: true, default: 0 }
 })
 
+
 var estimatePartFlooring = mongoose.model('EstimatePartFlooring', EstimatePartFlooringSchema)
 module.exports = estimatePartFlooring
 
