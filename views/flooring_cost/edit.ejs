@@ -35,7 +35,7 @@
 				<label for="type">Urethane Product Selection:</label>
 				<input type="text" class="form-control" id="type" name="unit" value="<%= estimatePartFlooring.urethaneProductSelection %>" required>
 			</div> -->
-
+			<div id="flooringOptions">
 			<div class="form-group">
 				<label for="urethaneProductSelection">Urethane Product Selection (<%=    flooringCoatings.query.length    %>):</label>
 				<select name="urethaneProductSelection" class="form-control selcls">
@@ -43,6 +43,7 @@
 	 					<option value="<%= flooringCoatings.query[i]._id %>"><%= flooringCoatings.query[i].name %></option>
 					<%    }  %>
 				</select>
+			</div>
 			</div>
 			
             <div class="form-group">
@@ -59,7 +60,7 @@
 				<label for="epoProduct">Epoxy Product Selection:</label>
 				<input type="text" class="form-control" id="epoProduct" name="epoProduct" value="<%= estimatePartFlooring.expoxyProductSelection %>" required>
 			</div> -->
-
+			<div id="flooringOptions2">
 			<div class="form-group">
 				<label for="expoxyProductSelection">Epoxy Product Selection (<%= flooringCoatings.query.length %>):</label>
 				<select name="expoxyProductSelection" class="form-control selcls">
@@ -67,6 +68,7 @@
 	 					<option value="<%= flooringCoatings.query[i]._id %>"><%= flooringCoatings.query[i].name %></option>
 					<%    }  %>
 				</select>
+			</div>
 			</div>
 
             <div class="form-group">
@@ -95,7 +97,7 @@
 		</form>
 	</div>
 </div>
-
+<script src="../js/estimatePartFlooring.js"></script>
 
 <!-- This model is managed by Team 4-5
      Chaitanya Kiran Moturu
