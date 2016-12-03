@@ -135,8 +135,8 @@ api.post('/save', function(req, res) {
     item.floorSystemType = req.body.floorSystemType;
     item.usesUrethane = req.body.usesUrethane ? true: false;   
     item.urethaneProductSelection.name = req.body.urethaneProductSelection;
-    console.log("----------------");
-    console.log("urethaneProductSelection was: " + req.body.urethaneProductSelection);
+    // console.log("----------------");
+    // console.log("urethaneProductSelection was: " + req.body.urethaneProductSelection);
     item.urethaneCoverageSqFt = req.body.urethaneCoverageSqFt;
     item.usesEpoxy = req.body.usesEpoxy ? true: false; 
     item.expoxyProductSelection.name = req.body.expoxyProductSelection;
@@ -148,6 +148,9 @@ api.post('/save', function(req, res) {
 });
 
 // POST update
+/**
+ * When we edit and save
+ */
 api.post('/save/:id', function(req, res) {
     console.log("Handling SAVE request" + req);
     var id = parseInt(req.params.id);
@@ -158,11 +161,11 @@ api.post('/save/:id', function(req, res) {
     console.log("ORIGINAL VALUES " + JSON.stringify(item));
     console.log("UPDATED VALUES: " + JSON.stringify(req.body));
     item.floorSystemType = req.body.floorSystemType;
-    item.usesUrethane = req.body.usesUrethane ? true: false; ;    
-    item.urethaneProductSelection = req.body.urethaneProductSelection;
+    item.usesUrethane = req.body.usesUrethane ? true: false;   
+    item.urethaneProductSelection.name = req.body.urethaneProductSelection;
     item.urethaneCoverageSqFt = req.body.urethaneCoverageSqFt;
-    item.usesEpoxy = req.body.usesEpoxy ? true: false; ;
-    item.expoxyProductSelection = req.body.expoxyProductSelection;
+    item.usesEpoxy = req.body.usesEpoxy ? true: false; 
+    item.expoxyProductSelection.name = req.body.expoxyProductSelection;
     item.expoxyCoverageSqFt = req.body.expoxyCoverageSqFt;
     item.subtotal = req.body.subtotal;
     console.log("SAVING UPDATED ITEM " + JSON.stringify(item));

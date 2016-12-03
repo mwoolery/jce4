@@ -1,4 +1,4 @@
-<br/<br/>
+<br/>
 <br/>
 <h2>Edit Estimate Part Flooring</h2>
 <div class="content">
@@ -11,11 +11,20 @@
 				<input type="number" class="form-control" id="_id" name="_id" value="<%= estimatePartFlooring._id %>" required disabled>
 			</div>
 
-			
 			<div class="form-group">
+					<label for="floorSystemType">Floor System Type</label>
+					<select id="floorSystemType" name="floorSystemType" value="Epoxy" class="form-control selcls">
+						
+						<option> Epoxy </option>
+						<option> Decorative Expoxy </option>
+						<option> Urethane </option>
+					</select>
+					<!--<input type="text" class="form-control" id="floorSystemType" name="floorSystemType" value="Epoxy" required>-->
+				</div>
+			<!--<div class="form-group">
 				<label for="type">Floorig Type Selection</label>
 				<input type="text" class="form-control" id="type" name="unit" value="<%= estimatePartFlooring.floorSystemType %>" required>
-			</div>
+			</div>-->
 
             <div class="form-group">
 				<label for="type">Uses Erethane ?</label>
@@ -28,8 +37,8 @@
 			</div> -->
 
 			<div class="form-group">
-				<label for="urethaneProductSelection">Urethane Product Selection (<%=     flooringCoatings.query.length    %>):</label>
-				<select name="urethaneProductSelection">
+				<label for="urethaneProductSelection">Urethane Product Selection (<%=    flooringCoatings.query.length    %>):</label>
+				<select name="urethaneProductSelection" class="form-control selcls">
 	 				<%  for (var i = 0; i < flooringCoatings.query.length ; i++){  %>
 	 					<option value="<%= flooringCoatings.query[i]._id %>"><%= flooringCoatings.query[i].name %></option>
 					<%    }  %>
@@ -37,7 +46,7 @@
 			</div>
 			
             <div class="form-group">
-				<label for="urethaneCov">Urethane Coverage:</label>
+				<label for="urethaneCov">Urethane Coverage SqFt:</label>
 				<input type="number" class="form-control" id="type" name="urethaneCov" value="<%= estimatePartFlooring.urethaneCoverageSqFt %>" required>
 			</div>
 
@@ -53,7 +62,7 @@
 
 			<div class="form-group">
 				<label for="expoxyProductSelection">Epoxy Product Selection (<%= flooringCoatings.query.length %>):</label>
-				<select name="expoxyProductSelection">
+				<select name="expoxyProductSelection" class="form-control selcls">
 	 				<%  for (var i = 0; i < flooringCoatings.query.length ; i++){  %>
 	 					<option value="<%= flooringCoatings.query[i]._id %>"><%= flooringCoatings.query[i].name %></option>
 					<%    }  %>
@@ -61,7 +70,7 @@
 			</div>
 
             <div class="form-group">
-				<label for="epoCoverage">Epoxy Coverage:</label>
+				<label for="epoCoverage">Epoxy Coverage SqFt:</label>
 				<input type="number" class="form-control" id="epoCoverage" name="epoCoverage" value="<%= estimatePartFlooring.expoxyCoverageSqFt %>" required>
 			</div>
             

@@ -1,5 +1,4 @@
 <br/>
-
 <br/>
 <h2>Create a new estimate part flooring product</h2>
 <p>There are currently
@@ -37,7 +36,7 @@ for (var i=0; i<estimatePartFloorings.query.length; i++) {
 				</div>
 
 				<div class="form-group">
-					<label for="usesUrethane">UsesErethane ?</label>
+					<label for="usesUrethane">Uses Erethane ?</label>
 					<input type="checkbox" class="form-control" id="usesUrethane" name="usesUrethane">
 				</div>
 
@@ -45,7 +44,7 @@ for (var i=0; i<estimatePartFloorings.query.length; i++) {
 					<label for="urethaneProductSelection">Urethane Product Selection:</label>
 					<input type="text" class="form-control" id="urethaneProductSelection" name="urethaneProductSelection" required>
 				</div> -->
-
+			<div id="flooringOptions">
 				<div class="form-group">
 					<label for="urethaneProductSelection">Urethane Product Selection (<%=     flooringCoatings.query.length    %>):</label>
 					<select name="urethaneProductSelection" class="form-control selcls">
@@ -54,6 +53,7 @@ for (var i=0; i<estimatePartFloorings.query.length; i++) {
 						<%    }  %>
 					</select>
 				</div>
+				</div>
 
 				<div class="form-group">
 					<label for="urethaneCoverageSqFt">Urethane Coverage SqFt:</label>
@@ -61,7 +61,7 @@ for (var i=0; i<estimatePartFloorings.query.length; i++) {
 				</div>
 
 			   <div class="form-group">
-					<label for="usesEpoxy">UsesEpoxy ?</label>
+					<label for="usesEpoxy">Uses Epoxy ?</label>
 					<input type="checkbox" class="form-control" id="usesEpoxy" name="usesEpoxy">
 				</div>
 
@@ -70,6 +70,7 @@ for (var i=0; i<estimatePartFloorings.query.length; i++) {
 					<input type="text" class="form-control" id="expoxyProductSelection" name="expoxyProductSelection" required>
 				</div> -->
 
+				<div id="flooringOptions2">
 				<div class="form-group">
 					<label for="expoxyProductSelection">Epoxy Product Selection (<%= flooringCoatings.query.length %>):</label>
 					<select name="expoxyProductSelection" class="form-control selcls">
@@ -78,9 +79,10 @@ for (var i=0; i<estimatePartFloorings.query.length; i++) {
 						<%    }  %>
 					</select>
 				</div>
+				</div>
 
 				<div class="form-group">
-					<label for="expoxyCoverageSqFt">Epoxy Coverage</label>
+					<label for="expoxyCoverageSqFt">Epoxy Coverage SqFt:</label>
 					<input type="number" class="form-control" id="expoxyCoverageSqFt" name="expoxyCoverageSqFt" required>
 				</div>
 
@@ -106,6 +108,7 @@ for (var i=0; i<estimatePartFloorings.query.length; i++) {
 			</form>
 		</div>
 	</div>
+<script src="../js/estimatePartFlooring.js"></script>
 
 
 <!-- This model is managed by Team 4-5
