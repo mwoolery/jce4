@@ -11,13 +11,15 @@
             <th>ID</th>
 			<th>Floor System Type</th>
 			<th>Uses Urethane</th>
-			<th>Urethane Product Selection</th>
-            <th>Urethane Coverage SqFt</th>
+			<th>Urethane Product </th>
+            <th>Price</th>
+            <th>Coverage SqFt</th>
 			<th>Uses Epoxy</th>
-            <th>Epoxy Product Selection</th>
-            <th>Epoxy Coverage SqFt</th>
-			<!--<th>Subtotal</th>-->
-       <th>Actions</th>
+            <th>Epoxy Product </th>
+            <th>Price</th>
+            <th>Coverage SqFt</th>
+            <th>Subtotal</th>
+            <th>Actions</th>
     </tr>
     </thead>
     <tbody>
@@ -33,19 +35,31 @@
 							<%=  estimatePartFloorings.query[i].usesUrethane %>
 						</td>
 						<td>
-							<%=  estimatePartFloorings.query[i].urethaneProductSelection.name%>
+							<!--<%=  estimatePartFloorings.query[i].urethaneProductSelection.name%>-->
+                             <%=  (estimatePartFloorings.query[i].usesUrethane == true) ? estimatePartFloorings.query[i].urethaneProductSelection.name : "" %>
 						</td>
+                        <td>
+                           <!-- <%= estimatePartFloorings.query[i].urethaneProductSelection.price %>-->
+                           <%=  (estimatePartFloorings.query[i].usesUrethane == true) ? estimatePartFloorings.query[i].urethaneProductSelection.price : "" %>
+                        </td>
 						<td>
-							<%=  estimatePartFloorings.query[i].urethaneCoverageSqFt %>
+							<%=  estimatePartFloorings.query[i].urethaneCoverageSqFt %> 
+                            <!--<%=  (estimatePartFloorings.query[i].usesUrethane == true) ? estimatePartFloorings.query[i].urethaneProductSelection.urethaneCoverageSqFt : "" %>-->
 						</td>
                         <td>
 							<%=  estimatePartFloorings.query[i].usesEpoxy %>
 						</td>
 						<td>
-							<%=  estimatePartFloorings.query[i].expoxyProductSelection.name %>
+							<!--<%=  estimatePartFloorings.query[i].expoxyProductSelection.name %>-->
+                            <%=  (estimatePartFloorings.query[i].usesEpoxy == true) ? estimatePartFloorings.query[i].expoxyProductSelection.name : "" %>
 						</td>
                         <td>
-							<%=  estimatePartFloorings.query[i].expoxyCoverageSqFt %>
+                           <!-- <%= estimatePartFloorings.query[i].expoxyProductSelection.price %>-->
+                           <%=  (estimatePartFloorings.query[i].usesEpoxy == true) ? estimatePartFloorings.query[i].expoxyProductSelection.price : "" %>
+                        </td>
+                        <td>
+							<!--<%=  estimatePartFloorings.query[i].expoxyCoverageSqFt %>-->
+                            <%=  (estimatePartFloorings.query[i].usesEpoxy == true) ? estimatePartFloorings.query[i].expoxyProductSelection.expoxyCoverageSqFt : "" %>
 						</td>
                       <!--  <td>
                             <% 
@@ -56,6 +70,29 @@
                             %>
                             <%=  subTotal %>
                         </td>-->
+
+                        <td>
+                            <% 
+                                var sqft = 2000;
+                                var urethaneCost = 0;
+                                var epoxyCost = 0;
+                                var usesUrethane = estimatePartFloorings.query[i].usesUrethane;
+                                var usesEpoxy = estimatePartFloorings.query[i].usesEpoxy;
+                                if(usesUrethane){
+                                    var uprice = estimatePartFloorings.query[i].urethaneProductSelection.price;
+                                    var ucoverage = estimatePartFloorings.query[i].urethaneCoverageSqFt;
+                                    urethaneCost = sqft/uprice*ucoverage;
+                                }
+                                if (usesEpoxy){
+                                    var eprice = estimatePartFloorings.query[i].expoxyProductSelection.price;
+                                    var ecoverage = estimatePartFloorings.query[i].expoxyCoverageSqFt;
+                                    epoxyCost = sqft/eprice*ecoverage;
+                                }
+                                var subTotal = Math.round(urethaneCost  + epoxyCost);
+                            %>
+                                $<%=  subTotal %>
+
+                        </td>
 
             <td>
                 <a href="estimatePartFlooring/delete/<%=  estimatePartFloorings.query[i]._id %>"> <button type="button" class="btn btn-danger"> <span class="glyphicon glyphicon-trash"></span> Delete </button> </a> <br/><br/>
