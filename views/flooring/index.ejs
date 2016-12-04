@@ -16,9 +16,9 @@
             CostPerSqrFoot : <%= flooringEstimates.query[i].costPerSquareFoot %><br>
             BidPerSqrFoot :<%= flooringEstimates.query[i].bidPerSquareFoot %><br>
 
-            <a href="/flooringEstimate/delete/<%= flooringEstimates.query[i]._id %>">Delete </a>
-                <a href="/flooringEstimate/details/<%= flooringEstimates.query[i]._id %>">| Details |</a> 
-                <a href="/flooringEstimate/edit/<%= flooringEstimates.query[i]._id %>"> Edit</a><br>
+            <a href="/flooringEstimate/delete/<button type="button" class="btn btn-danger"> Delete </button> </a> 
+                <a href="/flooringEstimate/details/<%= flooringEstimates.query[i]._id %>"><button type="button" class="btn btn-info">  Details </button> </a>  
+                <a href="/flooringEstimate/edit/<%= flooringEstimates.query[i]._id %>"><button type="button" class="btn btn-warning"> Edit</a><br>
         </div>
     </div>
  <% } %>

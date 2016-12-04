@@ -1,5 +1,4 @@
 <br/>
-
 <br/>
 <h2>Create a new estimate part flooring product</h2>
 <p>There are currently
@@ -25,68 +24,11 @@ for (var i=0; i<estimatePartFloorings.query.length; i++) {
 					<input type="number" class="form-control" id="_id" name="_id" value="<%= maxID+1 %>" required readonly>
 				</div>
 
-				<div class="form-group">
-					<label for="floorSystemType">Floor System Type</label>
-					<select id="floorSystemType" name="floorSystemType" value="Epoxy" >
-						
-						<option> Epoxy</option>
-						<option> Decorative Expoxy</option>
-						<option> Urethane</option>
-					</select>
-					<!--<input type="text" class="form-control" id="floorSystemType" name="floorSystemType" value="Epoxy" required>-->
-				</div>
+				
 
-				<div class="form-group">
-					<label for="usesUrethane">UsesErethane ?</label>
-					<input type="checkbox" class="form-control" id="usesUrethane" name="usesUrethane">
-				</div>
-
-				<!-- <div class="form-group">
-					<label for="urethaneProductSelection">Urethane Product Selection:</label>
-					<input type="text" class="form-control" id="urethaneProductSelection" name="urethaneProductSelection" required>
-				</div> -->
-
-				<div class="form-group">
-					<label for="urethaneProductSelection">Urethane Product Selection (<%=     flooringCoatings.query.length    %>):</label>
-					<select name="urethaneProductSelection">
-	 					<%  for (var i = 0; i < flooringCoatings.query.length ; i++){  %>
-	 						<option value="<%= flooringCoatings.query[i]._id %>"><%= flooringCoatings.query[i].name %></option>
-						<%    }  %>
-					</select>
-				</div>
-
-				<div class="form-group">
-					<label for="urethaneCoverageSqFt">Urethane Coverage SqFt:</label>
-					<input type="text" class="form-control" id="urethaneCoverageSqFt" name="urethaneCoverageSqFt" required>
-				</div>
-
-			   <div class="form-group">
-					<label for="usesEpoxy">UsesEpoxy ?</label>
-					<input type="checkbox" class="form-control" id="usesEpoxy" name="usesEpoxy">
-				</div>
-
-				<!-- <div class="form-group">
-					<label for="expoxyProductSelection">Epoxy Product Selection:</label>
-					<input type="text" class="form-control" id="expoxyProductSelection" name="expoxyProductSelection" required>
-				</div> -->
-
-				<div class="form-group">
-					<label for="expoxyProductSelection">Epoxy Product Selection (<%= flooringCoatings.query.length %>):</label>
-					<select name="expoxyProductSelection">
-	 					<%  for (var i = 0; i < flooringCoatings.query.length ; i++){  %>
-	 						<option value="<%= flooringCoatings.query[i]._id %>"><%= flooringCoatings.query[i].name %></option>
-						<%    }  %>
-					</select>
-				</div>
-
-				<div class="form-group">
-					<label for="expoxyCoverageSqFt">Epoxy Coverage</label>
-					<input type="number" class="form-control" id="expoxyCoverageSqFt" name="expoxyCoverageSqFt" required>
-				</div>
-
-				<div class="form-group">
+			<!--	<div class="form-group">
 					<label for="subtotal">Sub Total</label>
-					<!--<input type="number" class="form-control" id="subtotal" name="subtotal" value="0" required>-->
+					<input type="number" class="form-control" id="subtotal" name="subtotal" value="0" required>
 					<% 
                         var sqft = 2000;
                         var urethaneCost = 0;
@@ -94,7 +36,9 @@ for (var i=0; i<estimatePartFloorings.query.length; i++) {
                         var subTotal = urethaneCost  + epoxyCost;
                     %>
                     <%=  subTotal %>
-				</div>
+				</div> -->
+
+				<% include ..\estimateparts\est-flooring %>
 
 				<div class="form-group">
 					<input type="submit" value="Post new entry" class="btn btn-primary" />
@@ -106,6 +50,7 @@ for (var i=0; i<estimatePartFloorings.query.length; i++) {
 			</form>
 		</div>
 	</div>
+<script src="../js/estimatePartFlooring.js"></script>
 
 
 <!-- This model is managed by Team 4-5
