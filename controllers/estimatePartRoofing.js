@@ -1,5 +1,11 @@
 var express = require('express');
 var api = express.Router();
+var find = require('lodash.find');
+var remove = require('lodash.remove');
+var findIndex = require('lodash.findindex');
+var Model = require('../models/roofingTopcoat.js');
+const notfoundstring = 'No such roofing Topcoats';
+
 
 
 // see app.js for the root request this controller handles
@@ -116,3 +122,5 @@ api.post('/delete/:id', function (req, res, next) {
 });
 
 module.exports = api;
+
+// This was handled by Jaswant, Jonnalagadda
