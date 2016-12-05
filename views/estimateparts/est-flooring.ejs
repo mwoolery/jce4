@@ -2,7 +2,7 @@
 
                 <div class="form-group">
 					<label for="floorSystemType">Floor System Type</label>
-					<select id="floorSystemType" name="floorSystemType" value="Epoxy" class="form-control selcls">
+					<select id="floorSystemType" name="floorSystemType" value="<%= estimatePartFlooring._id %>" class="form-control selcls">
 						
 						<option> Epoxy</option>
 						<option> Decorative Expoxy</option>
@@ -22,7 +22,7 @@
 				</div> -->
 				<div id="flooringOptions">
 				<div class="form-group">
-					<label for="urethaneProductSelection">Urethane Product Selection (<%=     flooringCoatings.query.length    %>):</label>
+					<label for="urethaneProductSelection">Urethane Product Selection (<%= flooringCoatings.query.length %>):</label>
 					<select name="urethaneProductSelection" class="form-control selcls">
 	 					<%  for (var i = 0; i < flooringCoatings.query.length ; i++){  %>
 	 						<option value="<%= flooringCoatings.query[i].name %>"><%= flooringCoatings.query[i].name %></option>
