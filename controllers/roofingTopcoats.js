@@ -34,6 +34,9 @@ api.get('/findone/:id', function (req, res) {
 api.get('/create', function (request, response) {
     response.render("roofing_topcoats/create.ejs");
 });
+api.get('/edit', function (request, response) {
+    response.render("roofing_topcoats/edit.ejs");
+});
 
 
 //GET /delete/:id 

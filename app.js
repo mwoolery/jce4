@@ -85,6 +85,7 @@ db.insert(waterproofingTopcoats);
 app.locals.aggregateMaterials = db.find(aggregateMaterials);
 app.locals.estimatePartAbouts = db.find(estimatePartAbouts);
 app.locals.estimatePartAggregates = db.find(estimatePartAggregates);
+console.log("estimate part aggregate was: " + app.locals.estimatePartAggregates);
 app.locals.estimatePartFootages = db.find(estimatePartFootages);
 app.locals.estimatePartFloorings = db.find(estimatePartFloorings);
 app.locals.estimatePartLabors = db.find(estimatePartLabors);

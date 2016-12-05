@@ -3,7 +3,7 @@
  <h2>All entries</h2>
 
 <p>There are  <%= estimatePartAggregates.query.length %> entries. <br/>
-<a href="estimatePartAggregate/create">Add a new one.</a></p>
+<a href="estimatePartAggregate/create"><button class="btn btn-primary">Add a new one.</button></a></p>
 
 <table class="table" border="1">
     <thead>
@@ -23,14 +23,14 @@
             <td><%=  estimatePartAggregates.query[i]._id %></td>
             <td><%=  estimatePartAggregates.query[i].isUsed %></td>
             <td><%=  estimatePartAggregates.query[i].aggregateTypeSelection %></td>
-            <td><%=  estimatePartAggregates.query[i].aggregateMaterialSelection %></td>
+            <td><%=  estimatePartAggregates.query[i].aggregateMaterialSelection %> </td>
             <td><%=  estimatePartAggregates.query[i].coverageSqFt %></td>
             <td><%=  estimatePartAggregates.query[i].subtotal %></td>
 
               <td>
-							<a href="estimatePartAggregates/delete/<%=  estimatePartAggregates.query[i]._id %>"class="btn btn-danger" >	<span class="glyphicon glyphicon-trash"></span> Delete </a>
-							<a href="estimatePartAggregates/details/<%= estimatePartAggregates.query[i]._id %>"class="btn btn-info">	  <span class="glyphicon glyphicon-list-alt"></span> Details </a>
-							<a href="estimatePartAggregates/edit/<%=    estimatePartAggregates.query[i]._id %>"class="btn btn-warning"> <span class="glyphicon glyphicon-edit"></span> Edit </a>
+							<a href="estimatePartAggregate/delete/<%=  estimatePartAggregates.query[i]._id %>"class="btn btn-danger" >	<span class="glyphicon glyphicon-trash"></span> Delete </a>
+							<a href="estimatePartAggregate/details/<%= estimatePartAggregates.query[i]._id %>"class="btn btn-info">	  <span class="glyphicon glyphicon-list-alt"></span> Details </a>
+							<a href="estimatePartAggregate/edit/<%=    estimatePartAggregates.query[i]._id %>"class="btn btn-warning"> <span class="glyphicon glyphicon-edit"></span> Edit </a>
 						</td>
 					</tr>
 					<% } %>

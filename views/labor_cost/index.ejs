@@ -32,9 +32,9 @@
             <td><%=  estimatePartLabors.query[0].entries[i].costPerNight %></td>
             <td>$<%= (estimatePartLabors.query[0].entries[i].count*estimatePartLabors.query[0].entries[i].hoursPerPerson* estimatePartLabors.query[0].entries[i].dollarsPerHour) +(estimatePartLabors.query[0].entries[i].nightsPerPerson*estimatePartLabors.query[0].entries[i].costPerNight)%>
             </td>
-            <td><a href="estimatePartLabor/delete/<%= estimatePartLabors.query[0].entries[i]._id %>"> Delete </a>
-            <a href="estimatePartLabor/details/<%= estimatePartLabors.query[0].entries[i]._id %>">Details</a>
-            <a href="estimatePartLabor/edit/<%= estimatePartLabors.query[0].entries[i]._id%>"> Edit</a>
+            <td><a class ="btn btn-danger" href="estimatePartLabor/delete/<%= estimatePartLabors.query[0].entries[i]._id %>"><i class="glyphicon glyphicon-trash"></i> Delete </a>
+            <a class ="btn btn-info" href="estimatePartLabor/details/<%= estimatePartLabors.query[0].entries[i]._id %>"><i class="glyphicon glyphicon-list-alt"></i>Details</a>
+            <a class ="btn btn-warning" href="estimatePartLabor/edit/<%= estimatePartLabors.query[0].entries[i]._id%>"><i class="glyphicon glyphicon-edit"></i> Edit</a>
             </td>
          </tr>
          <% } %>

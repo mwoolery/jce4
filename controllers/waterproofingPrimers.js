@@ -143,11 +143,22 @@ api.post('/save/:id', function(req, res) {
     return res.redirect('/waterproofingPrimer');
 });
 
+// DEvarE id (uses HTML5 form method POST)
+api.post('/devare/:id', function(req, res, next) {
+    console.log("Handling DEvarE request" + req);
+});
+//=======
+// DELETE id (uses HTML5 form method POST)
+api.post('/delete/:id', function(req, res, next) {
+    console.log("Handling DELETE request" + req);
+});
+
 
 // DEvarE id (uses HTML5 form method POST)
 api.post('/devare/:id', function(req, res, next) {
     console.log("Handling DEvarE request" + req);
 });
+
 // DELETE id (uses HTML5 form method POST)
 api.post('/delete/:id', function(req, res, next) {
     console.log("Handling DELETE request" + req);
