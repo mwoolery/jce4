@@ -29,7 +29,7 @@
   {
     "_id":2,
     "floorSystemType": "Urethane",
-    "usesUrethane": true,
+    "usesUrethane": false,
     "urethaneProductSelection": {
     "name": "70714/70715=09 general purpose urethane",
     "_id": 2,
@@ -67,7 +67,7 @@
     "price": 50.38
   },
     "urethaneCoverageSqFt": 100,
-    "usesEpoxy": true,
+    "usesEpoxy": false,
     "expoxyProductSelection": {
     "name": "70714/70715 - epoxy",
     "_id": 1,
@@ -83,7 +83,7 @@
   {
     "_id":4,
     "floorSystemType": "Epoxy",
-    "usesUrethane": true,
+    "usesUrethane": false,
     "urethaneProductSelection": {
     "name": "70714/70715=09 general purpose urethane",
     "_id": 2,
@@ -94,7 +94,7 @@
     "price": 50.38
   },
     "urethaneCoverageSqFt": 100,
-    "usesEpoxy": true,
+    "usesEpoxy": false,
     "expoxyProductSelection": {
     "name": "70714/70715 - epoxy",
     "_id": 1,
