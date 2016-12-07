@@ -26,7 +26,7 @@ for (var i=0; i<estimatePartAggregates.query.length; i++) {
 				</div>
 
 				<div class="form-group">
-					<label for="isUsed">isUsed?</label>
+					<label for="isUsed">Used Aggregate ?</label>
 					<input type="checkbox" class="form-control" id="isUsed" name="isUsed"  >
 				</div>
 <!-- 
@@ -62,13 +62,21 @@ for (var i=0; i<estimatePartAggregates.query.length; i++) {
 				</div>
 
 				<div class="form-group">
+						<label for="coverageSqFt">Unit Price:</label>
+						<input type="number" class="form-control" id="unitPrice" name="unitPrice" required>
+					</div>
+				<div class="form-group">
+						<label for="coverageSqFt">Unit:</label>
+						<input type="text" class="form-control" id="unit" name="unit" required>
+				</div>
+				<div class="form-group">
 					<label for="coverageSqFt">Coverage Sq. Ft.</label>
 					<input type="number" class="form-control" id="coverageSqFt" name="coverageSqFt" required>
 				</div>
 				<div class="form-group">
-					<label for="subtotal">Subtotal</label>
-					<input type="number" class="form-control" id="subtotal" name="subtotal"  required>
-				</br>
+					<label for="coverageSqFt">Per Sq. Ft.</label>
+					<input type="float" class="form-control" id="perSqft" name="perSqft" required>
+				</div>
 				<div class="form-group">
 					<input type="submit" value="Post new entry" class="btn btn-primary" />
 				</div>
