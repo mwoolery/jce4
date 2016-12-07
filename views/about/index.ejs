@@ -3,7 +3,7 @@
  <h2>All entries</h2>
 
 <p>There are  <%= estimatePartAbouts.query.length %> entries. <br/>
-<a href="estimatePartAbout/create">Add a new one. </a></p> 
+<a href="estimatePartAbout/create" class="btn btn-success">Add a new one. </a></p> 
 
 <table class="table" border="1">
     <thead>
@@ -32,9 +32,9 @@
             <td><%=  estimatePartAbouts.query[i].longitude %></td>
             
             
-            <td><a href="estimatePartAbout/delete/<%= i+1 %>"> Delete </a> 
-            <a href="estimatePartAbout/details/<%= i+1 %>"> Details </a>
-            <a href="estimatePartAbout/edit/<%= i+1 %>"> Edit </a>
+            <td><a href="estimatePartAbout/delete/<%= i+1 %>" class="btn btn-danger"> Delete </a> 
+            <a href="estimatePartAbout/details/<%= i+1 %>" class="btn btn-info"> Details </a>
+            <a href="estimatePartAbout/edit/<%= i+1 %>"class="btn btn-primary"> Edit </a>
             
           </td>
          </tr>
