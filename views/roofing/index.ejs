@@ -3,7 +3,7 @@
    <% console.log(roofingEstimates.query); %>
 
 <p>There are  <%= roofingEstimates.query.length %> roofing estimates. <br/>
-<a href="/roofingEstimate/create">Add a new one.</a></p>
+<a class="btn btn-success" href="/roofingEstimate/create"><i class="glyphicon glyphicon-pencil"></i> Add a new one.</a></p>
    <table class="table" border="1">
       <thead>
          <tr>
@@ -28,7 +28,9 @@
             <td><%= roofingEstimates.query[i].estimateSquareFootage.sqft %></td>
             <td><%= roofingEstimates.query[i].costPerSquareFoot %></td>
             <td><%= roofingEstimates.query[i].bidPerSquareFoot %></td>
-            <td><a href="/roofingEstimate/delete">Delete</a> <a href="/roofingEstimate/details">Details</a> <a href="/roofingEstimate/edit">Edit</a></td>
+            <td><a href="/roofingEstimate/delete/<%= roofingEstimates.query[0]._id %>"><button type="button" class="btn btn-danger">Delete</button></a>
+             <a href="/roofingEstimate/details/<%= roofingEstimates.query[0]._id %>"><button type="button" class="btn btn-primary">Details</button></a>
+              <a href="/roofingEstimate/edit/<%= roofingEstimates.query[0]._id %>"><button type="button" class="btn btn-warning">Edit</button></a></td>
          </tr>
          <% } %>
       </tbody>

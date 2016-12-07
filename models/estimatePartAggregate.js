@@ -7,6 +7,9 @@ var EstimatePartAggregateSchema = new Schema({
     isUsed: { type: Boolean, required: true, default: false },
     aggregateTypeSelection: { type: String, required: true, default: 'Sand',  enum: ['Sand', 'Quartz', 'Flake', 'Glass Beads']  },
     aggregateMaterialSelection: {type:String},
+    unitPrice:{type:Number},
+    unit:{type:String},
+    perSqft:{type:Number},
     coverageSqFt:  { type: Number, required: true},
     subtotal: { type: Number, required: true, default: 0 }
 })

@@ -142,6 +142,12 @@ api.post('/save', function(req, res) {
     console.log("---------------------------");
     item.coverageSqFt = req.body.coverageSqFt;
     item.subtotal = req.body.subtotal;
+    item.unitPrice = req.body.unitPrice;
+    console.log("unit price was: " + req.body.unitPrice);
+    item.unit = req.body.unit;
+    console.log("unit was: " + req.body.unit);
+    item.perSqft = req.body.perSqft;
+    console.log("per sqft was: " + req.body.perSqft)
     data.push(item);
     console.log("SAVING NEW ITEM " + JSON.stringify(item));
     return res.redirect('/estimatePartAggregate');
@@ -166,6 +172,12 @@ api.post('/save/:id', function(req, res) {
     item.aggregateMaterialSelection = req.body.aggregateMaterialSelection;
     item.coverageSqFt = req.body.coverageSqFt;
     item.subtotal = req.body.subtotal;
+    item.unitPrice = req.body.unitPrice;
+    console.log("unit price was: " + req.body.unitPrice);
+    item.unit = req.body.unit;
+    console.log("unit was: " + req.body.unit);
+    item.perSqft = req.body.perSqft;
+    console.log("per sqft was: " + req.body.perSqft)
     console.log("SAVING UPDATED ITEM " + JSON.stringify(item));
     return res.redirect('/estimatePartAggregate');
 });
