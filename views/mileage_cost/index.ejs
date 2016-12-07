@@ -1,40 +1,60 @@
+<!-- This model is managed by Team 4-11 --> 
+<!--  Nuli Kartik -->
+<!-- Bapuji Dirisala -->
 
 <% console.log(estimatePartMileages.query); %>
 <div class="container">
  <h2>All entries</h2>
 
-<p>There are  <%= estimatePartMileages.query.length %> entries. <br/>
-<a href="estimatePartMileage/create">Add a new one.</a></p>
+<p>There are  <%= estimatePartMileages.query[0].entries.length %> entries. <br/>
+<a class = "btn btn-info" href="estimatePartMileage/create"><i class = "glyphicon glyphicon-pencil"></i> Add a new one</a></p>
 
-<table class="table" border="1">
+<p> Following caclulations are accroding to latest mileage rate specified from the date : <strong> <%= mileageRateNow.startDate %> </strong> </p>
+<table class="table table-hover table-bordered">
     <thead>
       <tr>
-        <th>ID</th>
-        <th>description</th>
-        <th>numberOfVehicles</th>
-        <th>startLocation</th>
-        <th>endLocation</th>
-        <th>milesPerDrive</th>
-       <th>Actions</th>
+       <th>ID</th>
+       <th>Description</th>
+       <th>Number Of Vehicles</th>
+       <th>Start Location</th>
+       <th>End Location</th>
+       <th>Miles Per Drive</th>
+       <th>Dollars Per Mile</th>
+       <th>Cost</th>
+       <th>Options</th>
     </tr>
     </thead>
     <tbody>
-<% for (var i = 0; i < estimatePartMileages.query[0].entries.length; i++) { %>
+<% for (var i = 0; i < estimatePartMileages.query.length; i++) { 
+    var totalCost = 0;
+     for(var j=0; j<estimatePartMileages.query[i].entries.length;j++){
+        var entry = estimatePartMileages.query[i].entries[j];
+      %>
+        <tr>
+            <td> <%= entry._id %></td>
+            <td> <%= entry.description %></td>
+            <td> <%= entry.numberOfVehicles %></td>
+            <td> <%= entry.startLocation %></td>
+            <td> <%= entry.endLocation %></td>
+            <td> <%= entry.milesPerDrive %> m/d</td>
+            <td> $<%= (mileageRateNow.dollarsPerMile).toFixed(2) %></td>
+            <td> $<%= entry.numberOfVehicles*entry.milesPerDrive*mileageRateNow.dollarsPerMile %></td>
+            <% totalCost += entry.numberOfVehicles*entry.milesPerDrive*mileageRateNow.dollarsPerMile %>
+            <td>
+            <a class = "btn btn-info" href="estimatePartMileage/details/<%= entry._id %>" ><i class = "glyphicon glyphicon-list-alt"></i>  Details</a> 
+            <a class = "btn btn-warning" href="estimatePartMileage/edit/<%= entry._id %>" ><i class = "glyphicon glyphicon-edit"></i>   Edit </a> 
+            <a class = "btn btn-danger" href="estimatePartMileage/delete/<%= entry._id %>" ><i class = "glyphicon glyphicon-trash"></i>  Delete </a> </td>
+        </tr>
+    <%    } %>
+    
+         </tbody>
+         <tfoot>
          <tr>
-            <td><%=  estimatePartMileages.query[0].entries[i]._id %></td>
-            <td><%=  estimatePartMileages.query[0].entries[i].description %></td>
-            <td><%=  estimatePartMileages.query[0].entries[i].numberOfVehicles %></td>
-            <td><%=  estimatePartMileages.query[0].entries[i].startLocation %></td>
-            <td><%=  estimatePartMileages.query[0].entries[i].endLocation %></td>
-            <td><%=  estimatePartMileages.query[0].entries[i].milesPerDrive %></td>
-            <td><a href="estimatePartMileage/delete/<%= i+1 %>"> Delete</a> | <a href="estimatePartMileage/details/<%= i+1 %>"> Details</a> | <a href="estimatePartMileage/edit/<%= i+1 %>"> Edit</a></td>
+            <td colspan="9" > Total estimated part mileage : <span id='fnlCost' > $<%=  totalCost %></span> </td>
+            
          </tr>
+         </tfoot>
          <% } %>
-</tbody>
 </table>
 </div>
-
-<!-- This model is managed by Team 4-11 --> 
-<!--  Nuli Kartik -->
-<!-- Bapuji Dirisala-->
 

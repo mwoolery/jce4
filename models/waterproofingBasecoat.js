@@ -2,10 +2,10 @@ var mongoose = require('mongoose')
   , Schema = mongoose.Schema
 
 var WaterproofingBasecoatSchema = new Schema({
-    _id: { type: Number, required: true },
+     _id: { type: Number, required: true },
     name:  { type: String, required: true },
     unit:  { type: String, required: true },
-    displayorder:  { type: String, required: true },
+    displayorder:  { type: Number, required: true },
     price:  { type: Number, required: true }
 })
 

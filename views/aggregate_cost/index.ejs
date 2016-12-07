@@ -3,7 +3,7 @@
  <h2>All entries</h2>
 
 <p>There are  <%= estimatePartAggregates.query.length %> entries. <br/>
-<a href="estimatePartAggregate/create">Add a new one.</a></p>
+<a href="estimatePartAggregate/create"><button class="btn btn-primary">Add a new one.</button></a></p>
 
 <table class="table" border="1">
     <thead>
@@ -23,7 +23,7 @@
             <td><%=  estimatePartAggregates.query[i]._id %></td>
             <td><%=  estimatePartAggregates.query[i].isUsed %></td>
             <td><%=  estimatePartAggregates.query[i].aggregateTypeSelection %></td>
-            <td><%=  estimatePartAggregates.query[i].aggregateMaterialSelection %></td>
+            <td><%=  estimatePartAggregates.query[i].aggregateMaterialSelection %> </td>
             <td><%=  estimatePartAggregates.query[i].coverageSqFt %></td>
             <td><%=  estimatePartAggregates.query[i].subtotal %></td>
 

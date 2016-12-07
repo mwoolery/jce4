@@ -1,8 +1,7 @@
-<h2>Recent waterproofing estimates</h2>
-<p>There are  <%= waterproofingEstimates.query.length %> waterproofing estimates. <br/>
-<a class="btn btn-success" href="/waterproofingEstimate/create"><i class="glyphicon glyphicon-pencil"></i> Add a new one.</a></p>
+<br/>
+<br/>
+<h2>waterproofing estimates</h2>
 <% c=0; %>
-<% for(var item in waterproofingEstimates.query) { %>
 <% c++; %>
 <div class="panel panel-default">
 <div class="panel-heading">
@@ -62,23 +61,23 @@ Misc : <% include ..\..\views\estimateparts\est-misc %><br/>
         </td>
     </tr> 
 <% } %>
-    <tr>
+      <tr>
         <td>Display Bid price, $/sqft : <strong id="dis_bid_<%= (c+1) %>"></strong></td>
     </tr>
 </table>
 
 
 
+
 <div class="panel-body">
 <%= waterproofingEstimates.comment %>
-<a href="/waterproofingEstimate/delete/<%= waterproofingEstimates.query[0]._id %>"><button type="button" class="btn btn-danger">Delete</button></a> 
-<a href="/waterproofingEstimate/details/<%= waterproofingEstimates.query[0]._id %>"><button type="button" class="btn btn-primary">Details</button></a>  
-<a href="/waterproofingEstimate/edit/<%= waterproofingEstimates.query[0]._id %>"><button type="button" class="btn btn-warning">Edit</button></a>
-
+<a href="/waterproofingEstimate/delete/<%= c %>">delete</a> |
+<a href="/waterproofingEstimate/details/<%= c %>">details</a> |
+<a href="/waterproofingEstimate/edit/<%= c %>">edit</a>
+ 
  
 </div>
 </div>
-<% } %>
 <!-- This model is managed by Team 4-03
 Sai Venkat Poorna Chandu Bhogireddy
 Santosh Ravi Teja Goteti -->
