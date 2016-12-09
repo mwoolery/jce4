@@ -1,6 +1,6 @@
 [
   {
-    "_type": "roofingEstimate",
+    "_id": 1,
     "estimatePartAbout": {
       "client": "Amanda Bank",
       "created": "2016-10-04",
@@ -16,7 +16,7 @@
     "bidPerSquareFoot": 5.00
   },
   {
-    "_type": "roofingEstimate",
+    "_id": 2,
    "estimatePartAbout": {
       "client": "Meghan Movies",
       "created": "2016-10-04",
