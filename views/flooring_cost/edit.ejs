@@ -13,18 +13,18 @@
 
 			 <div class="form-group">
 					<label for="floorSystemType">Floor System Type</label>
-					<select id="floorSystemType" name="floorSystemType" value="Epoxy" class="form-control selcls">
-						
+					<select id="floorSystemType" name="floorSystemType" class="form-control selcls">
 						<option> Epoxy</option>
 						<option> Decorative Expoxy</option>
 						<option> Urethane</option>
+						<option selected style="font-weight:bold"><%= estimatePartFlooring.floorSystemType%></option>
 					</select>
 					<!--<input type="text" class="form-control" id="floorSystemType" name="floorSystemType" value="Epoxy" required>-->
 				</div>
 
 				<div class="form-group">
 					<label for="usesUrethane">Uses Erethane ?</label>
-					<input type="checkbox" class="form-control" id="usesUrethane" name="usesUrethane" <%= estimatePartFlooring.usesUrethane ? "checked" : "" %>>
+					<input type="checkbox" class="form-control" id="usesUrethane" name="usesUrethane" <%= estimatePartFlooring.usesUrethane ? "checked" : "" %>
 				</div>
 
 				<!-- <div class="form-group">
