@@ -1,28 +1,43 @@
 <br/>
 <br/>
-<h2>Confirm deletion of Flooring Estimate</h2>
+<h2>Confirm deletion of flooring estimate</h2>
 <br/>
 <br/>
 <p>Item
-	<%=  flooringEstimate._id %><br>
-	<%=  flooringEstimate._type %>
+	<%=  flooringEstimate._id %>
 </p>
-<p>Client : <%=flooringEstimate.estimatePartAbout.client%></P>
-<p>Created : <%=flooringEstimate.estimatePartAbout.created%></P>
-<p>Address : <%=flooringEstimate.estimatePartAbout.address%></P>
-<p>City : <%=flooringEstimate.estimatePartAbout.city%></P>
-<p>Ztate : <%=flooringEstimate.estimatePartAbout.state%></P>
-<p>zipcode : <%=flooringEstimate.estimatePartAbout.zipcode%></P>
-<br>
-<p>Squre Footage : <%=flooringEstimate.estimateSquareFootage.sqft%></P>
-<br>
-<p>CostPerSquareFoot : $<%=flooringEstimate.costPerSquareFoot%></P>
-<p>BidPerSquareFoot : $<%=flooringEstimate.bidPerSquareFoot%></P>
+<p>
+	client : <%=  flooringEstimate.estimatePartAbout.client %>
+</p>
+<p>
+	created : <%=  flooringEstimate.estimatePartAbout.created %>
+</p>
+<p>
+	address : <%=  flooringEstimate.estimatePartAbout.address %>
+</p>
+<p>
+	city : <%=  flooringEstimate.estimatePartAbout.city %>
+</p>
+<p>
+	state : <%=  flooringEstimate.estimatePartAbout.state %>
+</p>
+<p>
+	zipcode : <%=  flooringEstimate.estimatePartAbout.zipcode %>
+</p>
+<p>
+	sqft : <%=  flooringEstimate.estimateSquareFootage.sqft %>
+</p>
+<p>
+	costPerSquareFoot : <%=  flooringEstimate.costPerSquareFoot %>
+</p>
+<p>
+	bidPerSquareFoot : <%=  flooringEstimate.bidPerSquareFoot %>
+</p>
 
+<br/>
 <form method="get" action="/flooringEstimate">
 	<input type="submit" value="Return to list" class="btn btn-caution" />
 </form>
-
 <br/>
 <form method="POST" action="/flooringEstimate/delete/<%= flooringEstimate._id %>">
 	<input type="submit" value="Delete this item" class="btn btn-danger pull-right" />
