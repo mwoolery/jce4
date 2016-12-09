@@ -2,33 +2,45 @@
   {
     "_id":1,
     "isUsed": true,
-    "aggregateTypeSelection": "Sand",
+    "aggregateTypeSelection": "sand",
     "aggregateMaterialSelection": "7992 - 16/30 mesh sand",
+    "unitPrice":20,
+    "unit":"50lb bag",
     "coverageSqFt": 100,
-    "subtotal": 2000
+    "subtotal": 2000,
+    "perSqft":0.10
   },
   {
     "_id":2,
     "isUsed": true,
-    "aggregateTypeSelection": "Rock",
+    "aggregateTypeSelection": "quartz",
     "aggregateMaterialSelection": "7992 - 16/30 mesh sand",
+    "unitPrice":35,
+    "unit":"50lb bag",
     "coverageSqFt": 100,
-    "subtotal": 2000
+    "subtotal": 2000,
+    "perSqft":0.10
   },
   {
     "_id":3,
     "isUsed": true,
-    "aggregateTypeSelection": "Primers",
+    "aggregateTypeSelection": "flake",
     "aggregateMaterialSelection": "7992 - 16/30 mesh sand",
+    "unitPrice":15,
+    "unit":"50lb bag",
     "coverageSqFt": 100,
-    "subtotal": 2000
+    "subtotal": 2000,
+    "perSqft":0.10
   },
   {
     "_id":4,
     "isUsed": true,
-    "aggregateTypeSelection": "Base Coats",
+    "aggregateTypeSelection": "sand",
     "aggregateMaterialSelection": "7992 - 16/30 mesh sand",
+    "unitPrice":15,
+    "unit":"bag",
     "coverageSqFt": 100,
-    "subtotal": 2000
+    "subtotal": 2000,
+    "perSqft":0.10
   }
 ]
