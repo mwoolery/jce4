@@ -38,6 +38,7 @@
 	 					<%  for (var i = 0; i < flooringCoatings.query.length ; i++){  %>
 	 						
 							 <option value="<%= flooringCoatings.query[i].name %>"><%= flooringCoatings.query[i].name %></option>
+							 <option selected style="font-weight:bold"><%= flooringCoatings.query[i].name%></option>
 							 
 						<%    }  %>
 					</select>
