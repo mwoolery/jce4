@@ -46,10 +46,6 @@ api.get("/", function (request, response) {
 response.render("flooring_cost/index.ejs");
 });
 
-// api.get("/create", function (request, response) {
-// response.render("flooring_cost/create.ejs");
-// });
-
 // GET create
 api.get("/create", function(req, res) {
     console.log('Handling GET /create' + req);
@@ -126,12 +122,6 @@ api.post('/save', function(req, res) {
     var item = new Model;
     console.log("NEW ID " + req.body._id);
     item._id = req.body._id;
-    //var temp = "true";
-    // if(!req.body.isUsed || req.body.isUsed == null || req.body.isUsed == undefined){
-    //     temp = false;
-    // }
-    // item.isUsed = temp;
-    
     item.floorSystemType = req.body.floorSystemType;
     item.usesUrethane = req.body.usesUrethane ? true: false;   
     item.urethaneProductSelection.name = req.body.urethaneProductSelection;
@@ -145,8 +135,6 @@ api.post('/save', function(req, res) {
     item.urethaneProductSelection.price = uSelection.price;
     item.urethaneProductSelection.unit = uSelection.unit;
     item.urethaneProductSelection.displayorder = parseInt(uSelection.displayorder);
-    // console.log("----------------");
-    // console.log("urethaneProductSelection was: " + req.body.urethaneProductSelection);
     item.urethaneCoverageSqFt = req.body.urethaneCoverageSqFt;
     item.usesEpoxy = req.body.usesEpoxy ? true: false; 
     item.expoxyProductSelection.name = req.body.expoxyProductSelection;
@@ -184,31 +172,9 @@ api.post('/save/:id', function(req, res) {
     item.floorSystemType = req.body.floorSystemType;
     item.usesUrethane = req.body.usesUrethane ? true: false;   
     item.urethaneProductSelection.name = req.body.urethaneProductSelection;
-
-    // var products = req.app.locals.flooringCoatings.query;
-    // var uSelection = find(products, { 'name': req.body.urethaneProductSelection });
-    // if (!uSelection) { return res.end("No matching urethane product found ("+req.body.urethaneProductSelection+")."); }
-    // // then save each sub field individually...
-    // item.urethaneProductSelection._id = uSelection._id;
-    // item.urethaneProductSelection.name = uSelection.name;
-    // item.urethaneProductSelection.price = uSelection.price;
-    // item.urethaneProductSelection.unit = uSelection.unit;
-    // item.urethaneProductSelection.displayorder = parseInt(uSelection.displayorder);
-
     item.urethaneCoverageSqFt = req.body.urethaneCoverageSqFt;
     item.usesEpoxy = req.body.usesEpoxy ? true: false; 
     item.expoxyProductSelection.name = req.body.expoxyProductSelection;
-
-    // var products1 = req.app.locals.flooringCoatings.query;
-    // var eSelection = find(products1, { 'name': req.body.expoxyProductSelection });
-    // if (!eSelection) { return res.end("No matching epoxy product found ("+req.body.expoxyProductSelection+")."); }
-    // // then save each sub field individually...
-    // item.expoxyProductSelection._id = eSelection._id;
-    // item.expoxyProductSelection.name = eSelection.name;
-    // item.expoxyProductSelection.price = eSelection.price;
-    // item.expoxyProductSelection.unit = eSelection.unit;
-    // item.expoxyProductSelection.displayorder = parseInt(eSelection.displayorder);
-
     item.expoxyCoverageSqFt = req.body.expoxyCoverageSqFt;
     item.subtotal = req.body.subtotal;
     console.log("SAVING UPDATED ITEM " + JSON.stringify(item));
