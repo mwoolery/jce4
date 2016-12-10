@@ -2,7 +2,7 @@ var express = require('express');
 var api = express.Router();
 var find =  require('lodash.find');
 var remove = require('lodash.remove');
-var findIndex = require('lodash.remove');
+var findIndex = require('lodash.findIndex');
 var Model = require('../models/estimatePartAggregate.js');
 const notfoundstring = 'No such Estimate Part Aggregate';
 
@@ -45,7 +45,7 @@ api.get('/delete/:id', function (req, res) {
         {
             title: "Aggregate Cost",
             layout: "layout.ejs",
-            estimatePartAggregate :item[0]  
+            estimatePartAggregate :item
         });     
 });
 
@@ -87,7 +87,7 @@ api.get('/details/:id', function(req, res) {
         {
             title: "Aggregate Cost",
             layout: "layout.ejs",
-            estimatePartAggregate: item[0]
+            estimatePartAggregate: item
         });
 });
 
@@ -100,19 +100,18 @@ api.get('/edit/:id', function(req, res) {
     console.log("----------");
     console.log("Item was : " + item);
     if (!item) { 
-        return res.end(notfoundstring);
-     }
-        
+        console.log('-- no item found ---');
+        return res.end(notfoundstring); }
+    else{        
     console.log("RETURNING VIEW FOR" + JSON.stringify(item));
     console.log((item._id));
-  
-
     return res.render('aggregate_cost/edit.ejs',
         {
             title: "estimatePartAggregate",
             layout: "layout.ejs",
-            estimatePartAggregate: item[0]
+            estimatePartAggregate: item
         });
+    }
 });
 
 
@@ -151,7 +150,7 @@ api.post('/save', function(req, res) {
     console.log("per sqft was: " + req.body.perSqft)
     data.push(item);
     console.log("SAVING NEW ITEM " + JSON.stringify(item));
-    return res.render('/aggregate_cost/index.ejs');
+    return res.redirect('/estimatePartAggregate');
 });
 
 // POST update
