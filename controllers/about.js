@@ -114,7 +114,7 @@ api.get('/t5/b', function(req, res) {
 });
 api.get('/t5/c', function(req, res) {
     console.log("Handling GET " + req);
-    return res.render('t5 /c/index.ejs',
+    return res.render('t5/c/index.ejs',
         { title: "TeamMember3PutYourNameHere", layout: "layout.ejs" });
 });
 
