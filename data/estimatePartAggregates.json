@@ -6,7 +6,7 @@
     "aggregateMaterialSelection": "7992 - 16/30 mesh sand",
     "unitPrice":20,
     "unit":"50lb bag",
-    "coverageSqFt": 100,
+    "coverageSqFt": 120,
     "subtotal": 2000,
     "perSqft":0.10
   },
@@ -17,7 +17,7 @@
     "aggregateMaterialSelection": "7992 - 16/30 mesh sand",
     "unitPrice":35,
     "unit":"50lb bag",
-    "coverageSqFt": 100,
+    "coverageSqFt": 140,
     "subtotal": 2000,
     "perSqft":0.10
   },
@@ -28,7 +28,7 @@
     "aggregateMaterialSelection": "7992 - 16/30 mesh sand",
     "unitPrice":15,
     "unit":"50lb bag",
-    "coverageSqFt": 100,
+    "coverageSqFt": 160,
     "subtotal": 2000,
     "perSqft":0.10
   },
