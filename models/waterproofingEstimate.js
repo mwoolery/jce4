@@ -10,6 +10,7 @@ var mongoose = require('mongoose')
 
 
 var WaterproofingEstimateSchema = new Schema({
+  _id: { type: Number, required: true },
   about: { type: Schema.Types.ObjectId, ref: About },
   footage: { type: Schema.Types.ObjectId, ref: Footage },
   waterproofing: { type: Schema.Types.ObjectId, ref: WaterProofing },
@@ -29,3 +30,7 @@ WaterproofingEstimateSchema.virtual('created').get(function () {
 
 var waterProofingEstimate = mongoose.model('WaterProofingEstimate', WaterproofingEstimateSchema)
 module.exports = waterProofingEstimate
+
+// This model is managed by Team 4-03
+// Sai Venkat Poorna Chandu Bhogireddy
+// Santosh Ravi Teja Goteti

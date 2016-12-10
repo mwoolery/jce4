@@ -15,14 +15,14 @@ const notfoundstring = 'No such Estimate Part Aggregate';
  */
 api.get('/findall', function(req, res){
     res.setHeader('Content-Type', 'application/json');
-    var data = req.app.locals.estimatePartAggregate.query;
+    var data = req.app.locals.estimatePartAggregates.query;
     res.send(JSON.stringify(data));
 });
 
 api.get('/findone/:id', function(req, res){
      res.setHeader('Content-Type', 'application/json');
     var id = parseInt(req.params.id);
-    var data = req.app.locals.estimatePartAggregate.query;
+    var data = req.app.locals.estimatePartAggregates.query;
     var item = find(data, { '_id': id });
     if (!item) { return res.end(notfoundstring); }
     res.send(JSON.stringify(item));
@@ -58,21 +58,21 @@ api.get("/create", function(req, res) {
         { title: "Aggregate Cost", layout: "layout.ejs" });
 });
 
-//GET devare
-api.get('/devare/:id', function(req, res) {
-    console.log("Handling GET /devare/:id " + req);
-    var id = parseInt(req.params.id);
-    var data = req.app.locals.estimatePartAggregates.query;
-    var item = find(data, { '_id': id });
-    if (!item) { return res.end(notfoundstring); }
-    console.log("RETURNING VIEW FOR" + JSON.stringify(item));
-    return res.render('aggregate_cost/devare.ejs',
-        {
-            title: "Aggregate Cost",
-            layout: "layout.ejs",
-            waterproofingPrimer: item
-        });
-});
+// //GET devare
+// api.get('/devare/:id', function(req, res) {
+//     console.log("Handling GET /devare/:id " + req);
+//     var id = parseInt(req.params.id);
+//     var data = req.app.locals.estimatePartAggregates.query;
+//     var item = find(data, { '_id': id });
+//     if (!item) { return res.end(notfoundstring); }
+//     console.log("RETURNING VIEW FOR" + JSON.stringify(item));
+//     return res.render('aggregate_cost/devare.ejs',
+//         {
+//             title: "Aggregate Cost",
+//             layout: "layout.ejs",
+//             waterproofingPrimer: item
+//         });
+// });
 
 
 // GET /details/:id
@@ -118,19 +118,39 @@ api.get('/edit/:id', function(req, res) {
 // HANDLE EXECUTE DATA MODIFICATION REQUESTS --------------------------------------------
 
 // POST new
+/**
+ * adding a new item
+ */
 api.post('/save', function(req, res) {
     console.log("Handling POST " + req);
     var data = req.app.locals.estimatePartAggregates.query;
     var item = new Model;
     console.log("NEW ID " + req.body._id);
     item._id = parseInt(req.body._id);
-    item.name = req.body.name;
+
+    var temp = "true";
+    if(!req.body.isUsed || req.body.isUsed == null || req.body.isUsed == undefined){
+        temp = false;
+    }
+    item.isUsed = temp;
+    console.log("----- getting isUSed : after checkbox: " + req.body.isUsed);
+    console.log("--- the temp was: --- " + temp);
+    item.aggregateTypeSelection = req.body.aggregateTypeSelection;
+    item.aggregateMaterialSelection = req.body.aggregateMaterialSelection;
+    console.log("---------------------------");
+    console.log(" the aggreate material sel. was: " + req.body.aggregateMaterialSelection);
+    console.log("---------------------------");
+    item.coverageSqFt = req.body.coverageSqFt;
+    item.subtotal = req.body.subtotal;
+    item.unitPrice = req.body.unitPrice;
+    console.log("unit price was: " + req.body.unitPrice);
     item.unit = req.body.unit;
-    item.price = req.body.price;
-    item.displayorder = parseInt(req.body.displayorder);
+    console.log("unit was: " + req.body.unit);
+    item.perSqft = req.body.perSqft;
+    console.log("per sqft was: " + req.body.perSqft)
     data.push(item);
     console.log("SAVING NEW ITEM " + JSON.stringify(item));
-    return res.redirect('/aggregate');
+    return res.redirect('/estimatePartAggregate');
 });
 
 // POST update
@@ -143,12 +163,23 @@ api.post('/save/:id', function(req, res) {
     if (!item) { return res.end(notfoundstring); }
     console.log("ORIGINAL VALUES " + JSON.stringify(item));
     console.log("UPDATED VALUES: " + JSON.stringify(req.body));
-    item.name = req.body.name;
+    item._id = parseInt(req.body._id);
+    item.isUsed = req.body.isUsed;
+    item.aggregateTypeSelection = req.body.aggregateTypeSelection;
+    console.log("---------------------------");
+    console.log(" the aggreate type selection was: " + req.body.aggregateTypeSelection);
+    console.log("---------------------------");
+    item.aggregateMaterialSelection = req.body.aggregateMaterialSelection;
+    item.coverageSqFt = req.body.coverageSqFt;
+    item.subtotal = req.body.subtotal;
+    item.unitPrice = req.body.unitPrice;
+    console.log("unit price was: " + req.body.unitPrice);
     item.unit = req.body.unit;
-    item.price = req.body.price;
-    item.displayorder = req.body.displayorder;
+    console.log("unit was: " + req.body.unit);
+    item.perSqft = req.body.perSqft;
+    console.log("per sqft was: " + req.body.perSqft)
     console.log("SAVING UPDATED ITEM " + JSON.stringify(item));
-    return res.redirect('/aggregate');
+    return res.redirect('/estimatePartAggregate');
 });
 
 // DEvarE id (uses HTML5 form method POST)
@@ -164,7 +195,7 @@ api.post('/delete/:id', function(req, res, next) {
     var item = remove(data, { '_id': id });
     if (!item) { return res.end(notfoundstring); }
     console.log("Deleted item " + JSON.stringify(item));
-    return res.redirect('/aggregate');
+    return res.redirect('/estimatePartAggregate');
 });
 
 // see app.js for the root request this controller handles

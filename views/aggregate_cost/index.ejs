@@ -3,39 +3,48 @@
  <h2>All entries</h2>
 
 <p>There are  <%= estimatePartAggregates.query.length %> entries. <br/>
-<a href="estimatePartAggregate/create">Add a new one.</a></p>
+<a href="estimatePartAggregate/create"><button class="btn btn-primary">Add a new one.</button></a></p>
 
 <table class="table" border="1">
     <thead>
       <tr>
         <th>ID</th>
-        <th>isUsed?</th>
-        <th>Type</th>
-        <th>Selection </th>
-        <th>Coverage</th>
-        <th>subtotal</th>
+        <th>Uses Aggregate?</th>
+        <th>Type Selection</th>
+        <th>Material Selection </th>
+        <th>Unit Price</th>
+        <th>Unit</th>
+        <th>Coverage Sq. Ft.</th>
+        <th>Total Cost</th>
+        <th>$/Sqft</th>
        <th>Actions</th>
     </tr>
     </thead>
     <tbody>
+    <% var subtotal = 0;%>
 <% for (var i = 0; i < estimatePartAggregates.query.length; i++) { %>
+        <% subtotal+= estimatePartAggregates.query[i].coverageSqFt * estimatePartAggregates.query[i].perSqft%>
+
          <tr>
             <td><%=  estimatePartAggregates.query[i]._id %></td>
             <td><%=  estimatePartAggregates.query[i].isUsed %></td>
             <td><%=  estimatePartAggregates.query[i].aggregateTypeSelection %></td>
-            <td><%=  estimatePartAggregates.query[i].aggregateMaterialSelection %></td>
+            <td><%=  estimatePartAggregates.query[i].aggregateMaterialSelection %> </td>
+            <td><%=  estimatePartAggregates.query[i].unitPrice %></td>
+            <td><%=  estimatePartAggregates.query[i].unit %></td>            
             <td><%=  estimatePartAggregates.query[i].coverageSqFt %></td>
-            <td><%=  estimatePartAggregates.query[i].subtotal %></td>
-
-              <td>
-							<a href="estimatePartAggregate/delete/<%=  estimatePartAggregates.query[i]._id %>"> Delete </a> 
-							<a href="estimatePartAggregate/details/<%= estimatePartAggregates.query[i]._id %>"> Details </a>
-							<a href="estimatePartAggregate/edit/<%= estimatePartAggregates.query[i]._id %>"> Edit </a>
+             <td><%=  (estimatePartAggregates.query[i].coverageSqFt * estimatePartAggregates.query[i].perSqft).toFixed(2)   %></td>
+             <td><%=  estimatePartAggregates.query[i].perSqft %></td>
+             <td>
+							<a href="estimatePartAggregate/delete/<%=  estimatePartAggregates.query[i]._id %>"class="btn btn-danger" >	<span class="glyphicon glyphicon-trash"></span> Delete </a>
+							<a href="estimatePartAggregate/details/<%= estimatePartAggregates.query[i]._id %>"class="btn btn-info">	  <span class="glyphicon glyphicon-list-alt"></span> Details </a>
+							<a href="estimatePartAggregate/edit/<%=    estimatePartAggregates.query[i]._id %>"class="btn btn-warning"> <span class="glyphicon glyphicon-edit"></span> Edit </a>
 						</td>
 					</tr>
 					<% } %>
 			</tbody>
 		</table>
+     <h3>Subtotal Was: <%= subtotal%> </h3>
 	</div>
 
   
