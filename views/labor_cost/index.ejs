@@ -1,43 +1,65 @@
 
-<% console.log(estimatePartLabors.query[0].entries); %>
+<% console.log(estimatePartLabors.query); %>
 <div class="container">
- <h2>All entries</h2>
-
+<h2>All entries</h2>
+ 
 <p>There are  <%= estimatePartLabors.query[0].entries.length %> entries. <br/>
-<a href="/estimatePartLabor/create">Add new one.</a></p>
-
+ 
+                                                                <a class="btn btn-info" href="estimatePartLabor/create"><i class="glyphicon glyphicon-pencil"></i> New Entry</a></p>
+ 
 <table class="table" border="1">
     <thead>
       <tr>
-        <th>id</th>       
+       <th>ID</th>
        <th>type</th>
        <th>count</th>
-       <th>hoursPerPerson </th>
+       <th>hoursPerPerson</th>
        <th>dollarsPerHour</th>
-       <th>nightsPerPerson</th>
-       <th>costPerNight</th>
-       <th>Labour Cost</th>
-        <th>Actions</th>
+       <th>night shift hours per person</th>
+       <th>cost per hour</th>
+       <th>cost </th>
+       <th>Actions</th>
     </tr>
     </thead>
     <tbody>
-<% for (var i = 0; i < estimatePartLabors.query[0].entries.length; i++) { %>
-         <tr>
-            <td><%=  estimatePartLabors.query[0].entries[i]._id %></td>
-            <td><%=  estimatePartLabors.query[0].entries[i].type %></td>
-            <td><%=  estimatePartLabors.query[0].entries[i].count %></td>
-            <td><%=  estimatePartLabors.query[0].entries[i].hoursPerPerson %></td>
-            <td><%=  estimatePartLabors.query[0].entries[i].dollarsPerHour %></td>
-            <td><%=  estimatePartLabors.query[0].entries[i].nightsPerPerson%></td>
-            <td><%=  estimatePartLabors.query[0].entries[i].costPerNight %></td>
-            <td>$<%= (estimatePartLabors.query[0].entries[i].count*estimatePartLabors.query[0].entries[i].hoursPerPerson* estimatePartLabors.query[0].entries[i].dollarsPerHour) +(estimatePartLabors.query[0].entries[i].nightsPerPerson*estimatePartLabors.query[0].entries[i].costPerNight)%>
-            </td>
-            <td><a class ="btn btn-danger" href="estimatePartLabor/delete/<%= estimatePartLabors.query[0].entries[i]._id %>"><i class="glyphicon glyphicon-trash"></i> Delete </a>
-            <a class ="btn btn-info" href="estimatePartLabor/details/<%= estimatePartLabors.query[0].entries[i]._id %>"><i class="glyphicon glyphicon-list-alt"></i>Details</a>
-            <a class ="btn btn-warning" href="estimatePartLabor/edit/<%= estimatePartLabors.query[0].entries[i]._id%>"><i class="glyphicon glyphicon-edit"></i> Edit</a>
+<% for (var i = 0; i < estimatePartLabors.query.length; i++) {
+    var tot=0;
+     for(var j=0; j<estimatePartLabors.query[i].entries.length;j++){
+        var entry = estimatePartLabors.query[i].entries[j];
+        var doll= entry.count*entry.hoursPerPerson*entry.dollarsPerHour + entry.nightsPerPerson*entry.costPerNight;
+          
+      %>
+        <tr>
+            <td> <%= entry._id %></td>
+            <td> <%= entry.type %></td>
+            <td> <%= entry.count %></td>
+            <td> <%= entry.hoursPerPerson %>
+            <td> <%= entry.dollarsPerHour %></td>
+            <td> <%= entry.nightsPerPerson %></td>
+            <td> <%= entry.costPerNight %></td></td>
+            <td bgcolor = "#CACACA"> <%= doll %></td>
+            <%tot+= doll %>
+ 
+            
+            <td>
+            <a href="estimatePartLabor/delete/<%=  entry._id %>" class="btn btn-danger"><i class="glyphicon glyphicon-trash"></i> Delete </a>
+                                                                                                                <a href="estimatePartLabor/details/<%= entry._id %>" class="btn btn-info"><i class="glyphicon glyphicon-list-alt"></i> Details </a>
+                                                                                                                <a href="estimatePartLabor/edit/<%=   entry._id %>" class="btn btn-warning"><i class="glyphicon glyphicon-edit"></i> Edit </a>
             </td>
          </tr>
          <% } %>
+         <% } %>
+       
+         <tr>
+            <td colspan="4" bgcolor = "#ddd"> <strong> Calculated Labor:  <%=  tot+"$" %> </strong></span> </td>
+           
+         </tr>
+ 
+ 
+</tbody>
+</table>
+</div>
+ 
 </tbody>
 </table>
 </div>
