@@ -1,8 +1,8 @@
 var express = require('express');
 var api = express.Router();
-var find =  require('lodash.remove');
+var find =  require('lodash.find');
 var remove = require('lodash.remove');
-var findIndex = require('lodash.remove');
+var findIndex = require('lodash.findIndex');
 var Model = require('../models/estimatePartAggregate.js');
 const notfoundstring = 'No such Estimate Part Aggregate';
 
@@ -45,7 +45,7 @@ api.get('/delete/:id', function (req, res) {
         {
             title: "Aggregate Cost",
             layout: "layout.ejs",
-            estimatePartAggregate :item[0]  
+            estimatePartAggregate :item
         });     
 });
 
@@ -87,7 +87,7 @@ api.get('/details/:id', function(req, res) {
         {
             title: "Aggregate Cost",
             layout: "layout.ejs",
-            estimatePartAggregate: item[0]
+            estimatePartAggregate: item
         });
 });
 
@@ -109,7 +109,7 @@ api.get('/edit/:id', function(req, res) {
         {
             title: "estimatePartAggregate",
             layout: "layout.ejs",
-            estimatePartAggregate: item[0]
+            estimatePartAggregate: item
         });
     }
 });
