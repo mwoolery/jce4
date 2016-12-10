@@ -18,7 +18,12 @@
 
 			<div class="form-group">
 				<label for="aggregateTypeSelection">Aggregate Type Selection</label>
-				<input type="text" class="form-control" id="aggregateTypeSelection" name="aggregateTypeSelection" value="<%= estimatePartAggregate.aggregateTypeSelection %>" required>
+					<select id="floorSystemType" name="floorSystemType" class="form-control selcls">
+						<option> sand</option>
+						<option> quartz</option>
+						<option> flake</option>
+						<option selected style="font-weight:bold"><%= estimatePartAggregate.aggregateTypeSelection%></option>
+					</select>
 			</div>
 
 			<div class="form-group">
