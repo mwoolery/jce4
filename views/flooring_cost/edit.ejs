@@ -61,18 +61,15 @@
 					<input type="number" class="form-control" id="urethaneCoverageSqFt" name="urethaneCoverageSqFt" min="80" max="200" required value="<%= temp%>">
 				</div>
 
-			</div> <!-- for showing and hiding jquery -->
+				</div> 
+			
+			<!-- for showing and hiding jquery -->
 
 			   <div class="form-group">
 					<label for="usesEpoxy">Uses Epoxy ?</label>
 					<input type="checkbox" class="form-control" id="usesEpoxy" name="usesEpoxy" <%= estimatePartFlooring.usesEpoxy ? "checked" : "" %>>
 				</div>
-
-				<!-- <div class="form-group">
-					<label for="expoxyProductSelection">Epoxy Product Selection:</label>
-					<input type="text" class="form-control" id="expoxyProductSelection" name="expoxyProductSelection" required>
-				</div> -->
-
+				
 				<div id="flooringOptions2">
 				<div class="form-group">
 					<label for="expoxyProductSelection">Epoxy Product Selection (<%= flooringCoatings.query.length %>):</label>
@@ -87,15 +84,15 @@
 				</div>
 				
 
-				<div class="form-group">
-				<% temp = estimatePartFloorings.query[tempid].expoxyCoverageSqFt %>
+				<div class="form-group">				
 					<label for="expoxyCoverageSqFt">Epoxy Coverage SqFt:</label>
+					<% temp = estimatePartFloorings.query[tempid].expoxyCoverageSqFt %>
 					<input type="number" class="form-control" id="expoxyCoverageSqFt" name="expoxyCoverageSqFt" value="<%=temp%>" min="100" max="400" required>
 				</div>
-     </div> <!-- for showing and hiding from jquery -->
+     			</div> 
+	 <!-- for showing and hiding from jquery -->
 
-			<% include ..\estimateparts\est-flooring %>
-
+			
 			<input type="submit" value="Save" class="btn btn-primary" />
 		</form>
 		<br>
