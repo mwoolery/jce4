@@ -9,7 +9,7 @@ var EstimatePartWaterpWaterproofingSchema = new Schema({
   productType: { type: String, required: true, default: 'Urethane', enum: ['Urethane', 'Cementicious Overlay'] },
 
   usesUrethane: { type: Boolean, required: true, default: false },
-  urethaneSelection: [{ type: String }],
+  urethaneSelection: [{ type: Schema.Types.ObjectId, ref: WaterproofingUrethane, required: false }],
   urethaneCoverageSqFt: { type: Number, required: true },
 
   usesExpoxy: { type: Boolean, required: true, default: false },
