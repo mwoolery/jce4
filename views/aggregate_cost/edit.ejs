@@ -1,6 +1,6 @@
 <br/>
 <br/>
-<h2>Edit waterproofing primer product ***</h2>
+<h2>Edit waterproofing primer product</h2>
 <div class="content">
 	<div>
 		<form method="POST" action="/estimatePartAggregate/save/<%= estimatePartAggregate._id %>">
@@ -13,22 +13,33 @@
 
 			<div class="form-group">
 				<label for="isUsed">Uses Aggregate</label>
-				<input type="checkbox" class="form-control" id="isUsed" name="isUsed" value="<%= estimatePartAggregate.isUsed %>" required <%= estimatePartAggregate.isUsed ? "checked" : "" %> >
+				<input type="checkbox" class="form-control" id="isUsed" name="isUsed" value="<%= estimatePartAggregate.isUsed %>"  <%= estimatePartAggregate.isUsed ? "checked" : "" %> >
 			</div>
 
 			<div class="form-group">
 				<label for="aggregateTypeSelection">Aggregate Type Selection</label>
-					<select id="floorSystemType" name="floorSystemType" class="form-control selcls">
+					<select id="floorSystemType" name="aggregateTypeSelection" class="form-control selcls">
 						<option> sand</option>
 						<option> quartz</option>
 						<option> flake</option>
 						<option selected style="font-weight:bold"><%= estimatePartAggregate.aggregateTypeSelection%></option>
 					</select>
 			</div>
+				<% tempid= estimatePartAggregate._id %>
+						<% tempid= tempid-1 %>
+				<% temp = estimatePartAggregates.query[tempid].aggregateMaterialSelection %>
 
+	
 			<div class="form-group">
 				<label for="aggregateMaterialSelection">Aggregate Material Selection</label>
-				<input type="text" class="form-control" id="aggregateMaterialSelection" name="aggregateMaterialSelection" value="<%= estimatePartAggregate.aggregateMaterialSelection %>" required>
+					<select name="aggregateMaterialSelection" class="form-control selcls">
+	 					<%  for (var i = 0; i < estimatePartAggregates .query.length ; i++){  %>
+	 						<option value="<%= estimatePartAggregates.query[i].aggregateMaterialSelection %>"><%= estimatePartAggregates.query[i].aggregateMaterialSelection %></option>
+						<%    }  %>
+
+							<% temp = estimatePartAggregates.query[tempid].aggregateMaterialSelection %>
+						 <option selected style="font-weight:bold"><%= temp %></option>
+					</select> 
 			</div>
 
 				<div class="form-group">

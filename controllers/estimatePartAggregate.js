@@ -168,7 +168,9 @@ api.post('/save/:id', function(req, res) {
     console.log("--------------");
     console.log("id was: " + id);
     item._id = id;
+    
     item.isUsed = req.body.isUsed;
+    console.log("is used was: " + req.body.isUsed);
     item.aggregateTypeSelection = req.body.aggregateTypeSelection;
     console.log("---------------------------");
     console.log(" the aggreate type selection was: " + req.body.aggregateTypeSelection);
