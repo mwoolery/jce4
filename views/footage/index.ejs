@@ -11,7 +11,7 @@
 	<thead>
 		<tr>
 			<th>ID</th>
-			
+			<th>Name</th>
 			<th>Length</th>
 			<th>Width</th>
 			<th>SqFt</th>
@@ -23,7 +23,7 @@
 	<% var total = 0; for (var i = 0; i < estimatePartFootages.query.length; i++) { %>
 	<tr>
 		<td><%=  estimatePartFootages.query[i]._id %></td>
-		
+		<td><%=  estimatePartFootages.query[i].name %></td>
 		<td><%=  estimatePartFootages.query[i].length %></td>
 		<td><%=  estimatePartFootages.query[i].width %></td>
 		<td><%=  estimatePartFootages.query[i].length*estimatePartFootages.query[i].width %></td>
@@ -36,11 +36,17 @@
 		<% total = total+estimatePartFootages.query[i].length*estimatePartFootages.query[i].width; %>
 	</tr>
 	<% } %>
+	<tr>
+		<td></td>
+		<td><b>Calculated total sqft</b></td>
+		<td></td>
+		<td></td>
+		<td><b><%= total %></td>
+		<td></td>
+		<td></td>
+	</tr>
 	</tbody>
 </table>
-		<br>
-		<p><b>Calculated total sqft = <%= total %></b></p>
-		<br>
 </div>
 <!-- this view is managed by Team 4-4
 Sivareddy Mekapothula

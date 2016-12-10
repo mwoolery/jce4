@@ -61,9 +61,12 @@ for (var i=0; i<estimatePartAggregates.query.length; i++) {
 					</select>
 				</div>
 
+				<!-- max value not possible on our part : we were not give a max value 
+					Just using the min value because it can never be less than 0
+				-->
 				<div class="form-group">
 						<label for="coverageSqFt">Unit Price:</label>
-						<input type="number" class="form-control" id="unitPrice" name="unitPrice" required>
+						<input type="number" class="form-control" id="unitPrice" name="unitPrice" min="0" required>
 					</div>
 				<div class="form-group">
 						<label for="coverageSqFt">Unit:</label>
@@ -71,11 +74,11 @@ for (var i=0; i<estimatePartAggregates.query.length; i++) {
 				</div>
 				<div class="form-group">
 					<label for="coverageSqFt">Coverage Sq. Ft.</label>
-					<input type="number" class="form-control" id="coverageSqFt" name="coverageSqFt" required>
+					<input type="number" class="form-control" id="coverageSqFt" name="coverageSqFt" min="0" required>
 				</div>
 				<div class="form-group">
 					<label for="coverageSqFt">Per Sq. Ft.</label>
-					<input type="float" class="form-control" id="perSqft" name="perSqft" required>
+					<input type="float" class="form-control" id="perSqft" name="perSqft" min="0" required>
 				</div>
 				<div class="form-group">
 					<input type="submit" value="Post new entry" class="btn btn-primary" />
