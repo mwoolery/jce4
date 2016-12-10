@@ -56,7 +56,7 @@
 </table>
 
         Last updated: <%= flooringEstimates.query[i].updated %><br/><br/>
-                 <a href="/flooringEstimate/delete/<button type="button" class="btn btn-danger"> Delete </button> </a> 
+                 <a href="/flooringEstimate/delete/<%= flooringEstimates.query[i]._id %>" class="btn btn-danger"> Delete </button> </a> 
                 <a href="/flooringEstimate/details/<%= flooringEstimates.query[i]._id %>"><button type="button" class="btn btn-info">  Details </button> </a>  
                 <a href="/flooringEstimate/edit/<%= flooringEstimates.query[i]._id %>"><button type="button" class="btn btn-warning"> Edit</a><br>
         </div>

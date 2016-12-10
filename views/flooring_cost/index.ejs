@@ -35,6 +35,7 @@
 							<%=  estimatePartFloorings.query[i].usesUrethane %>
 						</td>
 						<td>
+                            <!-- Urathene Product Selection -->
 							<!--<%=  estimatePartFloorings.query[i].urethaneProductSelection.name%>-->
                              <%=  (estimatePartFloorings.query[i].usesUrethane == true) ? estimatePartFloorings.query[i].urethaneProductSelection.name : "" %>
 						</td>
@@ -43,8 +44,11 @@
                            <%=  (estimatePartFloorings.query[i].usesUrethane == true) ? estimatePartFloorings.query[i].urethaneProductSelection.price : "" %>
                         </td>
 						<td>
-							<%=  estimatePartFloorings.query[i].urethaneCoverageSqFt %> 
-                            <!--<%=  (estimatePartFloorings.query[i].usesUrethane == true) ? estimatePartFloorings.query[i].urethaneProductSelection.urethaneCoverageSqFt : "" %>-->
+							<!--  <%=  estimatePartFloorings.query[i].urethaneCoverageSqFt %> -->
+
+                            
+
+                            <%=  (estimatePartFloorings.query[i].usesUrethane == true) ? estimatePartFloorings.query[i].urethaneCoverageSqFt : "" %>
 						</td>
                         <td>
 							<%=  estimatePartFloorings.query[i].usesEpoxy %>
