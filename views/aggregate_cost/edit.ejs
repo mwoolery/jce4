@@ -13,12 +13,17 @@
 
 			<div class="form-group">
 				<label for="isUsed">Uses Aggregate</label>
-				<input type="checkbox" class="form-control" id="isUsed" name="isUsed" value="<%= estimatePartAggregate.isUsed %>" required checked>
+				<input type="checkbox" class="form-control" id="isUsed" name="isUsed" value="<%= estimatePartAggregate.isUsed %>" required <%= estimatePartAggregate.isUsed ? "checked" : "" %> >
 			</div>
 
 			<div class="form-group">
 				<label for="aggregateTypeSelection">Aggregate Type Selection</label>
-				<input type="text" class="form-control" id="aggregateTypeSelection" name="aggregateTypeSelection" value="<%= estimatePartAggregate.aggregateTypeSelection %>" required>
+					<select id="floorSystemType" name="floorSystemType" class="form-control selcls">
+						<option> sand</option>
+						<option> quartz</option>
+						<option> flake</option>
+						<option selected style="font-weight:bold"><%= estimatePartAggregate.aggregateTypeSelection%></option>
+					</select>
 			</div>
 
 			<div class="form-group">
@@ -41,7 +46,7 @@
 			</div>
 		<div class="form-group">
 				<label for="subtotal">$/Sqft</label>
-				<input type="number" class="form-control" id="perSqft" name="perSqft" value="<%= estimatePartAggregate.subtotal %>" required>
+				<input type="number" class="form-control" id="perSqft" name="perSqft" value="<%= estimatePartAggregate.perSqft %>" required>
 			</div>
 
 			<input type="submit" value="Save" class="btn btn-primary" />

@@ -1,7 +1,7 @@
 [
   {
     "_id":1,
-    "isUsed": true,
+    "isUsed": false,
     "aggregateTypeSelection": "sand",
     "aggregateMaterialSelection": "7992 - 16/30 mesh sand",
     "unitPrice":20,
