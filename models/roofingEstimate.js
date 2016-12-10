@@ -9,6 +9,7 @@ var mongoose = require('mongoose')
   , Miscellaneous = require('./estimatePartAbout.js')
 
 var RoofingEstimateSchema = new Schema({
+  _id: { type: Number, required: true },
   about: { type: Schema.Types.ObjectId, ref: About },
   footage: { type: Schema.Types.ObjectId, ref: Footage },
   roofing: { type: Schema.Types.ObjectId, ref: Roofing },
@@ -27,6 +28,6 @@ RoofingEstimateSchema.virtual('created').get(function () {
 })
 var roofingEstimate = mongoose.model('RoofingEstimate', RoofingEstimateSchema)
 module.exports = roofingEstimate
-// This model is managed by Team 3-02
-// Goda, Sai
-// Linga, Balamani Sandeep
+// This model is managed by Team 4-02
+// Adam Pool
+// Robert Carstensen
