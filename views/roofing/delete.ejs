@@ -1,21 +1,40 @@
 <br/>
 <br/>
-<h2>confirm deletion of roofing estimates</h2>
+<h2>Confirm deletion of roofing estimate</h2>
+<br/>
+<br/>
+<p>Estimate
+	<%=  roofingEstimate._id %>
+</p>
+<p>
+	Client : <%=  roofingEstimate.estimatePartAbout.client %>
+</p>
+<p>
+	Created : <%=  roofingEstimate.estimatePartAbout.created %>
+</p>
+<p>
+	Address : <%=  roofingEstimate.estimatePartAbout.address %>
+</p>
+<p>
+	City : <%=  roofingEstimate.estimatePartAbout.city %>
+</p>
+<p>
+	State : <%=  roofingEstimate.estimatePartAbout.state %>
+</p>
+<p>
+	Zipcode : <%=  roofingEstimate.estimatePartAbout.zipcode %>
+</p>
+<p>
+	Sqft : <%=  roofingEstimate.estimateSquareFootage.sqft %>
+</p>
+<p>
+	CostPerSquareFoot : <%=  roofingEstimate.costPerSquareFoot %>
+</p>
+<p>
+	BidPerSquareFoot : <%=  roofingEstimate.bidPerSquareFoot %>
+</p>
 
-<% c=0; %>
-<% c++; %>
-<div class="content">
 
-<%= roofingEstimates.published %></div>
-<%= roofingEstimates.title %></div>
-<% include ..\..\views\estimateparts\est-about %>
-Square footage : <% include ..\..\views\estimateparts\est-footage %> sqft<br/>
-Flooring : <% include ..\..\views\estimateparts\est-flooring %><br/>
-Aggregate : <% include ..\..\views\estimateparts\est-aggregate %> <br/>
-Labour Cost : <% include ..\..\views\estimateparts\est-labor %> <br/>
-Mileage : <% include ..\..\views\estimateparts\est-mileage %> <br/>
-Misc : <% include ..\..\views\estimateparts\est-misc %><br/>
-<% include ..\..\views\estimateparts\est-result %>
 <br/>
 <form method="get" action="/roofingEstimate">
 	<input type="submit" value="Return to list" class="btn btn-caution" />
@@ -24,7 +43,7 @@ Misc : <% include ..\..\views\estimateparts\est-misc %><br/>
 <form method="POST" action="/roofingEstimate/delete/<%= roofingEstimate._id %>">
 	<input type="submit" value="Delete this item" class="btn btn-danger pull-right" />
 </form>
-</div>
+
 <!--This view is managed by team R-2 -->
 <!--Adam Pool-->
 <!--Robert Carstensen-->
