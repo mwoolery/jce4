@@ -7,6 +7,7 @@ var EstimatePartFootageSchema = new Schema({
         entry: { type: Schema.Types.ObjectId, ref: EntryFootage },
     }],
     _id: { type: Number, required: true },
+	name: { type: String, required: true },
 	length: { type: Number, required: true },
 	width: { type: Number, required: true },
 	sqft: { type: Number, required: true },
@@ -17,6 +18,6 @@ var estimatePartFootage = mongoose.model('EstimatePartFootage', EstimatePartFoot
 module.exports = estimatePartFootage
 
 // This model is managed by Team 4-4
-//Amarishwer Edam
-//Siva Reddy Mekapothula
-//Vikas Bavikadi
+// Sivareddy Mekapothula
+// Amarishwer Edam
+// Vikas Bavikadi
