@@ -53,13 +53,14 @@ for (var i=0; i<estimatePartFloorings.query.length; i++) {
 						<%    }  %>
 					</select>
 				</div>
-				</div>
+				
 
 				<div class="form-group">
 					<label for="urethaneCoverageSqFt">Urethane Coverage SqFt:</label>
 					<input type="number" class="form-control" id="urethaneCoverageSqFt" name="urethaneCoverageSqFt" value="100" min="80" max="200" required>
 				</div>
-
+				</div>
+				
 			   <div class="form-group">
 					<label for="usesEpoxy">Uses Epoxy ?</label>
 					<input type="checkbox" class="form-control" id="usesEpoxy" name="usesEpoxy">
@@ -79,26 +80,13 @@ for (var i=0; i<estimatePartFloorings.query.length; i++) {
 						<%    }  %>
 					</select>
 				</div>
-				</div>
+				
 
 				<div class="form-group">
 					<label for="expoxyCoverageSqFt">Epoxy Coverage SqFt:</label>
 					<input type="number" class="form-control" id="expoxyCoverageSqFt" name="expoxyCoverageSqFt" value="150" min="100" max="400" required>
 				</div>
-
-
-			<!--	<div class="form-group">
-					<label for="subtotal">Sub Total</label>
-					<input type="number" class="form-control" id="subtotal" name="subtotal" value="0" required>
-					<% 
-                        var sqft = 2000;
-                        var urethaneCost = 0;
-                        var epoxyCost = 0;
-                        var subTotal = urethaneCost  + epoxyCost;
-                    %>
-                    <%=  subTotal %>
-				</div> -->
-
+			   </div>
 
 				<div class="form-group">
 					<input type="submit" value="Post new entry" class="btn btn-primary" />
