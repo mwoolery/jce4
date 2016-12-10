@@ -118,6 +118,9 @@ api.get('/edit/:id', function(req, res) {
 // HANDLE EXECUTE DATA MODIFICATION REQUESTS --------------------------------------------
 
 // POST new
+/**
+ * adding a new item
+ */
 api.post('/save', function(req, res) {
     console.log("Handling POST " + req);
     var data = req.app.locals.estimatePartAggregates.query;
@@ -134,8 +137,17 @@ api.post('/save', function(req, res) {
     console.log("--- the temp was: --- " + temp);
     item.aggregateTypeSelection = req.body.aggregateTypeSelection;
     item.aggregateMaterialSelection = req.body.aggregateMaterialSelection;
+    console.log("---------------------------");
+    console.log(" the aggreate material sel. was: " + req.body.aggregateMaterialSelection);
+    console.log("---------------------------");
     item.coverageSqFt = req.body.coverageSqFt;
     item.subtotal = req.body.subtotal;
+    item.unitPrice = req.body.unitPrice;
+    console.log("unit price was: " + req.body.unitPrice);
+    item.unit = req.body.unit;
+    console.log("unit was: " + req.body.unit);
+    item.perSqft = req.body.perSqft;
+    console.log("per sqft was: " + req.body.perSqft)
     data.push(item);
     console.log("SAVING NEW ITEM " + JSON.stringify(item));
     return res.redirect('/estimatePartAggregate');
@@ -154,9 +166,18 @@ api.post('/save/:id', function(req, res) {
     item._id = parseInt(req.body._id);
     item.isUsed = req.body.isUsed;
     item.aggregateTypeSelection = req.body.aggregateTypeSelection;
+    console.log("---------------------------");
+    console.log(" the aggreate type selection was: " + req.body.aggregateTypeSelection);
+    console.log("---------------------------");
     item.aggregateMaterialSelection = req.body.aggregateMaterialSelection;
     item.coverageSqFt = req.body.coverageSqFt;
     item.subtotal = req.body.subtotal;
+    item.unitPrice = req.body.unitPrice;
+    console.log("unit price was: " + req.body.unitPrice);
+    item.unit = req.body.unit;
+    console.log("unit was: " + req.body.unit);
+    item.perSqft = req.body.perSqft;
+    console.log("per sqft was: " + req.body.perSqft)
     console.log("SAVING UPDATED ITEM " + JSON.stringify(item));
     return res.redirect('/estimatePartAggregate');
 });

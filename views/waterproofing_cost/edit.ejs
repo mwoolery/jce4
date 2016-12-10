@@ -11,19 +11,107 @@
 			</div>
 
 			<div class="form-group">
-				<label for="name">Product Type</label>
-				<input type="text" class="form-control" id="productType" name="productType" value="<%= estimatePartWaterproofing.productType %>" required>
-			</div>
+					<label for="productType">Product Type</label>
+                    <select id="productType" name="floorSystemType" value="Epoxy" class="form-control selcls">						
+						<option> Urethane</option>
+                        <option> Cemetitious Overlay</option>
+					</select>
+                </div>
 
-			<div class="form-group">
-				<label for="unit">UsesUrethane</label>
-				<input type="text" class="form-control" id="usesUrethane" name="usesUrethane" value="<%= estimatePartWaterproofing.usesUrethane %>" required>
-			</div>
+                  <div class="form-group">
+					<label for="usesUrethane">Uses Erethane ?</label>
+					<input type="checkbox" class="form-control" id="usesUrethane" name="usesUrethane">
+				</div>
+                
+                <div class="form-group">
+					<label for="urethaneSelection">Urethane Product Selection (<%= flooringCoatings.query.length %>):</label>
+					<select name="urethaneSelection" class="form-control selcls">
+	 					<%  for (var i = 0; i < flooringCoatings.query.length ; i++){  %>
+	 						<option value="<%= flooringCoatings.query[i].name %>"><%= flooringCoatings.query[i].name %></option>
+						<%    }  %>
+					</select>
+				</div>
 
-			<div class="form-group">
-				<label for="price">Sub Total</label>
-				<input type="number" class="form-control" id="subtotal" name="subtotal" value="<%= estimatePartWaterproofing.subtotal %>" required>
-			</div>
+                <div class="form-group">
+					<label for="urethaneCoverageSqFt">Urethane Coverage SqFt:</label>
+					<input type="number" class="form-control" id="urethaneCoverageSqFt" name="urethaneCoverageSqFt" value="100" min="80" max="200" required>
+				</div>
+
+			   <div class="form-group">
+					<label for="usesEpoxy">Uses Epoxy ?</label>
+					<input type="checkbox" class="form-control" id="usesEpoxy" name="usesEpoxy">
+				</div>
+
+                <div class="form-group">
+					<label for="expoxySelection">Epoxy Product Selection (<%= flooringCoatings.query.length %>):</label>
+					<select name="expoxySelection" class="form-control selcls">
+	 					<%  for (var i = 0; i < flooringCoatings.query.length ; i++){  %>
+	 						<option value="<%= flooringCoatings.query[i].name %>"><%= flooringCoatings.query[i].name %></option>
+						<%    }  %>
+					</select>
+				</div>
+
+                <div class="form-group">
+					<label for="expoxyCoverageSqFt">Epoxy Coverage SqFt:</label>
+					<input type="number" class="form-control" id="expoxyCoverageSqFt" name="expoxyCoverageSqFt" value="150" min="100" max="400" required>
+				</div>
+
+                <div class="form-group">
+					<label for="usesPrimer">Uses Primer ?</label>
+					<input type="checkbox" class="form-control" id="usesPrimer" name="usesPrimer">
+				</div>
+
+                <div class="form-group">
+					<label for="primerSelection">Primer Selection (<%= waterproofingPrimers.query.length %>):</label>
+					<select name="primerSelection" class="form-control selcls">
+	 					<%  for (var i = 0; i < waterproofingPrimers.query.length ; i++){  %>
+	 						<option value="<%= waterproofingPrimers.query[i].name %>"><%= waterproofingPrimers.query[i].name %></option>
+						<%    }  %>
+					</select>
+				</div>
+
+                <div class="form-group">
+					<label for="primerCoverageSqFt">Primer Coverage SqFt:</label>
+					<input type="number" class="form-control" id="primerCoverageSqFt" name="primerCoverageSqFt" value="150" min="100" max="400" required>
+				</div>
+
+                 <div class="form-group">
+					<label for="usesBasecoat">Uses Basecoat ?</label>
+					<input type="checkbox" class="form-control" id="usesBasecoat" name="usesBasecoat">
+				</div>
+
+                <div class="form-group">
+					<label for="basecoatSelection">Basecoat Selection (<%= waterproofingBasecoats.query.length %>):</label>
+					<select name="basecoatSelection" class="form-control selcls">
+	 					<%  for (var i = 0; i < waterproofingBasecoats.query.length ; i++){  %>
+	 						<option value="<%= waterproofingBasecoats.query[i].name %>"><%= waterproofingBasecoats.query[i].name %></option>
+						<%    }  %>
+					</select>
+				</div>
+
+                <div class="form-group">
+					<label for="basecoatCoverageSqFt">Basecoat Coverage SqFt:</label>
+					<input type="number" class="form-control" id="basecoatCoverageSqFt" name="basecoatCoverageSqFt" value="150" min="100" max="400" required>
+				</div>
+
+                 <div class="form-group">
+					<label for="usesTopcoat">Uses Topcoat ?</label>
+					<input type="checkbox" class="form-control" id="usesTopcoat" name="usesTopcoat">
+				</div>
+
+                <div class="form-group">
+					<label for="topcoatSelection">Topcoat Selection (<%= waterproofingTopcoats.query.length %>):</label>
+					<select name="topcoatSelection" class="form-control selcls">
+	 					<%  for (var i = 0; i < waterproofingTopcoats.query.length ; i++){  %>
+	 						<option value="<%= waterproofingTopcoats.query[i].name %>"><%= waterproofingTopcoats.query[i].name %></option>
+						<%    }  %>
+					</select>
+				</div>
+
+                <div class="form-group">
+					<label for="topcoatCoverageSqFt">Top Coverage SqFt:</label>
+					<input type="number" class="form-control" id="topcoatCoverageSqFt" name="topcoatCoverageSqFt" value="150" min="100" max="400" required>
+				</div>
 
 			<input type="submit" value="Save" class="btn btn-primary" />
 		</form>

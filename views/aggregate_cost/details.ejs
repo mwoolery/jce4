@@ -5,12 +5,15 @@
 <br/>
 <strong>ID:</strong> 	<%=  estimatePartAggregate._id %>  </br>
 <strong>isUsed? </strong>	<%=  estimatePartAggregate.isUsed %> </br>
-<strong>Type : </strong> <%=  estimatePartAggregate.aggregateTypeSelection %> </br>
-<strong>Selection : </strong>	<%=  estimatePartAggregate.aggregateMaterialSelection %> </br>
-<strong>Coverage :   </strong> <%=  estimatePartAggregate.coverageSqFt %> per </br>
-<strong>Subtotal: </strong>	<%=  estimatePartAggregate.subtotal %> </br>
+<strong>Aggregate Type : </strong> <%=  estimatePartAggregate.aggregateTypeSelection %> </br>
+<strong>Material Selection : </strong>	<%=  estimatePartAggregate.aggregateMaterialSelection %> </br>
+<strong>Unit Price :   </strong> <%=  estimatePartAggregate.unitPrice %> per </br>
+<strong>Unit :   </strong> <%=  estimatePartAggregate.unit %> per </br>
+<strong>Coverage Sqft :   </strong> <%=  estimatePartAggregate.coverageSqFt %> </br>
+<strong>Subtotal: </strong>	<%=   (parseFloat(estimatePartAggregate.coverageSqFt) *parseFloat(estimatePartAggregate.perSqft)).toFixed(2)   %> </br>
+<strong>Per Sqft :   </strong> <%=  estimatePartAggregate.perSqft %> </br>
 </p>
-<br/>
+<br>
 <form method="get" action="/estimatePartAggregate">
 	<input type="submit" value="Return to list" class="btn btn-caution" />
 </form>

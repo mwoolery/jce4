@@ -3,44 +3,108 @@
     "_id":1,
     "floorSystemType": "Urethane",
     "usesUrethane": true,
-    "urethaneProductSelection": 2,
-    "urethaneCoverageSqFt": 100,
+    "urethaneProductSelection": {
+    "name": "70815/70816 - urethane Hi-solids",
+    "_id": 5,
+    "coatingType": "Urethane",
+    "defaultCoverageSqFt": 100,
+    "unit": "gal",
+    "displayorder": 50,
+    "price": 113.15
+  },
+    "urethaneCoverageSqFt": 120,
     "usesEpoxy": true,
-    "expoxyProductSelection": 1,
+    "expoxyProductSelection": {
+    "name": "70714/70715 - epoxy",
+    "_id": 1,
+    "coatingType": "Epoxy",
+    "defaultCoverageSqFt": 100,
+    "unit": "gal",
+    "displayorder": 10,
+    "price": 56.3
+       },
     "expoxyCoverageSqFt": 150
     
   },
   {
     "_id":2,
     "floorSystemType": "Urethane",
-    "usesUrethane": true,
-    "urethaneProductSelection": 2,
-    "urethaneCoverageSqFt": 100,
+    "usesUrethane": false,
+    "urethaneProductSelection": {
+    "name": "70714/70715=09 general purpose urethane",
+    "_id": 2,
+    "coatingType": "Urethane",
+    "defaultCoverageSqFt": 100,
+    "unit": "gal",
+    "displayorder": 20,
+    "price": 50.38
+  },
+    "urethaneCoverageSqFt": 180,
     "usesEpoxy": true,
-    "expoxyProductSelection": 1,
-    "expoxyCoverageSqFt":100
+    "expoxyProductSelection": {
+    "name": "70714/70715 - epoxy",
+    "_id": 1,
+    "coatingType": "Epoxy",
+    "defaultCoverageSqFt": 100,
+    "unit": "gal",
+    "displayorder": 10,
+    "price": 56.3
+  },
+    "expoxyCoverageSqFt":140
     
   },
   {
     "_id":3,
     "floorSystemType": "Epoxy",
     "usesUrethane": true,
-    "urethaneProductSelection": 2,
-    "urethaneCoverageSqFt": 100,
-    "usesEpoxy": true,
-    "expoxyProductSelection": 1,
-    "expoxyCoverageSqFt": 150
+    "urethaneProductSelection": {
+    "name": "70714/70715=09 general purpose urethane",
+    "_id": 2,
+    "coatingType": "Urethane",
+    "defaultCoverageSqFt": 100,
+    "unit": "gal",
+    "displayorder": 20,
+    "price": 50.38
+  },
+    "urethaneCoverageSqFt": 190,
+    "usesEpoxy": false,
+    "expoxyProductSelection": {
+    "name": "70714/70715 - epoxy",
+    "_id": 1,
+    "coatingType": "Epoxy",
+    "defaultCoverageSqFt": 100,
+    "unit": "gal",
+    "displayorder": 10,
+    "price": 56.3
+  },
+    "expoxyCoverageSqFt": 200
     
   },
   {
     "_id":4,
     "floorSystemType": "Epoxy",
-    "usesUrethane": true,
-    "urethaneProductSelection": 2,
-    "urethaneCoverageSqFt": 100,
-    "usesEpoxy": true,
-    "expoxyProductSelection": 1,
-   "expoxyCoverageSqFt": 150
+    "usesUrethane": false,
+    "urethaneProductSelection": {
+    "name": "70714/70715=09 general purpose urethane",
+    "_id": 2,
+    "coatingType": "Urethane",
+    "defaultCoverageSqFt": 100,
+    "unit": "gal",
+    "displayorder": 20,
+    "price": 50.38
+  },
+    "urethaneCoverageSqFt": 220,
+    "usesEpoxy": false,
+    "expoxyProductSelection": {
+    "name": "70714/70715 - epoxy",
+    "_id": 1,
+    "coatingType": "Epoxy",
+    "defaultCoverageSqFt": 100,
+    "unit": "gal",
+    "displayorder": 10,
+    "price": 56.3
+  },
+   "expoxyCoverageSqFt": 230
   }
 ]
 
