@@ -2,8 +2,20 @@ console.log("estimate part flooring is running");
 
 $(document).ready(function(){
 
-    // it will be hidden at first
-    $('#flooringOptions').hide();
+if(document.getElementById('usesUrethane').checked) {
+    $("#flooringOptions").show();
+} else {
+    $("#flooringOptions").hide();
+}
+
+if(document.getElementById('usesEpoxy').checked) {
+    $("#flooringOptions2").show();
+} else {
+    $("#flooringOptions2").hide();
+}
+
+
+      
     $('#usesUrethane').change(function(){
     if(this.checked){
         $('#flooringOptions').show();
@@ -11,10 +23,8 @@ $(document).ready(function(){
         $('#flooringOptions').hide();
     }
     });
-
-
     // it will be hidden at first
-    $('#flooringOptions2').hide();
+  
     $('#usesEpoxy').change(function(){
     if(this.checked){
         $('#flooringOptions2').show();
