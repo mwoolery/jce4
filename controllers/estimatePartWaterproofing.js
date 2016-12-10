@@ -91,6 +91,9 @@ api.get('/edit/:id', function(req, res) {
 // HANDLE EXECUTE DATA MODIFICATION REQUESTS --------------------------------------------
 
 // POST new
+/**
+ * Creating a new one
+ */
 api.post('/save', function(req, res) {
     console.log("Handling POST " + req);
     var data = req.app.locals.estimatePartWaterproofings.query;
@@ -99,8 +102,12 @@ api.post('/save', function(req, res) {
     item._id = parseInt(req.body._id);
 
     item.productType = req.body.productType;
-    item.usesUrethane = req.body.usesUrethane ? true: false;   
-    item.urethaneSelection = req.body.urethaneSelection;
+    item.usesUrethane = req.body.usesUrethane ? true: false;  
+
+    console.log("------- urathe selection was ---------" + req.body.urethaneSelection); 
+
+    var temp = req.body.urethaneSelection;
+    item.urethaneSelection.name = temp;
 
     var water = req.app.locals.flooringCoatings.query;
     var wSelection = find(water, { 'name': req.body.urethaneSelection });
