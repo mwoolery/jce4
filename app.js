@@ -56,7 +56,7 @@ var roofingTopcoats = require('./data/roofingTopcoats.yml');
 var waterproofingBasecoats = require('./data/waterproofingBasecoats.yml');
 var waterproofingEstimates = require('./data/waterproofingEstimates.json');
 var waterproofingPrimers = require('./data/waterproofingPrimers.json');
-var waterproofingTopcoats = require('./data/waterproofingTopcoats.yml');
+
 
 // insert the sample data into our data store
 db.insert(aggregateMaterials);
@@ -79,7 +79,7 @@ db.insert(roofingTopcoats);
 db.insert(waterproofingBasecoats);
 db.insert(waterproofingEstimates);
 db.insert(waterproofingPrimers);
-db.insert(waterproofingTopcoats);
+
 
 // intialize app.locals (these objects will be available to our controllers)
 app.locals.aggregateMaterials = db.find(aggregateMaterials);
@@ -103,7 +103,6 @@ app.locals.roofingTopcoats = db.find(roofingTopcoats);
 app.locals.waterproofingBasecoats = db.find(waterproofingBasecoats);
 app.locals.waterproofingEstimates = db.find(waterproofingEstimates);
 app.locals.waterproofingPrimers = db.find(waterproofingPrimers);
-app.locals.waterproofingTopcoats = db.find(waterproofingTopcoats);
 
 // verify our sample data was imported correctly
 console.log(Object.keys(aggregateMaterials).length+ " aggregateMaterials");
@@ -126,7 +125,7 @@ console.log(Object.keys(roofingTopcoats).length+ " roofingTopcoats");
 console.log(Object.keys(waterproofingBasecoats).length+ " waterproofingBasecoats");
 console.log(Object.keys(waterproofingEstimates).length+ " waterproofingEstimates");
 console.log(Object.keys(waterproofingPrimers).length+ " waterproofingPrimers");
-console.log(Object.keys(waterproofingTopcoats).length+ " waterproofingTopcoats");
+
 
 // Set up ROUTING .................................................
 

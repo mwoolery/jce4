@@ -1,8 +1,8 @@
 var express = require('express');
 var api = express.Router();
-var find =  require('lodash.remove');
+var find =  require('lodash.find');
 var remove = require('lodash.remove');
-var findIndex = require('lodash.remove');
+var findIndex = require('lodash.findIndex');
 var Model = require('../models/estimatePartAggregate.js');
 const notfoundstring = 'No such Estimate Part Aggregate';
 
@@ -45,7 +45,7 @@ api.get('/delete/:id', function (req, res) {
         {
             title: "Aggregate Cost",
             layout: "layout.ejs",
-            estimatePartAggregate :item[0]  
+            estimatePartAggregate :item
         });     
 });
 
@@ -87,7 +87,7 @@ api.get('/details/:id', function(req, res) {
         {
             title: "Aggregate Cost",
             layout: "layout.ejs",
-            estimatePartAggregate: item[0]
+            estimatePartAggregate: item
         });
 });
 
@@ -98,7 +98,8 @@ api.get('/edit/:id', function(req, res) {
     var data = req.app.locals.estimatePartAggregates.query;
     var item = find(data, { '_id': id });
     console.log("----------");
-    console.log("Item was : " + item);
+    console.log("From edit: " + id);
+    //console.log("Item was : " + item);
     if (!item) { 
         console.log('-- no item found ---');
         return res.end(notfoundstring); }
@@ -109,7 +110,7 @@ api.get('/edit/:id', function(req, res) {
         {
             title: "estimatePartAggregate",
             layout: "layout.ejs",
-            estimatePartAggregate: item[0]
+            estimatePartAggregate: item
         });
     }
 });
@@ -157,13 +158,16 @@ api.post('/save', function(req, res) {
 api.post('/save/:id', function(req, res) {
     console.log("Handling SAVE request" + req);
     var id = parseInt(req.params.id);
+    id=parseInt(id);
     console.log("Handling SAVING ID=" + id);
     var data = req.app.locals.estimatePartAggregates.query;
     var item = find(data, { '_id': id });
     if (!item) { return res.end(notfoundstring); }
-    console.log("ORIGINAL VALUES " + JSON.stringify(item));
+    //console.log("ORIGINAL VALUES " + JSON.stringify(item));
     console.log("UPDATED VALUES: " + JSON.stringify(req.body));
-    item._id = parseInt(req.body._id);
+    console.log("--------------");
+    console.log("id was: " + id);
+    item._id = id;
     item.isUsed = req.body.isUsed;
     item.aggregateTypeSelection = req.body.aggregateTypeSelection;
     console.log("---------------------------");
@@ -177,6 +181,7 @@ api.post('/save/:id', function(req, res) {
     item.unit = req.body.unit;
     console.log("unit was: " + req.body.unit);
     item.perSqft = req.body.perSqft;
+    console.log("---------------------------");
     console.log("per sqft was: " + req.body.perSqft)
     console.log("SAVING UPDATED ITEM " + JSON.stringify(item));
     return res.redirect('/estimatePartAggregate');
