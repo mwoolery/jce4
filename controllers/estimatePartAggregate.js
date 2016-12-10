@@ -169,7 +169,13 @@ api.post('/save/:id', function(req, res) {
     console.log("id was: " + id);
     item._id = id;
     
-    item.isUsed = req.body.isUsed;
+    var isUsed = req.body.isUsed;
+    if(isUsed=="on"){
+        isUsed = true;
+    }else{
+        isUsed =false;
+    }
+    item.isUsed = isUsed;
     console.log("is used was: " + req.body.isUsed);
     item.aggregateTypeSelection = req.body.aggregateTypeSelection;
     console.log("---------------------------");
